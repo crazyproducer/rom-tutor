@@ -1,6 +1,7 @@
 import { t, tr, loadJSON } from '../services/utils.js';
 import { speak } from '../services/audio.js';
 import { awardXP, logStudyActivity, updateStreak } from '../services/gamification.js';
+import { createMicButton } from '../services/stt.js';
 
 export function Grammar(container, store, router, moduleId) {
   let grammarData = null;
@@ -253,6 +254,9 @@ export function Grammar(container, store, router, moduleId) {
     input.setAttribute('autocapitalize', 'off');
     input.setAttribute('spellcheck', 'false');
     inputRow.appendChild(input);
+
+    const micBtn = createMicButton(input, 'ro-RO', { mode: 'replace' });
+    if (micBtn) inputRow.appendChild(micBtn);
 
     const checkBtn = document.createElement('button');
     checkBtn.className = 'btn btn-primary';

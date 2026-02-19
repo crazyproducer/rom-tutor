@@ -1,6 +1,7 @@
 import { t, tr, loadJSON, shuffle } from '../services/utils.js';
 import { speak } from '../services/audio.js';
 import { awardXP, logStudyActivity, updateStreak, checkAchievements } from '../services/gamification.js';
+import { createMicButton } from '../services/stt.js';
 
 export function CeremonySim(container, store, router) {
   let started = false;
@@ -105,11 +106,16 @@ export function CeremonySim(container, store, router) {
     oathLabel.textContent = tr({ en: 'Type the oath from memory:', uk: 'Напишіть присягу напам\'ять:' });
     view.appendChild(oathLabel);
 
+    const textareaWrapper = document.createElement('div');
+    textareaWrapper.className = 'textarea-mic-wrapper';
     const textarea = document.createElement('textarea');
     textarea.className = 'textarea';
     textarea.placeholder = t('oath.your_text');
     textarea.rows = 4;
-    view.appendChild(textarea);
+    textareaWrapper.appendChild(textarea);
+    const micBtn = createMicButton(textarea, 'ro-RO', { mode: 'append' });
+    if (micBtn) textareaWrapper.appendChild(micBtn);
+    view.appendChild(textareaWrapper);
 
     const submitBtn = document.createElement('button');
     submitBtn.className = 'btn btn-primary btn-block mt-12';

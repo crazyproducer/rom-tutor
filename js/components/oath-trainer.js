@@ -2,6 +2,7 @@ import { t, tr, loadJSON, shuffle } from '../services/utils.js';
 import { speak } from '../services/audio.js';
 import { awardXP, logStudyActivity, updateStreak, checkAchievements } from '../services/gamification.js';
 import { store } from '../store.js';
+import { createMicButton } from '../services/stt.js';
 
 export function OathTrainer(container, storeRef, router) {
   let oathData = null;
@@ -271,11 +272,16 @@ export function OathTrainer(container, storeRef, router) {
     instructions.textContent = tr({ en: 'Type the oath text from memory', uk: 'Напишіть текст присяги напам\'ять' });
     content.appendChild(instructions);
 
+    const textareaWrapper = document.createElement('div');
+    textareaWrapper.className = 'textarea-mic-wrapper';
     const textarea = document.createElement('textarea');
     textarea.className = 'textarea';
     textarea.placeholder = t('oath.your_text');
     textarea.rows = 5;
-    content.appendChild(textarea);
+    textareaWrapper.appendChild(textarea);
+    const micBtn = createMicButton(textarea, 'ro-RO', { mode: 'append' });
+    if (micBtn) textareaWrapper.appendChild(micBtn);
+    content.appendChild(textareaWrapper);
 
     const checkBtn = document.createElement('button');
     checkBtn.className = 'btn btn-primary btn-block mt-12';

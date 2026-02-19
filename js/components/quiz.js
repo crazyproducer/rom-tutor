@@ -1,5 +1,6 @@
 import { t, tr, loadJSON, shuffle, escapeHtml } from '../services/utils.js';
 import { awardXP, logStudyActivity, updateStreak, checkAchievements } from '../services/gamification.js';
+import { createMicButton } from '../services/stt.js';
 
 const QUESTION_COUNT = 10;
 const MULTIPLE_CHOICE_RATIO = 0.7;
@@ -262,6 +263,9 @@ export function Quiz(container, store, router, moduleId) {
     input.setAttribute('autocapitalize', 'off');
     input.setAttribute('spellcheck', 'false');
     inputRow.appendChild(input);
+
+    const micBtn = createMicButton(input, 'ro-RO', { mode: 'replace' });
+    if (micBtn) inputRow.appendChild(micBtn);
 
     const checkBtn = document.createElement('button');
     checkBtn.className = 'btn btn-primary';

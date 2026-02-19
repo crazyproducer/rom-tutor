@@ -1,4 +1,4 @@
-const CACHE_NAME = 'rom-tutor-v4';
+const CACHE_NAME = 'rom-tutor-v5';
 
 const ASSETS = [
   './',
@@ -10,6 +10,7 @@ const ASSETS = [
   './js/services/srs.js',
   './js/services/gamification.js',
   './js/services/audio.js',
+  './js/services/stt.js',
   './js/services/utils.js',
   './js/components/dashboard.js',
   './js/components/lesson-list.js',
