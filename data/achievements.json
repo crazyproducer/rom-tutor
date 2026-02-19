@@ -1,0 +1,13 @@
+{
+  "achievements": [
+    { "id": "first-lesson", "icon": "📖", "title": { "ro": "Prima lecție", "en": "First Lesson", "uk": "Перший урок" }, "description": { "en": "Complete your first lesson", "uk": "Завершіть перший урок" } },
+    { "id": "first-10-words", "icon": "📝", "title": { "ro": "Primele 10 cuvinte", "en": "First 10 Words", "uk": "Перші 10 слів" }, "description": { "en": "Learn 10 vocabulary words", "uk": "Вивчіть 10 слів" } },
+    { "id": "streak-7", "icon": "🔥", "title": { "ro": "Săptămâna de foc", "en": "Fire Week", "uk": "Вогненний тиждень" }, "description": { "en": "7-day study streak", "uk": "7 днів поспіль" } },
+    { "id": "streak-30", "icon": "💪", "title": { "ro": "Luna de studiu", "en": "Study Month", "uk": "Місяць навчання" }, "description": { "en": "30-day study streak", "uk": "30 днів поспіль" } },
+    { "id": "oath-memorized", "icon": "🇷🇴", "title": { "ro": "Jurământul", "en": "The Oath", "uk": "Присяга" }, "description": { "en": "Recite the oath with 90%+ accuracy", "uk": "Відтворіть присягу з точністю 90%+" } },
+    { "id": "vocab-100", "icon": "📚", "title": { "ro": "100 de cuvinte", "en": "100 Words", "uk": "100 слів" }, "description": { "en": "Master 100 vocabulary cards", "uk": "Вивчіть 100 карток" } },
+    { "id": "vocab-500", "icon": "🎓", "title": { "ro": "Vocabular bogat", "en": "Rich Vocabulary", "uk": "Багатий словник" }, "description": { "en": "Master 500 vocabulary cards", "uk": "Вивчіть 500 карток" } },
+    { "id": "level-10", "icon": "⭐", "title": { "ro": "Nivel 10", "en": "Level 10", "uk": "Рівень 10" }, "description": { "en": "Reach level 10", "uk": "Досягніть рівня 10" } },
+    { "id": "level-20", "icon": "🌟", "title": { "ro": "Nivel 20", "en": "Level 20", "uk": "Рівень 20" }, "description": { "en": "Reach level 20", "uk": "Досягніть рівня 20" } }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "fullText": "Jur să fiu devotat patriei și poporului român, să apăr drepturile și interesele naționale, să respect Constituția și legile României.",
+  "fullTextFeminine": "Jur să fiu devotată patriei și poporului român, să apăr drepturile și interesele naționale, să respect Constituția și legile României.",
+  "segments": [
+    {
+      "id": "oath-s1",
+      "ro": "Jur",
+      "en": "I swear",
+      "uk": "Я присягаю",
+      "pronunciation": "zhoor",
+      "grammar": {
+        "en": "1st person singular, present indicative of 'a jura' (to swear)",
+        "uk": "1 особа однини, теперішній час дієслова 'a jura' (присягати)"
+      }
+    },
+    {
+      "id": "oath-s2",
+      "ro": "să fiu devotat",
+      "roFeminine": "să fiu devotată",
+      "en": "to be devoted",
+      "uk": "бути відданим/відданою",
+      "pronunciation": "suh FEE-oo deh-voh-TAHT",
+      "grammar": {
+        "en": "Subjunctive of 'a fi' (to be) + adjective 'devotat/devotată' (masculine/feminine)",
+        "uk": "Кон'юнктив дієслова 'a fi' (бути) + прикметник 'devotat/devotată' (чол./жін.)"
+      }
+    },
+    {
+      "id": "oath-s3",
+      "ro": "patriei și poporului român",
+      "en": "to the homeland and the Romanian people",
+      "uk": "батьківщині та румунському народу",
+      "pronunciation": "PAH-tree-yey shee poh-POH-roo-luy roh-MUHN",
+      "grammar": {
+        "en": "'patriei' is dative of 'patria' (homeland); 'poporului' is dative of 'poporul' (the people); 'român' (Romanian) - adjective",
+        "uk": "'patriei' — давальний від 'patria' (батьківщина); 'poporului' — давальний від 'poporul' (народ); 'român' — прикметник"
+      }
+    },
+    {
+      "id": "oath-s4",
+      "ro": "să apăr drepturile și interesele naționale",
+      "en": "to defend the national rights and interests",
+      "uk": "захищати національні права та інтереси",
+      "pronunciation": "suh ah-PUHR DREP-too-ree-leh shee een-teh-REH-seh-leh nah-tsee-oh-NAH-leh",
+      "grammar": {
+        "en": "Subjunctive of 'a apăra' (to defend) + 'drepturile' (the rights, accusative plural) + 'interesele' (the interests) + 'naționale' (national, plural)",
+        "uk": "Кон'юнктив 'a apăra' (захищати) + 'drepturile' (права, знах. множ.) + 'interesele' (інтереси) + 'naționale' (національні, множ.)"
+      }
+    },
+    {
+      "id": "oath-s5",
+      "ro": "să respect Constituția și legile României",
+      "en": "to respect the Constitution and the laws of Romania",
+      "uk": "поважати Конституцію та закони Румунії",
+      "pronunciation": "suh reh-SPEKT kohn-stee-TOO-tsee-ah shee LEH-jee-leh roh-MUH-nee-yey",
+      "grammar": {
+        "en": "Subjunctive of 'a respecta' (to respect) + 'Constituția' (the Constitution, accusative) + 'legile' (the laws) + 'României' (of Romania, genitive)",
+        "uk": "Кон'юнктив 'a respecta' (поважати) + 'Constituția' (Конституцію, знах.) + 'legile' (закони) + 'României' (Румунії, род.)"
+      }
+    }
+  ],
+  "anthem": {
+    "title": { "ro": "Deșteaptă-te, române!", "en": "Awaken thee, Romanian!", "uk": "Прокинься, румуне!" },
+    "composer": "Anton Pann",
+    "lyricist": "Andrei Mureșanu",
+    "year": 1848,
+    "stanzas": [
+      {
+        "id": "anthem-s1",
+        "ro": "Deșteaptă-te, române, din somnul cel de moarte,\nÎn care te-adânciră barbarii de tirani!\nAcum ori niciodată, croiește-ți altă soarte,\nLa care să se-nchine și cruzii tăi dușmani!",
+        "en": "Awaken thee, Romanian, from the deathly sleep,\nIn which you were sunk by the barbaric tyrants!\nNow or never, forge yourself another fate,\nTo which even your cruel enemies shall bow!",
+        "uk": "Прокинься, румуне, від смертного сну,\nВ який тебе занурили варварські тирани!\nЗараз або ніколи, скуй собі іншу долю,\nПеред якою схиляться й жорстокі твої вороги!",
+        "keyVocabulary": [
+          { "ro": "deșteaptă-te", "en": "awaken (yourself)", "uk": "прокинься" },
+          { "ro": "somnul", "en": "the sleep", "uk": "сон" },
+          { "ro": "moarte", "en": "death", "uk": "смерть" },
+          { "ro": "soarte", "en": "fate", "uk": "доля" },
+          { "ro": "dușmani", "en": "enemies", "uk": "вороги" }
+        ]
+      },
+      {
+        "id": "anthem-s2",
+        "ro": "Acum ori niciodată să dăm dovezi la lume\nCă-n aste mâni mai curge un sânge de roman,\nȘi că-n a noastre piepturi păstrăm cu fală-un nume\nTriumfător în lupte, un nume de Traian!",
+        "en": "Now or never let us give proof to the world\nThat in these veins still flows a Roman blood,\nAnd that in our chests we proudly keep a name\nTriumphant in battles, a name of Trajan!",
+        "uk": "Зараз або ніколи дамо доказ світу,\nЩо в цих жилах ще тече римська кров,\nІ що в наших грудях ми з гордістю зберігаємо ім'я,\nТріумфальне в битвах, ім'я Траяна!",
+        "keyVocabulary": [
+          { "ro": "dovezi", "en": "proof/evidence", "uk": "докази" },
+          { "ro": "sânge", "en": "blood", "uk": "кров" },
+          { "ro": "piepturi", "en": "chests", "uk": "груди" },
+          { "ro": "lupte", "en": "battles", "uk": "битви" },
+          { "ro": "Traian", "en": "Trajan (Roman emperor)", "uk": "Траян (римський імператор)" }
+        ]
+      }
+    ]
+  }
+}

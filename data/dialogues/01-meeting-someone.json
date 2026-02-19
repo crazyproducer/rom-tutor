@@ -1,0 +1,93 @@
+{
+  "moduleId": "mod-02",
+  "dialogueId": "dlg-01",
+  "title": { "en": "Meeting Someone", "uk": "Знайомство" },
+  "context": {
+    "en": "You meet a Romanian person for the first time and introduce yourself.",
+    "uk": "Ви зустрічаєте румунську людину вперше і представляєтесь."
+  },
+  "characters": [
+    { "id": "romanian", "name": "Ana", "role": "npc" },
+    { "id": "you", "name": "Dumneavoastră", "role": "player" }
+  ],
+  "turns": [
+    {
+      "speaker": "romanian",
+      "text": { "ro": "Bună ziua! Mă numesc Ana. Cum vă numiți?" },
+      "translation": { "en": "Good day! My name is Ana. What is your name?", "uk": "Добрий день! Мене звати Ана. Як вас звуть?" }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "Introduce yourself with your name and where you're from", "uk": "Представтесь: ваше ім'я і звідки ви" },
+      "options": [
+        {
+          "text": "Bună ziua! Mă numesc [Nume]. Sunt din Ucraina. Îmi pare bine de cunoștință!",
+          "quality": "excellent",
+          "feedback": { "en": "Excellent! Complete greeting with name, origin, and polite closing.", "uk": "Чудово! Повне привітання з ім'ям, походженням і ввічливим завершенням." }
+        },
+        {
+          "text": "Bună ziua. Mă numesc [Nume].",
+          "quality": "acceptable",
+          "feedback": { "en": "Good, but try adding where you're from: 'Sunt din Ucraina.'", "uk": "Добре, але спробуйте додати звідки ви: 'Sunt din Ucraina.'" }
+        },
+        {
+          "text": "Salut! Eu sunt [Nume].",
+          "quality": "poor",
+          "feedback": { "en": "'Salut' is informal. In formal situations use 'Bună ziua' and 'Mă numesc...' instead of 'Eu sunt...'", "uk": "'Salut' — неформально. У формальних ситуаціях використовуйте 'Bună ziua' і 'Mă numesc...' замість 'Eu sunt...'" }
+        }
+      ]
+    },
+    {
+      "speaker": "romanian",
+      "text": { "ro": "Îmi pare bine! De cât timp sunteți în România?" },
+      "translation": { "en": "Nice to meet you! How long have you been in Romania?", "uk": "Приємно! Як довго ви в Румунії?" }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "Tell how long you've been in Romania and what you do", "uk": "Скажіть, як довго ви в Румунії і чим займаєтесь" },
+      "options": [
+        {
+          "text": "Locuiesc în România de doi ani. Lucrez ca programator și studiez limba română.",
+          "quality": "excellent",
+          "feedback": { "en": "Perfect! You mentioned duration, occupation, and that you're learning Romanian.", "uk": "Ідеально! Ви згадали тривалість, професію і те, що вивчаєте румунську." }
+        },
+        {
+          "text": "De doi ani. Lucrez aici.",
+          "quality": "acceptable",
+          "feedback": { "en": "Correct but brief. Try using full sentences: 'Locuiesc în România de doi ani.'", "uk": "Правильно, але коротко. Спробуйте повні речення: 'Locuiesc în România de doi ani.'" }
+        },
+        {
+          "text": "Nu mult timp.",
+          "quality": "poor",
+          "feedback": { "en": "Too vague. Practice giving specific time: 'De un an' (for one year), 'De șase luni' (for six months).", "uk": "Занадто невизначено. Практикуйте конкретний час: 'De un an' (один рік), 'De șase luni' (шість місяців)." }
+        }
+      ]
+    },
+    {
+      "speaker": "romanian",
+      "text": { "ro": "Foarte bine! Limba română este frumoasă. Succes cu studiile!" },
+      "translation": { "en": "Very good! The Romanian language is beautiful. Good luck with your studies!", "uk": "Дуже добре! Румунська мова красива. Успіхів у навчанні!" }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "Thank Ana and say goodbye politely", "uk": "Подякуйте Ані та попрощайтесь ввічливо" },
+      "options": [
+        {
+          "text": "Mulțumesc foarte mult! A fost o plăcere. La revedere!",
+          "quality": "excellent",
+          "feedback": { "en": "Perfect polite farewell!", "uk": "Ідеальне ввічливе прощання!" }
+        },
+        {
+          "text": "Mulțumesc! La revedere!",
+          "quality": "acceptable",
+          "feedback": { "en": "Good and polite. You could add 'foarte mult' for extra politeness.", "uk": "Добре і ввічливо. Можете додати 'foarte mult' для більшої ввічливості." }
+        },
+        {
+          "text": "Pa!",
+          "quality": "poor",
+          "feedback": { "en": "'Pa' is too informal for a formal conversation. Use 'La revedere' instead.", "uk": "'Pa' занадто неформально. Використовуйте 'La revedere'." }
+        }
+      ]
+    }
+  ]
+}

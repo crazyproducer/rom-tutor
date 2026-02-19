@@ -1,0 +1,93 @@
+{
+  "moduleId": "mod-16",
+  "dialogueId": "dlg-07",
+  "title": { "en": "Arriving at the Ceremony", "uk": "Прибуття на церемонію" },
+  "context": {
+    "en": "You arrive at the National Citizenship Authority (ANC) or Romanian Consulate for your oath ceremony. A receptionist greets you.",
+    "uk": "Ви прибуваєте до Національного управління з питань громадянства (ANC) або Румунського консульства на церемонію присяги. Вас зустрічає рецепціоністка."
+  },
+  "characters": [
+    { "id": "receptionist", "name": "Recepționistă", "role": "npc" },
+    { "id": "you", "name": "Dumneavoastră", "role": "player" }
+  ],
+  "turns": [
+    {
+      "speaker": "receptionist",
+      "text": { "ro": "Bună ziua! Cu ce vă pot ajuta?" },
+      "translation": { "en": "Good day! How can I help you?", "uk": "Добрий день! Чим можу допомогти?" }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "Explain that you're here for the oath ceremony", "uk": "Поясніть, що ви тут для церемонії присяги" },
+      "options": [
+        {
+          "text": "Bună ziua! Am venit pentru depunerea jurământului de credință. Mă numesc [Nume].",
+          "quality": "excellent",
+          "feedback": { "en": "Perfect! Clear purpose and immediate identification.", "uk": "Ідеально! Чітка мета і негайна ідентифікація." }
+        },
+        {
+          "text": "Bună ziua. Sunt aici pentru jurământ.",
+          "quality": "acceptable",
+          "feedback": { "en": "Good, but add your name: 'Mă numesc [Nume].' Full phrase: 'depunerea jurământului de credință'.", "uk": "Добре, але додайте ім'я: 'Mă numesc [Nume].' Повна фраза: 'depunerea jurământului de credință'." }
+        },
+        {
+          "text": "Jurământ... cetățenie...",
+          "quality": "poor",
+          "feedback": { "en": "Too fragmented. Use a complete sentence: 'Am venit pentru depunerea jurământului de credință.'", "uk": "Занадто фрагментарно. Використовуйте повне речення: 'Am venit pentru depunerea jurământului de credință.'" }
+        }
+      ]
+    },
+    {
+      "speaker": "receptionist",
+      "text": { "ro": "Bine. Aveți actul de identitate și dosarul cu documente?" },
+      "translation": { "en": "Good. Do you have your ID and the document folder?", "uk": "Добре. У вас є посвідчення особи та папка з документами?" }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "Confirm you have all documents ready", "uk": "Підтвердіть, що у вас є всі документи" },
+      "options": [
+        {
+          "text": "Da, am toate documentele pregătite. Poftim.",
+          "quality": "excellent",
+          "feedback": { "en": "Great! Confident and polite with 'Poftim' (Here you go).", "uk": "Чудово! Впевнено і ввічливо з 'Poftim' (Ось, будь ласка)." }
+        },
+        {
+          "text": "Da, am documentele.",
+          "quality": "acceptable",
+          "feedback": { "en": "Good. Adding 'pregătite' (prepared) and 'Poftim' (here you go) makes it more complete.", "uk": "Добре. Додавання 'pregătite' (підготовлені) та 'Poftim' (ось, будь ласка) робить відповідь повнішою." }
+        },
+        {
+          "text": "Da.",
+          "quality": "poor",
+          "feedback": { "en": "Too brief. Show you understand by saying 'Da, am toate documentele pregătite.'", "uk": "Занадто коротко. Покажіть розуміння, сказавши 'Da, am toate documentele pregătite.'" }
+        }
+      ]
+    },
+    {
+      "speaker": "receptionist",
+      "text": { "ro": "Mulțumesc. Vă rog să așteptați în sala de așteptare. Veți fi chemat în curând." },
+      "translation": { "en": "Thank you. Please wait in the waiting room. You will be called soon.", "uk": "Дякую. Будь ласка, зачекайте в залі очікування. Вас незабаром запросять." }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "Thank the receptionist and confirm you understand", "uk": "Подякуйте рецепціоністці та підтвердіть, що зрозуміли" },
+      "options": [
+        {
+          "text": "Mulțumesc foarte mult. Am înțeles. Unde este sala de așteptare, vă rog?",
+          "quality": "excellent",
+          "feedback": { "en": "Excellent! Polite thanks, confirmation of understanding, and a practical follow-up question.", "uk": "Чудово! Ввічлива подяка, підтвердження розуміння і практичне уточнення." }
+        },
+        {
+          "text": "Mulțumesc. Am înțeles.",
+          "quality": "acceptable",
+          "feedback": { "en": "Good and clear.", "uk": "Добре і зрозуміло." }
+        },
+        {
+          "text": "OK.",
+          "quality": "poor",
+          "feedback": { "en": "Too informal. Always respond with 'Mulțumesc' in formal settings.", "uk": "Занадто неформально. Завжди відповідайте 'Mulțumesc' у формальних ситуаціях." }
+        }
+      ]
+    }
+  ]
+}

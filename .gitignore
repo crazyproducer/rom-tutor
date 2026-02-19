@@ -1,0 +1,11 @@
+# Screenshots from testing
+*.png
+
+# Playwright MCP
+.playwright-mcp/
+
+# Claude Code
+.claude/
+
+# Windows null device artifact
+nul

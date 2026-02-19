@@ -1,0 +1,61 @@
+{
+  "moduleId": "mod-02",
+  "grammarId": "gr-02",
+  "title": { "ro": "Substantive și Articole", "en": "Nouns & Articles", "uk": "Іменники та артиклі" },
+  "sections": [
+    {
+      "type": "explanation",
+      "content": {
+        "en": "Romanian nouns have gender (masculine, feminine, neuter) and number (singular, plural). Unlike English but like Ukrainian, adjectives agree with the noun in gender and number. Romanian has definite articles that attach to the END of the word (unlike English 'the' which goes before).",
+        "uk": "Румунські іменники мають рід (чоловічий, жіночий, середній) і число (однина, множина). Як і в українській, прикметники узгоджуються з іменником. Означені артиклі в румунській додаються в КІНЦІ слова (на відміну від англійського 'the')."
+      }
+    },
+    {
+      "type": "table",
+      "title": { "en": "Definite Articles (attached to word)", "uk": "Означені артиклі (додаються до слова)" },
+      "rows": [
+        { "gender": "Masculine (sg)", "rule": "-ul / -le", "example_indef": "băiat (boy)", "example_def": "băiatul (the boy)" },
+        { "gender": "Feminine (sg)", "rule": "-a", "example_indef": "fată (girl)", "example_def": "fata (the girl)" },
+        { "gender": "Neuter (sg)", "rule": "-ul / -le", "example_indef": "document", "example_def": "documentul (the document)" },
+        { "gender": "Masc. Plural", "rule": "-i → -ii", "example_indef": "băieți (boys)", "example_def": "băieții (the boys)" },
+        { "gender": "Fem. Plural", "rule": "-e → -ele", "example_indef": "fete (girls)", "example_def": "fetele (the girls)" }
+      ]
+    },
+    {
+      "type": "explanation",
+      "content": {
+        "en": "Indefinite articles go BEFORE the noun: 'un' (a, masculine/neuter), 'o' (a, feminine). Example: un băiat (a boy), o fată (a girl).",
+        "uk": "Неозначені артиклі ставляться ПЕРЕД іменником: 'un' (чол./серед.), 'o' (жін.). Приклад: un băiat (хлопець), o fată (дівчина)."
+      }
+    },
+    {
+      "type": "comparison",
+      "title": { "en": "Compared to Ukrainian", "uk": "Порівняння з українською" },
+      "content": {
+        "en": "Ukrainian has no articles at all. Romanian definite articles are somewhat like adding emphasis in Ukrainian (той хлопець = băiatul). The gender system is similar — Romanian masculine/feminine works much like Ukrainian чоловічий/жіночий рід.",
+        "uk": "В українській немає артиклів взагалі. Означені артиклі в румунській — це приблизно як додавання 'той/та' в українській (той хлопець = băiatul). Система родів схожа — румунський чол./жін. рід працює як в українській."
+      }
+    },
+    {
+      "type": "table",
+      "title": { "en": "Key Ceremony Vocabulary with Articles", "uk": "Ключова лексика церемонії з артиклями" },
+      "rows": [
+        { "indefinite": "o țară (a country)", "definite": "țara (the country)", "gender": "feminine" },
+        { "indefinite": "un cetățean (a citizen)", "definite": "cetățeanul (the citizen)", "gender": "masculine" },
+        { "indefinite": "o lege (a law)", "definite": "legea (the law)", "gender": "feminine" },
+        { "indefinite": "un drept (a right)", "definite": "dreptul (the right)", "gender": "neuter" },
+        { "indefinite": "un popor (a people/nation)", "definite": "poporul (the people)", "gender": "neuter" },
+        { "indefinite": "o Constituție (a Constitution)", "definite": "Constituția (the Constitution)", "gender": "feminine" },
+        { "indefinite": "un jurământ (an oath)", "definite": "jurământul (the oath)", "gender": "neuter" }
+      ]
+    },
+    {
+      "type": "practice",
+      "exercises": [
+        { "type": "fill-blank", "prompt": { "ro": "___ (the country) mea este România.", "en": "___ (the country) is Romania." }, "answer": "Țara" },
+        { "type": "fill-blank", "prompt": { "ro": "___ (the Constitution) României.", "en": "___ (the Constitution) of Romania." }, "answer": "Constituția" },
+        { "type": "fill-blank", "prompt": { "ro": "Depun ___ (the oath) de credință.", "en": "I take ___ (the oath) of allegiance." }, "answer": "jurământul" }
+      ]
+    }
+  ]
+}

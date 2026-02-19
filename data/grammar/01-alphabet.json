@@ -1,0 +1,58 @@
+{
+  "moduleId": "mod-01",
+  "grammarId": "gr-01",
+  "title": { "ro": "Alfabetul și Pronunția", "en": "Alphabet & Pronunciation", "uk": "Алфавіт і вимова" },
+  "sections": [
+    {
+      "type": "explanation",
+      "content": {
+        "en": "The Romanian alphabet has 31 letters. It uses the Latin alphabet (like English) with 5 special characters: ă, â, î, ș, ț. Most letters sound similar to English or Ukrainian equivalents, making it easier for speakers of both languages.",
+        "uk": "Румунський алфавіт має 31 літеру. Він використовує латинський алфавіт (як англійська) з 5 спеціальними символами: ă, â, î, ș, ț. Більшість літер звучать схоже на англійські або українські еквіваленти."
+      }
+    },
+    {
+      "type": "table",
+      "title": { "en": "Special Characters", "uk": "Спеціальні символи" },
+      "rows": [
+        { "letter": "Ă ă", "sound": "uh", "description": { "en": "Like 'a' in English 'about' or 'sofa'", "uk": "Як ненаголошене 'а' або 'е' — щось між ними" }, "examples": "băiat,ără" },
+        { "letter": "Â â", "sound": "ɨ", "description": { "en": "No English equivalent. Similar to Russian 'ы'. Used in the middle of words.", "uk": "Схожий на 'и' в українській. Вживається в середині слів." }, "examples": "român, câine" },
+        { "letter": "Î î", "sound": "ɨ", "description": { "en": "Same sound as Â but used at the beginning and end of words.", "uk": "Такий самий звук як Â, але вживається на початку і в кінці слів." }, "examples": "în, își, coborî" },
+        { "letter": "Ș ș", "sound": "sh", "description": { "en": "Like 'sh' in English 'she'", "uk": "Як 'ш' в українській" }, "examples": "și, școală, știu" },
+        { "letter": "Ț ț", "sound": "ts", "description": { "en": "Like 'ts' in English 'cats'", "uk": "Як 'ц' в українській" }, "examples": "țară, Constituție" }
+      ]
+    },
+    {
+      "type": "explanation",
+      "content": {
+        "en": "Romanian vowels: a, ă, â/î, e, i, o, u. Romanian is a phonetic language — what you see is (mostly) what you say. This is a big advantage compared to English!",
+        "uk": "Румунські голосні: a, ă, â/î, e, i, o, u. Румунська — фонетична мова: що бачите, те й вимовляєте. Це велика перевага порівняно з англійською!"
+      }
+    },
+    {
+      "type": "comparison",
+      "title": { "en": "Similarities with Ukrainian", "uk": "Схожість з українською" },
+      "content": {
+        "en": "Many Romanian sounds are similar to Ukrainian: ș=ш, ț=ц, ce/ci=че/чі. Romanian 'r' is rolled like Ukrainian 'р'. The vowel â/î is close to Ukrainian 'и'. If you speak Ukrainian, Romanian pronunciation will feel natural in many cases.",
+        "uk": "Багато румунських звуків схожі на українські: ș=ш, ț=ц, ce/ci=че/чі. Румунське 'r' — розкочується як українське 'р'. Голосна â/î — близька до українського 'и'. Якщо ви говорите українською, румунська вимова буде природною в багатьох випадках."
+      }
+    },
+    {
+      "type": "table",
+      "title": { "en": "Letter Combinations", "uk": "Сполучення літер" },
+      "rows": [
+        { "combo": "ce, ci", "sound": "che, chi", "description": { "en": "Like 'che' in 'chess', 'chi' in 'cheese'", "uk": "Як 'че' в 'чек', 'чі' в 'чітко'" }, "examples": "ce (what), cine (who)" },
+        { "combo": "ge, gi", "sound": "je, ji", "description": { "en": "Like 'je' in French 'je', soft 'g'", "uk": "М'яке 'дже', 'джі'" }, "examples": "gene, ger" },
+        { "combo": "che, chi", "sound": "ke, ki", "description": { "en": "Hard 'k' sound before e/i", "uk": "Тверде 'к' перед е/і" }, "examples": "cheie (key)" },
+        { "combo": "ghe, ghi", "sound": "ge, gi", "description": { "en": "Hard 'g' sound before e/i", "uk": "Тверде 'г' перед е/і" }, "examples": "ghete (boots)" }
+      ]
+    },
+    {
+      "type": "practice",
+      "exercises": [
+        { "type": "fill-blank", "prompt": { "ro": "The letter ___ sounds like 'sh' in English.", "en": "The letter ___ sounds like 'sh' in English." }, "answer": "ș" },
+        { "type": "fill-blank", "prompt": { "ro": "The letter ___ sounds like 'ts' in 'cats'.", "en": "The letter ___ sounds like 'ts' in 'cats'." }, "answer": "ț" },
+        { "type": "fill-blank", "prompt": { "ro": "'Ce' is pronounced like ___.", "en": "'Ce' is pronounced like ___." }, "answer": "che" }
+      ]
+    }
+  ]
+}

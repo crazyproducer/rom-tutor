@@ -1,0 +1,241 @@
+{
+  "phases": [
+    {
+      "id": "foundation",
+      "title": { "ro": "Fundația", "en": "Foundation", "uk": "Основи" },
+      "level": "A1",
+      "modules": [
+        {
+          "id": "mod-01",
+          "slug": "alphabet-pronunciation",
+          "title": { "ro": "Alfabetul și Pronunția", "en": "Alphabet & Pronunciation", "uk": "Алфавіт і вимова" },
+          "description": { "en": "Learn the Romanian alphabet, special characters ă, â, î, ș, ț and pronunciation rules", "uk": "Вивчіть румунський алфавіт, спеціальні символи ă, â, î, ș, ț та правила вимови" },
+          "icon": "🔤",
+          "comingSoon": false,
+          "vocabularyFile": "01-basics.json",
+          "grammarFile": "01-alphabet.json",
+          "dialogueFile": null,
+          "lessons": [
+            { "id": "les-01-01", "title": { "ro": "Literele române", "en": "Romanian Letters", "uk": "Румунські літери" }, "types": ["grammar", "flashcard"] },
+            { "id": "les-01-02", "title": { "ro": "Caractere speciale", "en": "Special Characters", "uk": "Спеціальні символи" }, "types": ["grammar", "flashcard", "quiz"] },
+            { "id": "les-01-03", "title": { "ro": "Pronunția de bază", "en": "Basic Pronunciation", "uk": "Базова вимова" }, "types": ["grammar", "flashcard", "quiz"] }
+          ]
+        },
+        {
+          "id": "mod-02",
+          "slug": "greetings-introductions",
+          "title": { "ro": "Salutări și Prezentări", "en": "Greetings & Introductions", "uk": "Привітання і знайомство" },
+          "description": { "en": "Master formal and informal greetings, introduce yourself, and learn polite phrases", "uk": "Опануйте формальні та неформальні привітання, представтеся та вивчіть ввічливі фрази" },
+          "icon": "👋",
+          "comingSoon": false,
+          "vocabularyFile": "02-greetings.json",
+          "grammarFile": "02-nouns-articles.json",
+          "dialogueFile": "01-meeting-someone.json",
+          "lessons": [
+            { "id": "les-02-01", "title": { "ro": "Salutări formale", "en": "Formal Greetings", "uk": "Формальні привітання" }, "types": ["grammar", "flashcard", "quiz"] },
+            { "id": "les-02-02", "title": { "ro": "Prezentarea personală", "en": "Personal Introduction", "uk": "Особисте представлення" }, "types": ["grammar", "flashcard", "quiz", "dialogue"] },
+            { "id": "les-02-03", "title": { "ro": "Expresii de politețe", "en": "Polite Expressions", "uk": "Ввічливі вирази" }, "types": ["flashcard", "quiz"] }
+          ]
+        },
+        {
+          "id": "mod-03",
+          "slug": "family-relationships",
+          "title": { "ro": "Familia și Relațiile", "en": "Family & Relationships", "uk": "Сім'я та стосунки" },
+          "description": { "en": "Family members, possessive constructions, describing your family", "uk": "Члени родини, присвійні конструкції, опис родини" },
+          "icon": "👨‍👩‍👧‍👦",
+          "comingSoon": true,
+          "vocabularyFile": "03-family.json",
+          "grammarFile": "03-adjectives.json",
+          "dialogueFile": "02-talking-about-family.json",
+          "lessons": []
+        },
+        {
+          "id": "mod-04",
+          "slug": "numbers-time-dates",
+          "title": { "ro": "Numere, Timp, Date", "en": "Numbers, Time, Dates", "uk": "Числа, час, дати" },
+          "description": { "en": "Numbers, telling time, days, months, scheduling", "uk": "Числа, визначення часу, дні, місяці, розклад" },
+          "icon": "🔢",
+          "comingSoon": true,
+          "vocabularyFile": "04-numbers-time.json",
+          "grammarFile": "04-pronouns.json",
+          "dialogueFile": null,
+          "lessons": []
+        },
+        {
+          "id": "mod-05",
+          "slug": "daily-life",
+          "title": { "ro": "Viața de Zi cu Zi", "en": "Daily Life", "uk": "Повсякденне життя" },
+          "description": { "en": "Daily routines, common verbs, present tense", "uk": "Щоденні справи, основні дієслова, теперішній час" },
+          "icon": "☀️",
+          "comingSoon": true,
+          "vocabularyFile": "05-daily-life.json",
+          "grammarFile": "05-verbs-present.json",
+          "dialogueFile": "03-daily-routine.json",
+          "lessons": []
+        }
+      ]
+    },
+    {
+      "id": "expansion",
+      "title": { "ro": "Extinderea", "en": "Expansion", "uk": "Розширення" },
+      "level": "A2",
+      "modules": [
+        {
+          "id": "mod-06",
+          "slug": "work-education",
+          "title": { "ro": "Munca și Educația", "en": "Work & Education", "uk": "Робота та освіта" },
+          "description": { "en": "Professions, workplace vocabulary, talking about your job", "uk": "Професії, робоча лексика, розповідь про роботу" },
+          "icon": "💼",
+          "comingSoon": true,
+          "vocabularyFile": "06-work-education.json",
+          "grammarFile": "06-verbs-past.json",
+          "dialogueFile": "04-at-the-office.json",
+          "lessons": []
+        },
+        {
+          "id": "mod-07",
+          "slug": "travel-places",
+          "title": { "ro": "Călătorii și Locuri", "en": "Travel & Places", "uk": "Подорожі та місця" },
+          "description": { "en": "Directions, transportation, describing places", "uk": "Напрямки, транспорт, опис місць" },
+          "icon": "✈️",
+          "comingSoon": true,
+          "vocabularyFile": "07-travel-places.json",
+          "grammarFile": "07-verbs-future.json",
+          "dialogueFile": "05-asking-directions.json",
+          "lessons": []
+        },
+        {
+          "id": "mod-08",
+          "slug": "food-shopping",
+          "title": { "ro": "Mâncare și Cumpărături", "en": "Food & Shopping", "uk": "Їжа та покупки" },
+          "description": { "en": "Food vocabulary, restaurant ordering, shopping dialogues", "uk": "Лексика їжі, замовлення в ресторані, діалоги в магазині" },
+          "icon": "🛒",
+          "comingSoon": true,
+          "vocabularyFile": "08-food-shopping.json",
+          "grammarFile": "08-verb-conjugation.json",
+          "dialogueFile": "06-at-the-store.json",
+          "lessons": []
+        },
+        {
+          "id": "mod-09",
+          "slug": "health-body",
+          "title": { "ro": "Sănătate și Corpul", "en": "Health & Body", "uk": "Здоров'я" },
+          "description": { "en": "Body parts, health vocabulary, at the doctor", "uk": "Частини тіла, медична лексика, у лікаря" },
+          "icon": "🏥",
+          "comingSoon": true,
+          "vocabularyFile": "09-health-body.json",
+          "grammarFile": "09-cases-nom-acc.json",
+          "dialogueFile": null,
+          "lessons": []
+        },
+        {
+          "id": "mod-10",
+          "slug": "home-city",
+          "title": { "ro": "Casa și Orașul", "en": "Home & City", "uk": "Дім та місто" },
+          "description": { "en": "Home vocabulary, city landmarks, where you live", "uk": "Домашня лексика, міські об'єкти, де ви живете" },
+          "icon": "🏠",
+          "comingSoon": true,
+          "vocabularyFile": "10-home-city.json",
+          "grammarFile": "10-cases-gen-dat.json",
+          "dialogueFile": null,
+          "lessons": []
+        }
+      ]
+    },
+    {
+      "id": "civic",
+      "title": { "ro": "Cunoștințe Civice", "en": "Civic Knowledge", "uk": "Громадянські знання" },
+      "level": "B1",
+      "modules": [
+        {
+          "id": "mod-11",
+          "slug": "government-law",
+          "title": { "ro": "Guvernul și Legea", "en": "Government & Law", "uk": "Уряд та закон" },
+          "description": { "en": "Government structure, citizens' rights, legal vocabulary", "uk": "Структура влади, права громадян, юридична лексика" },
+          "icon": "⚖️",
+          "comingSoon": true,
+          "vocabularyFile": "11-government-law.json",
+          "grammarFile": "11-prepositions.json",
+          "dialogueFile": null,
+          "lessons": []
+        },
+        {
+          "id": "mod-12",
+          "slug": "history-geography",
+          "title": { "ro": "Istoria și Geografia", "en": "History & Geography", "uk": "Історія та географія" },
+          "description": { "en": "Romanian history, geography, regions, EU membership", "uk": "Історія Румунії, географія, регіони, членство в ЄС" },
+          "icon": "🗺️",
+          "comingSoon": true,
+          "vocabularyFile": "12-history-geography.json",
+          "grammarFile": "12-subjunctive.json",
+          "dialogueFile": null,
+          "lessons": []
+        },
+        {
+          "id": "mod-13",
+          "slug": "culture-traditions",
+          "title": { "ro": "Cultura și Tradițiile", "en": "Culture & Traditions", "uk": "Культура та традиції" },
+          "description": { "en": "Romanian holidays, customs, famous Romanians", "uk": "Румунські свята, звичаї, відомі румуни" },
+          "icon": "🎭",
+          "comingSoon": true,
+          "vocabularyFile": "13-culture-traditions.json",
+          "grammarFile": "13-word-order.json",
+          "dialogueFile": null,
+          "lessons": []
+        },
+        {
+          "id": "mod-14",
+          "slug": "constitution",
+          "title": { "ro": "Constituția României", "en": "Romanian Constitution", "uk": "Конституція Румунії" },
+          "description": { "en": "Key constitutional articles, fundamental rights, state structure", "uk": "Ключові статті Конституції, основні права, структура держави" },
+          "icon": "📜",
+          "comingSoon": true,
+          "vocabularyFile": "14-constitution.json",
+          "grammarFile": "14-connectors.json",
+          "dialogueFile": null,
+          "lessons": []
+        }
+      ]
+    },
+    {
+      "id": "ceremony",
+      "title": { "ro": "Pregătirea pentru Ceremonie", "en": "Ceremony Preparation", "uk": "Підготовка до церемонії" },
+      "level": "B1",
+      "modules": [
+        {
+          "id": "mod-15",
+          "slug": "oath-anthem",
+          "title": { "ro": "Jurământul și Imnul", "en": "The Oath & Anthem", "uk": "Присяга та гімн" },
+          "description": { "en": "Master the oath text word by word, learn the national anthem", "uk": "Опануйте текст присяги слово за словом, вивчіть національний гімн" },
+          "icon": "🇷🇴",
+          "comingSoon": false,
+          "vocabularyFile": "15-oath-anthem.json",
+          "grammarFile": null,
+          "dialogueFile": null,
+          "lessons": [
+            { "id": "les-15-01", "title": { "ro": "Textul jurământului", "en": "The Oath Text", "uk": "Текст присяги" }, "types": ["grammar", "flashcard"] },
+            { "id": "les-15-02", "title": { "ro": "Construirea jurământului", "en": "Building the Oath", "uk": "Збирання присяги" }, "types": ["oath-build"] },
+            { "id": "les-15-03", "title": { "ro": "Recitarea jurământului", "en": "Reciting the Oath", "uk": "Відтворення присяги" }, "types": ["oath-recite"] },
+            { "id": "les-15-04", "title": { "ro": "Imnul național", "en": "National Anthem", "uk": "Національний гімн" }, "types": ["grammar", "flashcard"] }
+          ]
+        },
+        {
+          "id": "mod-16",
+          "slug": "ceremony-simulation",
+          "title": { "ro": "Simularea Ceremoniei", "en": "Ceremony Simulation", "uk": "Симуляція церемонії" },
+          "description": { "en": "Practice answering typical ceremony questions, full mock ceremony", "uk": "Практикуйте відповіді на типові запитання церемонії, повна симуляція" },
+          "icon": "🎓",
+          "comingSoon": false,
+          "vocabularyFile": "16-ceremony-qa.json",
+          "grammarFile": null,
+          "dialogueFile": "08-ceremony-interview.json",
+          "lessons": [
+            { "id": "les-16-01", "title": { "ro": "Întrebări personale", "en": "Personal Questions", "uk": "Особисті запитання" }, "types": ["flashcard", "quiz", "dialogue"] },
+            { "id": "les-16-02", "title": { "ro": "Întrebări despre România", "en": "Questions about Romania", "uk": "Запитання про Румунію" }, "types": ["flashcard", "quiz"] },
+            { "id": "les-16-03", "title": { "ro": "Simularea completă", "en": "Full Simulation", "uk": "Повна симуляція" }, "types": ["ceremony"] }
+          ]
+        }
+      ]
+    }
+  ]
+}

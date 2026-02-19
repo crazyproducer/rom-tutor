@@ -1,0 +1,171 @@
+{
+  "moduleId": "mod-16",
+  "dialogueId": "dlg-08",
+  "title": { "en": "The Ceremony Interview", "uk": "Інтерв'ю на церемонії" },
+  "context": {
+    "en": "You are called into the ceremony room. An official from the National Citizenship Authority asks you questions to verify your Romanian language skills and knowledge about Romania.",
+    "uk": "Вас запрошують до зали церемонії. Офіціал з Національного управління з питань громадянства задає вам запитання для перевірки вашого знання румунської мови та знань про Румунію."
+  },
+  "characters": [
+    { "id": "official", "name": "Oficial ANC", "role": "npc" },
+    { "id": "you", "name": "Dumneavoastră", "role": "player" }
+  ],
+  "turns": [
+    {
+      "speaker": "official",
+      "text": { "ro": "Bună ziua. Vă rog să vă prezentați: numele complet, data nașterii și locul de origine." },
+      "translation": { "en": "Good day. Please introduce yourself: full name, date of birth, and place of origin.", "uk": "Добрий день. Будь ласка, представтесь: повне ім'я, дата народження та місце походження." }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "Give your full introduction with name, DOB, and origin", "uk": "Повне представлення: ім'я, дата народження, походження" },
+      "options": [
+        {
+          "text": "Bună ziua. Mă numesc [Nume Complet]. M-am născut pe data de [dată] în [oraș], Ucraina. Am [X] de ani.",
+          "quality": "excellent",
+          "feedback": { "en": "Excellent! Complete answer with all requested information.", "uk": "Чудово! Повна відповідь з усією запитаною інформацією." }
+        },
+        {
+          "text": "Mă numesc [Nume]. Sunt din Ucraina.",
+          "quality": "acceptable",
+          "feedback": { "en": "You mentioned name and origin but forgot date of birth. Add: 'M-am născut pe data de...'", "uk": "Ви згадали ім'я і походження, але забули дату народження. Додайте: 'M-am născut pe data de...'" }
+        },
+        {
+          "text": "Numele meu este [Nume].",
+          "quality": "poor",
+          "feedback": { "en": "Incomplete. The official asked for three things: name, DOB, and origin. Practice answering all parts.", "uk": "Неповно. Офіціал запитав три речі: ім'я, дату народження і походження. Практикуйте повні відповіді." }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": { "ro": "Unde locuiți în România? De cât timp?" },
+      "translation": { "en": "Where do you live in Romania? For how long?", "uk": "Де ви живете в Румунії? Як довго?" }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "State where you live and for how long", "uk": "Скажіть де ви живете і як довго" },
+      "options": [
+        {
+          "text": "Locuiesc în [Oraș], România, de [X] ani. Adresa mea este strada [Strada], numărul [Nr].",
+          "quality": "excellent",
+          "feedback": { "en": "Very thorough! City, duration, and address.", "uk": "Дуже ретельно! Місто, тривалість і адреса." }
+        },
+        {
+          "text": "Locuiesc în [Oraș] de [X] ani.",
+          "quality": "acceptable",
+          "feedback": { "en": "Good. You could add your specific address if asked.", "uk": "Добре. Можете додати конкретну адресу, якщо запитають." }
+        },
+        {
+          "text": "În [Oraș].",
+          "quality": "poor",
+          "feedback": { "en": "Too short. Use full sentences and answer both questions: where AND how long.", "uk": "Занадто коротко. Використовуйте повні речення і відповідайте на обидва запитання: де І як довго." }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": { "ro": "Cu ce vă ocupați? Unde lucrați?" },
+      "translation": { "en": "What do you do? Where do you work?", "uk": "Чим ви займаєтесь? Де ви працюєте?" }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "Describe your occupation and workplace", "uk": "Опишіть вашу професію та місце роботи" },
+      "options": [
+        {
+          "text": "Lucrez ca [profesie] la o companie din [Oraș]. Îmi place munca mea.",
+          "quality": "excellent",
+          "feedback": { "en": "Great! Profession, company location, and a personal touch.", "uk": "Чудово! Професія, місце компанії і особисте доповнення." }
+        },
+        {
+          "text": "Sunt [profesie].",
+          "quality": "acceptable",
+          "feedback": { "en": "Correct but brief. Try: 'Lucrez ca [profesie] la...' to show more language ability.", "uk": "Правильно, але коротко. Спробуйте: 'Lucrez ca [profesie] la...' щоб показати більше мовних здібностей." }
+        },
+        {
+          "text": "[Profesie].",
+          "quality": "poor",
+          "feedback": { "en": "One word is not enough. Build a sentence: 'Lucrez ca [profesie].'", "uk": "Одного слова недостатньо. Побудуйте речення: 'Lucrez ca [profesie].'" }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": { "ro": "De ce doriți cetățenia română?" },
+      "translation": { "en": "Why do you want Romanian citizenship?", "uk": "Чому ви хочете румунське громадянство?" }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "Explain your motivation for Romanian citizenship", "uk": "Поясніть вашу мотивацію для румунського громадянства" },
+      "options": [
+        {
+          "text": "Doresc cetățenia română deoarece locuiesc în România, respect valorile și cultura românească, și doresc să fiu parte din această comunitate. România este casa mea.",
+          "quality": "excellent",
+          "feedback": { "en": "Outstanding! Shows genuine connection, respect for culture, and emotional investment.", "uk": "Відмінно! Показує справжній зв'язок, повагу до культури та емоційну прив'язаність." }
+        },
+        {
+          "text": "Doresc cetățenia română deoarece locuiesc și lucrez aici. Respect legile României.",
+          "quality": "acceptable",
+          "feedback": { "en": "Good practical answer. You could add something about Romanian culture or values.", "uk": "Добра практична відповідь. Можете додати щось про румунську культуру або цінності." }
+        },
+        {
+          "text": "Pentru că locuiesc aici.",
+          "quality": "poor",
+          "feedback": { "en": "Too brief for such an important question. Show respect and genuine motivation.", "uk": "Занадто коротко для такого важливого питання. Покажіть повагу і справжню мотивацію." }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": { "ro": "Care este capitala României? Și numiți câteva orașe importante." },
+      "translation": { "en": "What is the capital of Romania? And name a few important cities.", "uk": "Яка столиця Румунії? І назвіть кілька важливих міст." }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "Answer about capital and major cities", "uk": "Відповідайте про столицю та великі міста" },
+      "options": [
+        {
+          "text": "Capitala României este București. Alte orașe importante sunt Cluj-Napoca, Timișoara, Iași, Constanța și Brașov.",
+          "quality": "excellent",
+          "feedback": { "en": "Perfect! Capital and five major cities correctly named.", "uk": "Ідеально! Столиця і п'ять великих міст правильно названі." }
+        },
+        {
+          "text": "Capitala este București. Un oraș important este Cluj-Napoca.",
+          "quality": "acceptable",
+          "feedback": { "en": "Good. Try to name at least 3-4 cities to show broader knowledge.", "uk": "Добре. Спробуйте назвати хоча б 3-4 міста, щоб показати ширші знання." }
+        },
+        {
+          "text": "București.",
+          "quality": "poor",
+          "feedback": { "en": "Correct but too brief. Full answer: 'Capitala României este București.' Then add more cities.", "uk": "Правильно, але занадто коротко. Повна відповідь: 'Capitala României este București.' Потім додайте інші міста." }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": { "ro": "Foarte bine. Acum vă rog să depuneți jurământul de credință." },
+      "translation": { "en": "Very good. Now please take the oath of allegiance.", "uk": "Дуже добре. Тепер будь ласка складіть присягу на вірність." }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "Recite the oath of allegiance", "uk": "Прочитайте присягу на вірність" },
+      "options": [
+        {
+          "text": "Jur să fiu devotat patriei și poporului român, să apăr drepturile și interesele naționale, să respect Constituția și legile României.",
+          "quality": "excellent",
+          "feedback": { "en": "The oath recited correctly! Congratulations!", "uk": "Присягу прочитано правильно! Вітаємо!" }
+        },
+        {
+          "text": "Jur să fiu devotat patriei și poporului român, să apăr drepturile naționale, să respect legile României.",
+          "quality": "acceptable",
+          "feedback": { "en": "Close, but you missed 'și interesele' and 'Constituția și'. Practice the full text.", "uk": "Близько, але ви пропустили 'și interesele' та 'Constituția și'. Практикуйте повний текст." }
+        },
+        {
+          "text": "Jur să fiu devotat... patriei... și poporului...",
+          "quality": "poor",
+          "feedback": { "en": "You need to memorize the full oath text fluently. Keep practicing!", "uk": "Потрібно вивчити повний текст присяги. Продовжуйте практикувати!" }
+        }
+      ]
+    }
+  ]
+}
