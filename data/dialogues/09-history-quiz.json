@@ -1,0 +1,306 @@
+{
+  "moduleId": "mod-16",
+  "dialogueId": "dlg-09",
+  "title": { "en": "History Questions", "uk": "Запитання з історії" },
+  "context": {
+    "en": "The official asks you questions about Romanian history to verify your basic knowledge. These questions appear frequently in real oath ceremonies.",
+    "uk": "Офіціал задає вам запитання з історії Румунії для перевірки базових знань. Ці запитання часто зустрічаються на реальних церемоніях присяги."
+  },
+  "characters": [
+    { "id": "official", "name": "Oficial ANC", "role": "npc" },
+    { "id": "you", "name": "Dumneavoastră", "role": "player" }
+  ],
+  "turns": [
+    {
+      "speaker": "official",
+      "text": { "ro": "Bine. Acum câteva întrebări despre istoria României. Cine sunt strămoșii poporului român?" },
+      "translation": { "en": "Good. Now a few questions about Romanian history. Who are the ancestors of the Romanian people?", "uk": "Добре. Тепер кілька запитань з історії Румунії. Хто є предками румунського народу?" }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "Answer about the ancestors of the Romanian people", "uk": "Відповідайте про предків румунського народу" },
+      "options": [
+        {
+          "text": "Strămoșii poporului român sunt dacii și romanii. Poporul român s-a format prin amestecul populației dace cu coloniștii romani, după cucerirea Daciei.",
+          "quality": "excellent",
+          "feedback": { "en": "Excellent! You correctly identified both Dacians and Romans and explained the ethnogenesis.", "uk": "Чудово! Ви правильно назвали і даків, і римлян та пояснили етногенез." }
+        },
+        {
+          "text": "Strămoșii poporului român sunt dacii și romanii.",
+          "quality": "acceptable",
+          "feedback": { "en": "Correct! You could add that the Romanian people formed through the mixing of Dacians and Roman colonists.", "uk": "Правильно! Можете додати, що румунський народ сформувався через змішання даків і римських колоністів." }
+        },
+        {
+          "text": "Strămoșii sunt... romanii.",
+          "quality": "poor",
+          "feedback": { "en": "Incomplete. The Romanian people descend from both Dacians (dacii) AND Romans (romanii). Remember both!", "uk": "Неповно. Румунський народ походить і від даків (dacii), І від римлян (romanii). Запам'ятайте обох!" }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": { "ro": "Când au cucerit romanii Dacia?" },
+      "translation": { "en": "When did the Romans conquer Dacia?", "uk": "Коли римляни завоювали Дакію?" }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "Answer when the Romans conquered Dacia", "uk": "Відповідайте коли римляни завоювали Дакію" },
+      "options": [
+        {
+          "text": "Romanii au cucerit Dacia în anul 106 după Hristos, sub conducerea împăratului Traian. Au fost două războaie daco-romane.",
+          "quality": "excellent",
+          "feedback": { "en": "Excellent! Correct year (106 AD), emperor (Trajan), and you mentioned the Dacian-Roman wars.", "uk": "Чудово! Правильний рік (106 н.е.), імператор (Траян), і ви згадали дако-римські війни." }
+        },
+        {
+          "text": "Romanii au cucerit Dacia în anul 106, sub împăratul Traian.",
+          "quality": "acceptable",
+          "feedback": { "en": "Correct! Year 106 AD under Emperor Trajan.", "uk": "Правильно! 106 рік н.е. за імператора Траяна." }
+        },
+        {
+          "text": "În anul... două sute?",
+          "quality": "poor",
+          "feedback": { "en": "Incorrect. Dacia was conquered in 106 AD (anul 106) by Emperor Trajan (împăratul Traian).", "uk": "Неправильно. Дакію було завойовано у 106 р. н.е. (anul 106) імператором Траяном (împăratul Traian)." }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": { "ro": "Cine a fost Ștefan cel Mare?" },
+      "translation": { "en": "Who was Stephen the Great?", "uk": "Хто був Штефан чел Маре (Стефан Великий)?" }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "Answer who Ștefan cel Mare was", "uk": "Відповідайте хто такий Штефан чел Маре" },
+      "options": [
+        {
+          "text": "Ștefan cel Mare a fost domnitorul Moldovei. A condus Moldova timp de 47 de ani și a apărat-o împotriva Imperiului Otoman. Este considerat un mare erou național.",
+          "quality": "excellent",
+          "feedback": { "en": "Excellent! Ruler of Moldova, 47-year reign, defended against the Ottoman Empire, and national hero.", "uk": "Чудово! Правитель Молдови, 47 років правління, захищав від Османської імперії, національний герой." }
+        },
+        {
+          "text": "Ștefan cel Mare a fost domnitorul Moldovei. A luptat împotriva otomanilor.",
+          "quality": "acceptable",
+          "feedback": { "en": "Correct! He was indeed the ruler of Moldova who fought the Ottomans. You could add that he ruled for 47 years.", "uk": "Правильно! Він дійсно був правителем Молдови, який боровся з османами. Можете додати, що він правив 47 років." }
+        },
+        {
+          "text": "A fost un rege... din România.",
+          "quality": "poor",
+          "feedback": { "en": "Not quite. Ștefan cel Mare was not a king (rege) but a ruler (domnitor) of Moldova. He defended Moldova against the Ottoman Empire.", "uk": "Не зовсім. Штефан чел Маре був не королем (rege), а правителем (domnitor) Молдови. Він захищав Молдову від Османської імперії." }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": { "ro": "Care a fost prima unire a principatelor române? Cine a realizat-o?" },
+      "translation": { "en": "What was the first union of Romanian principalities? Who achieved it?", "uk": "Яким було перше об'єднання румунських князівств? Хто його здійснив?" }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "Answer about the first union of Romanian principalities", "uk": "Відповідайте про перше об'єднання румунських князівств" },
+      "options": [
+        {
+          "text": "Prima unire a principatelor române a fost realizată de Mihai Viteazul în anul 1600. El a unit pentru prima dată cele trei principate: Țara Românească, Moldova și Transilvania.",
+          "quality": "excellent",
+          "feedback": { "en": "Excellent! Mihai Viteazul (Michael the Brave) in 1600 united Wallachia, Moldova, and Transylvania for the first time.", "uk": "Чудово! Міхай Вітязул (Михайло Хоробрий) у 1600 році вперше об'єднав Валахію, Молдову та Трансільванію." }
+        },
+        {
+          "text": "Mihai Viteazul a unit principatele române în anul 1600.",
+          "quality": "acceptable",
+          "feedback": { "en": "Correct! You could add that he united all three principalities: Wallachia, Moldova, and Transylvania.", "uk": "Правильно! Можете додати, що він об'єднав усі три князівства: Валахію, Молдову та Трансільванію." }
+        },
+        {
+          "text": "A fost în... secolul optsprezece?",
+          "quality": "poor",
+          "feedback": { "en": "Incorrect. The first union was in 1600 (not the 18th century) by Mihai Viteazul (Michael the Brave).", "uk": "Неправильно. Перше об'єднання було у 1600 році (не у XVIII столітті), здійснене Міхаєм Вітязулом." }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": { "ro": "Când a fost proclamată independența României?" },
+      "translation": { "en": "When was Romania's independence proclaimed?", "uk": "Коли було проголошено незалежність Румунії?" }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "Answer when Romania's independence was proclaimed", "uk": "Відповідайте коли було проголошено незалежність Румунії" },
+      "options": [
+        {
+          "text": "Independența României a fost proclamată la 9 mai 1877. România și-a câștigat independența față de Imperiul Otoman, iar independența a fost recunoscută internațional în 1878.",
+          "quality": "excellent",
+          "feedback": { "en": "Excellent! May 9, 1877, independence from the Ottoman Empire, internationally recognized in 1878.", "uk": "Чудово! 9 травня 1877, незалежність від Османської імперії, міжнародне визнання у 1878." }
+        },
+        {
+          "text": "Independența României a fost proclamată în anul 1877.",
+          "quality": "acceptable",
+          "feedback": { "en": "Correct year! The exact date was May 9, 1877 (9 mai 1877). Independence from the Ottoman Empire.", "uk": "Правильний рік! Точна дата — 9 травня 1877 (9 mai 1877). Незалежність від Османської імперії." }
+        },
+        {
+          "text": "În anul o mie nouă sute...",
+          "quality": "poor",
+          "feedback": { "en": "Incorrect. Romania's independence was proclaimed in 1877 (not the 1900s). Remember: 1877 — Independence.", "uk": "Неправильно. Незалежність Румунії проголошено у 1877 (не у 1900-х). Запам'ятайте: 1877 — Незалежність." }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": { "ro": "Ce a fost Marea Unire? Când a avut loc?" },
+      "translation": { "en": "What was the Great Union? When did it take place?", "uk": "Що таке Велике Об'єднання? Коли воно відбулося?" }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "Answer about the Great Union of Romania", "uk": "Відповідайте про Велике Об'єднання Румунії" },
+      "options": [
+        {
+          "text": "Marea Unire a avut loc la 1 decembrie 1918. Transilvania, Banatul, Crișana și Maramureșul s-au unit cu România. Aceasta a dus la formarea României Mari.",
+          "quality": "excellent",
+          "feedback": { "en": "Excellent! December 1, 1918, Transylvania and other regions united with Romania, forming Greater Romania.", "uk": "Чудово! 1 грудня 1918, Трансільванія та інші регіони об'єдналися з Румунією, утворивши Велику Румунію." }
+        },
+        {
+          "text": "Marea Unire a fost la 1 decembrie 1918. Transilvania s-a unit cu România.",
+          "quality": "acceptable",
+          "feedback": { "en": "Correct! You could also mention Banat, Crișana, and Maramureș joined as well.", "uk": "Правильно! Можете також згадати, що Банат, Крішана та Марамуреш також приєдналися." }
+        },
+        {
+          "text": "A fost... în anul 1900?",
+          "quality": "poor",
+          "feedback": { "en": "Incorrect. The Great Union was on December 1, 1918 (1 decembrie 1918). Transylvania united with Romania.", "uk": "Неправильно. Велике Об'єднання було 1 грудня 1918 (1 decembrie 1918). Трансільванія об'єдналася з Румунією." }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": { "ro": "Cine a fost Regele Ferdinand?" },
+      "translation": { "en": "Who was King Ferdinand?", "uk": "Хто був Король Фердинанд?" }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "Answer who King Ferdinand was", "uk": "Відповідайте хто такий Король Фердинанд" },
+      "options": [
+        {
+          "text": "Regele Ferdinand I a fost regele României în timpul Primului Război Mondial. Sub conducerea sa s-a realizat Marea Unire din 1918. Este numit și Regele Întregirii.",
+          "quality": "excellent",
+          "feedback": { "en": "Excellent! King during WWI, achieved the Great Union of 1918, known as the Unifier King (Regele Întregirii).", "uk": "Чудово! Король під час Першої світової, здійснив Велике Об'єднання 1918, відомий як Король Об'єднання (Regele Întregirii)." }
+        },
+        {
+          "text": "Regele Ferdinand a fost regele României. A realizat Marea Unire.",
+          "quality": "acceptable",
+          "feedback": { "en": "Correct! He is also known as the Unifier King (Regele Întregirii) for achieving the Great Union in 1918.", "uk": "Правильно! Він також відомий як Король Об'єднання (Regele Întregirii) за здійснення Великого Об'єднання 1918 року." }
+        },
+        {
+          "text": "A fost un rege... nu știu exact.",
+          "quality": "poor",
+          "feedback": { "en": "King Ferdinand I was the king of Romania during WWI who achieved the Great Union of 1918. Remember: Ferdinand = Marea Unire.", "uk": "Король Фердинанд I був королем Румунії під час Першої світової, який здійснив Велике Об'єднання 1918. Запам'ятайте: Фердинанд = Marea Unire." }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": { "ro": "Care este ziua națională a României?" },
+      "translation": { "en": "What is Romania's national day?", "uk": "Який національний день Румунії?" }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "Answer what Romania's national day is", "uk": "Відповідайте який національний день Румунії" },
+      "options": [
+        {
+          "text": "Ziua națională a României este 1 decembrie. Se sărbătorește Marea Unire din 1918, când Transilvania s-a unit cu România.",
+          "quality": "excellent",
+          "feedback": { "en": "Excellent! December 1, celebrating the Great Union of 1918 when Transylvania united with Romania.", "uk": "Чудово! 1 грудня, святкування Великого Об'єднання 1918 року, коли Трансільванія об'єдналася з Румунією." }
+        },
+        {
+          "text": "Ziua națională este 1 decembrie.",
+          "quality": "acceptable",
+          "feedback": { "en": "Correct! You could add that it celebrates the Great Union (Marea Unire) of 1918.", "uk": "Правильно! Можете додати, що це святкування Великого Об'єднання (Marea Unire) 1918 року." }
+        },
+        {
+          "text": "Este în... ianuarie?",
+          "quality": "poor",
+          "feedback": { "en": "Incorrect. Romania's national day is December 1 (1 decembrie), celebrating the Great Union of 1918.", "uk": "Неправильно. Національний день Румунії — 1 грудня (1 decembrie), святкування Великого Об'єднання 1918." }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": { "ro": "Când a aderat România la Uniunea Europeană și la NATO?" },
+      "translation": { "en": "When did Romania join the European Union and NATO?", "uk": "Коли Румунія вступила до Європейського Союзу та НАТО?" }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "Answer when Romania joined the EU and NATO", "uk": "Відповідайте коли Румунія вступила до ЄС та НАТО" },
+      "options": [
+        {
+          "text": "România a aderat la NATO în anul 2004 și la Uniunea Europeană în anul 2007. Aderarea la aceste organizații a fost un obiectiv important pentru România.",
+          "quality": "excellent",
+          "feedback": { "en": "Excellent! NATO in 2004, EU in 2007. Well done mentioning both dates and their significance.", "uk": "Чудово! НАТО у 2004, ЄС у 2007. Добре, що згадали обидві дати та їхнє значення." }
+        },
+        {
+          "text": "România a intrat în NATO în 2004 și în Uniunea Europeană în 2007.",
+          "quality": "acceptable",
+          "feedback": { "en": "Correct! NATO 2004, EU 2007. Both key dates for modern Romania.", "uk": "Правильно! НАТО 2004, ЄС 2007. Обидві ключові дати для сучасної Румунії." }
+        },
+        {
+          "text": "România este în Uniunea Europeană... din 2010?",
+          "quality": "poor",
+          "feedback": { "en": "Incorrect. Romania joined NATO in 2004 and the EU in 2007. Remember: NATO 2004, EU 2007.", "uk": "Неправильно. Румунія вступила до НАТО у 2004 і до ЄС у 2007. Запам'ятайте: НАТО 2004, ЄС 2007." }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": { "ro": "Ce s-a întâmplat pe 22 decembrie 1989?" },
+      "translation": { "en": "What happened on December 22, 1989?", "uk": "Що сталося 22 грудня 1989 року?" }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "Answer what happened on December 22, 1989", "uk": "Відповідайте що сталося 22 грудня 1989 року" },
+      "options": [
+        {
+          "text": "Pe 22 decembrie 1989 a avut loc Revoluția Română. Regimul comunist al lui Nicolae Ceaușescu a fost înlăturat. A fost o revoluție a poporului pentru libertate și democrație.",
+          "quality": "excellent",
+          "feedback": { "en": "Excellent! The Romanian Revolution, fall of Ceaușescu's communist regime, a people's revolution for freedom and democracy.", "uk": "Чудово! Румунська революція, падіння комуністичного режиму Чаушеску, народна революція за свободу та демократію." }
+        },
+        {
+          "text": "A fost Revoluția Română. A căzut regimul comunist.",
+          "quality": "acceptable",
+          "feedback": { "en": "Correct! The Romanian Revolution ended the communist regime. You could mention Ceaușescu by name.", "uk": "Правильно! Румунська революція поклала край комуністичному режиму. Можете згадати Чаушеску на ім'я." }
+        },
+        {
+          "text": "Nu știu exact... a fost ceva politic?",
+          "quality": "poor",
+          "feedback": { "en": "This is very important! December 22, 1989 — the Romanian Revolution (Revoluția Română). The communist regime of Ceaușescu fell.", "uk": "Це дуже важливо! 22 грудня 1989 — Румунська революція (Revoluția Română). Комуністичний режим Чаушеску впав." }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": { "ro": "Ultima întrebare. Cine a fost Vlad Țepeș?" },
+      "translation": { "en": "Last question. Who was Vlad the Impaler?", "uk": "Останнє запитання. Хто був Влад Цепеш?" }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "Answer who Vlad Țepeș was", "uk": "Відповідайте хто такий Влад Цепеш" },
+      "options": [
+        {
+          "text": "Vlad Țepeș a fost domnitorul Țării Românești în secolul al XV-lea. Este cunoscut și ca Vlad Dracula. A luptat împotriva Imperiului Otoman și a apărat independența Țării Românești.",
+          "quality": "excellent",
+          "feedback": { "en": "Excellent! Ruler of Wallachia in the 15th century, known as Dracula, defended against the Ottoman Empire.", "uk": "Чудово! Правитель Валахії у XV столітті, відомий як Дракула, захищав від Османської імперії." }
+        },
+        {
+          "text": "Vlad Țepeș a fost domnitorul Țării Românești. Este cunoscut ca Dracula.",
+          "quality": "acceptable",
+          "feedback": { "en": "Correct! He was the ruler of Wallachia. You could add that he fought against the Ottomans in the 15th century.", "uk": "Правильно! Він був правителем Валахії. Можете додати, що він воював з османами у XV столітті." }
+        },
+        {
+          "text": "Este... Dracula? Din filme?",
+          "quality": "poor",
+          "feedback": { "en": "Vlad Țepeș was a real historical figure, not just a movie character. He was the ruler (domnitor) of Wallachia who fought the Ottoman Empire in the 15th century.", "uk": "Влад Цепеш — реальна історична постать, а не лише персонаж фільмів. Він був правителем (domnitor) Валахії, який боровся з Османською імперією у XV столітті." }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": { "ro": "Foarte bine. Aveți cunoștințe bune despre istoria României. Felicitări!" },
+      "translation": { "en": "Very good. You have good knowledge of Romanian history. Congratulations!", "uk": "Дуже добре. Ви маєте гарні знання з історії Румунії. Вітаємо!" }
+    }
+  ]
+}

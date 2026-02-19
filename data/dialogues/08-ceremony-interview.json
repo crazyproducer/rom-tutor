@@ -3,8 +3,8 @@
   "dialogueId": "dlg-08",
   "title": { "en": "The Ceremony Interview", "uk": "Інтерв'ю на церемонії" },
   "context": {
-    "en": "You are called into the ceremony room. An official from the National Citizenship Authority asks you questions to verify your Romanian language skills and knowledge about Romania.",
-    "uk": "Вас запрошують до зали церемонії. Офіціал з Національного управління з питань громадянства задає вам запитання для перевірки вашого знання румунської мови та знань про Румунію."
+    "en": "You are called into the ceremony room. An official from the National Citizenship Authority asks you questions to verify your Romanian language skills and knowledge about Romania. These are real questions from actual oath ceremonies.",
+    "uk": "Вас запрошують до зали церемонії. Офіціал з Національного управління з питань громадянства задає вам запитання для перевірки вашого знання румунської мови та знань про Румунію. Це реальні запитання з справжніх церемоній присяги."
   },
   "characters": [
     { "id": "official", "name": "Oficial ANC", "role": "npc" },
@@ -73,12 +73,12 @@
       "prompt": { "en": "Describe your occupation and workplace", "uk": "Опишіть вашу професію та місце роботи" },
       "options": [
         {
-          "text": "Lucrez ca [profesie] la o companie din [Oraș]. Îmi place munca mea.",
+          "text": "Lucrez ca [profesie] la o companie din [Oraș]. Îmi place munca mea și colegii mei sunt foarte drăguți.",
           "quality": "excellent",
-          "feedback": { "en": "Great! Profession, company location, and a personal touch.", "uk": "Чудово! Професія, місце компанії і особисте доповнення." }
+          "feedback": { "en": "Great! Profession, company location, and a personal touch about colleagues.", "uk": "Чудово! Професія, місце компанії і особисте доповнення про колег." }
         },
         {
-          "text": "Sunt [profesie].",
+          "text": "Sunt [profesie]. Lucrez în [Oraș].",
           "quality": "acceptable",
           "feedback": { "en": "Correct but brief. Try: 'Lucrez ca [profesie] la...' to show more language ability.", "uk": "Правильно, але коротко. Спробуйте: 'Lucrez ca [profesie] la...' щоб показати більше мовних здібностей." }
         },
@@ -86,6 +86,32 @@
           "text": "[Profesie].",
           "quality": "poor",
           "feedback": { "en": "One word is not enough. Build a sentence: 'Lucrez ca [profesie].'", "uk": "Одного слова недостатньо. Побудуйте речення: 'Lucrez ca [profesie].'" }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": { "ro": "Sunteți căsătorit(ă)? Aveți copii? Aveți familie în România?" },
+      "translation": { "en": "Are you married? Do you have children? Do you have family in Romania?", "uk": "Ви одружені (заміжня)? У вас є діти? У вас є родина в Румунії?" }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "Answer about your family situation", "uk": "Відповідайте про вашу сімейну ситуацію" },
+      "options": [
+        {
+          "text": "Da, sunt căsătorit(ă). Am [X] copii. Soțul/soția mea lucrează tot în România. Familia mea locuiește aici de [X] ani.",
+          "quality": "excellent",
+          "feedback": { "en": "Excellent! You answered all three parts: marriage, children, and family presence in Romania.", "uk": "Чудово! Ви відповіли на всі три частини: шлюб, діти та наявність родини в Румунії." }
+        },
+        {
+          "text": "Da, sunt căsătorit(ă) și am [X] copii.",
+          "quality": "acceptable",
+          "feedback": { "en": "Good, but also mention whether your family lives in Romania.", "uk": "Добре, але також згадайте, чи ваша родина живе в Румунії." }
+        },
+        {
+          "text": "Da.",
+          "quality": "poor",
+          "feedback": { "en": "Too short. The official asked three questions. Answer each one: married, children, family in Romania.", "uk": "Занадто коротко. Офіціал задав три запитання. Відповідайте на кожне: шлюб, діти, родина в Румунії." }
         }
       ]
     },
@@ -99,30 +125,82 @@
       "prompt": { "en": "Explain your motivation for Romanian citizenship", "uk": "Поясніть вашу мотивацію для румунського громадянства" },
       "options": [
         {
-          "text": "Doresc cetățenia română deoarece locuiesc în România, respect valorile și cultura românească, și doresc să fiu parte din această comunitate. România este casa mea.",
+          "text": "Doresc cetățenia română deoarece locuiesc în România de mulți ani, respect valorile și cultura românească, și doresc să fiu parte din această comunitate. România este casa mea și vreau să contribui la societatea românească.",
           "quality": "excellent",
-          "feedback": { "en": "Outstanding! Shows genuine connection, respect for culture, and emotional investment.", "uk": "Відмінно! Показує справжній зв'язок, повагу до культури та емоційну прив'язаність." }
+          "feedback": { "en": "Outstanding! Shows genuine connection, respect for culture, and desire to contribute.", "uk": "Відмінно! Показує справжній зв'язок, повагу до культури та бажання робити внесок." }
         },
         {
           "text": "Doresc cetățenia română deoarece locuiesc și lucrez aici. Respect legile României.",
           "quality": "acceptable",
-          "feedback": { "en": "Good practical answer. You could add something about Romanian culture or values.", "uk": "Добра практична відповідь. Можете додати щось про румунську культуру або цінності." }
+          "feedback": { "en": "Good practical answer. You could add something about Romanian culture or your emotional connection.", "uk": "Добра практична відповідь. Можете додати щось про румунську культуру або емоційний зв'язок." }
         },
         {
           "text": "Pentru că locuiesc aici.",
           "quality": "poor",
-          "feedback": { "en": "Too brief for such an important question. Show respect and genuine motivation.", "uk": "Занадто коротко для такого важливого питання. Покажіть повагу і справжню мотивацію." }
+          "feedback": { "en": "Too brief for the most important question. Show respect, genuine motivation, and connection to Romania.", "uk": "Занадто коротко для найважливішого питання. Покажіть повагу, справжню мотивацію та зв'язок з Румунією." }
         }
       ]
     },
     {
       "speaker": "official",
-      "text": { "ro": "Care este capitala României? Și numiți câteva orașe importante." },
-      "translation": { "en": "What is the capital of Romania? And name a few important cities.", "uk": "Яка столиця Румунії? І назвіть кілька важливих міст." }
+      "text": { "ro": "Care sunt planurile dumneavoastră de viitor după obținerea cetățeniei?" },
+      "translation": { "en": "What are your future plans after obtaining citizenship?", "uk": "Які ваші плани на майбутнє після отримання громадянства?" }
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Answer about capital and major cities", "uk": "Відповідайте про столицю та великі міста" },
+      "prompt": { "en": "Describe your future plans in Romania", "uk": "Опишіть ваші плани на майбутнє в Румунії" },
+      "options": [
+        {
+          "text": "Vreau să continui să locuiesc și să lucrez în România. Doresc să îmi cresc copiii aici, să contribui la comunitate și să îmi dezvolt cariera. România este țara mea acum.",
+          "quality": "excellent",
+          "feedback": { "en": "Excellent! Shows long-term commitment to living, working, and contributing in Romania.", "uk": "Чудово! Показує довгострокову відданість проживанню, роботі та внеску в Румунії." }
+        },
+        {
+          "text": "Vreau să continui să locuiesc și să lucrez în România.",
+          "quality": "acceptable",
+          "feedback": { "en": "Good basic answer. You could add more about family, community, or career plans.", "uk": "Добра базова відповідь. Можете додати більше про родину, громаду або кар'єрні плани." }
+        },
+        {
+          "text": "Nu știu exact.",
+          "quality": "poor",
+          "feedback": { "en": "This answer raises concerns. Show clear commitment to staying and contributing in Romania.", "uk": "Ця відповідь викликає занепокоення. Покажіть чітку відданість залишитися і робити внесок у Румунії." }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": { "ro": "Cum vă descurcați cu limba română? Unde ați învățat-o?" },
+      "translation": { "en": "How do you manage with the Romanian language? Where did you learn it?", "uk": "Як ви справляєтесь з румунською мовою? Де ви її вивчили?" }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "Describe your Romanian language experience", "uk": "Опишіть ваш досвід з румунською мовою" },
+      "options": [
+        {
+          "text": "Am învățat limba română la cursuri și prin comunicare cu colegii și vecinii mei. Vorbesc română în fiecare zi la muncă și acasă. Îmi place limba română, este o limbă foarte frumoasă.",
+          "quality": "excellent",
+          "feedback": { "en": "Excellent! You explained how you learned, that you use it daily, and showed appreciation for the language.", "uk": "Чудово! Ви пояснили як вивчили, що використовуєте щодня, і показали повагу до мови." }
+        },
+        {
+          "text": "Am învățat română la cursuri. Vorbesc română la muncă.",
+          "quality": "acceptable",
+          "feedback": { "en": "Good. Try adding how you feel about the language and more details about daily use.", "uk": "Добре. Спробуйте додати як ви ставитесь до мови та більше деталей про щоденне використання." }
+        },
+        {
+          "text": "Am învățat puțin.",
+          "quality": "poor",
+          "feedback": { "en": "This sounds like you do not speak Romanian well. Show confidence: 'Am învățat română la cursuri și vorbesc în fiecare zi.'", "uk": "Це звучить ніби ви не говорите румунською добре. Покажіть впевненість: 'Am învățat română la cursuri și vorbesc în fiecare zi.'" }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": { "ro": "Care este capitala României? Numiți câteva orașe importante." },
+      "translation": { "en": "What is the capital of Romania? Name some important cities.", "uk": "Яка столиця Румунії? Назвіть кілька важливих міст." }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "Answer about the capital and major cities of Romania", "uk": "Відповідайте про столицю та великі міста Румунії" },
       "options": [
         {
           "text": "Capitala României este București. Alte orașe importante sunt Cluj-Napoca, Timișoara, Iași, Constanța și Brașov.",
@@ -143,8 +221,112 @@
     },
     {
       "speaker": "official",
-      "text": { "ro": "Foarte bine. Acum vă rog să depuneți jurământul de credință." },
-      "translation": { "en": "Very good. Now please take the oath of allegiance.", "uk": "Дуже добре. Тепер будь ласка складіть присягу на вірність." }
+      "text": { "ro": "Cunoașteți imnul național al României? Cum se numește?" },
+      "translation": { "en": "Do you know the national anthem of Romania? What is it called?", "uk": "Ви знаєте національний гімн Румунії? Як він називається?" }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "Answer about the Romanian national anthem", "uk": "Відповідайте про національний гімн Румунії" },
+      "options": [
+        {
+          "text": "Da, imnul național al României se numește «Deșteaptă-te, române!». A fost scris de Andrei Mureșanu și a devenit imnul oficial în anul 1989, după Revoluție.",
+          "quality": "excellent",
+          "feedback": { "en": "Excellent! You know the name, author, and when it became official.", "uk": "Чудово! Ви знаєте назву, автора і коли він став офіційним." }
+        },
+        {
+          "text": "Da, imnul se numește «Deșteaptă-te, române!».",
+          "quality": "acceptable",
+          "feedback": { "en": "Good. You could also mention the author Andrei Mureșanu for a more complete answer.", "uk": "Добре. Можете також згадати автора Андрей Мурешану для повнішої відповіді." }
+        },
+        {
+          "text": "Da, îl știu, dar nu îmi amintesc numele.",
+          "quality": "poor",
+          "feedback": { "en": "You must know the anthem name: 'Deșteaptă-te, române!' This is essential knowledge.", "uk": "Ви повинні знати назву гімну: 'Deșteaptă-te, române!' Це обов'язкові знання." }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": { "ro": "Când este Ziua Națională a României? Ce semnificație are această dată?" },
+      "translation": { "en": "When is Romania's National Day? What significance does this date have?", "uk": "Коли Національний день Румунії? Яке значення має ця дата?" }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "Answer about Romania's National Day and its significance", "uk": "Відповідайте про Національний день Румунії та його значення" },
+      "options": [
+        {
+          "text": "Ziua Națională a României este pe 1 Decembrie. Această dată marchează Marea Unire din 1918, când Transilvania, Banatul, Crișana și Maramureșul s-au unit cu România.",
+          "quality": "excellent",
+          "feedback": { "en": "Excellent! Correct date and you explained the Great Union of 1918 with historical detail.", "uk": "Чудово! Правильна дата і ви пояснили Велике Об'єднання 1918 року з історичними деталями." }
+        },
+        {
+          "text": "Ziua Națională este pe 1 Decembrie. Este Marea Unire din 1918.",
+          "quality": "acceptable",
+          "feedback": { "en": "Good. You know the date and the event. You could add which regions united with Romania.", "uk": "Добре. Ви знаєте дату і подію. Можете додати які регіони об'єдналися з Румунією." }
+        },
+        {
+          "text": "Este în decembrie.",
+          "quality": "poor",
+          "feedback": { "en": "You need the exact date: 1 Decembrie. And explain it is Marea Unire (Great Union) of 1918.", "uk": "Потрібна точна дата: 1 Decembrie. І поясніть, що це Marea Unire (Велике Об'єднання) 1918 року." }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": { "ro": "Când a intrat România în Uniunea Europeană?" },
+      "translation": { "en": "When did Romania join the European Union?", "uk": "Коли Румунія вступила до Європейського Союзу?" }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "Answer when Romania joined the EU", "uk": "Відповідайте коли Румунія вступила до ЄС" },
+      "options": [
+        {
+          "text": "România a intrat în Uniunea Europeană pe 1 ianuarie 2007, împreună cu Bulgaria. Este un stat membru de aproape douăzeci de ani.",
+          "quality": "excellent",
+          "feedback": { "en": "Excellent! Correct date, you mentioned Bulgaria joined the same day, and added context.", "uk": "Чудово! Правильна дата, ви згадали що Болгарія приєдналася того ж дня, і додали контекст." }
+        },
+        {
+          "text": "România a intrat în Uniunea Europeană în 2007.",
+          "quality": "acceptable",
+          "feedback": { "en": "Correct year. For a fuller answer, add the exact date: 1 ianuarie 2007.", "uk": "Правильний рік. Для повнішої відповіді додайте точну дату: 1 ianuarie 2007." }
+        },
+        {
+          "text": "Nu știu exact anul.",
+          "quality": "poor",
+          "feedback": { "en": "You must know this: România a intrat în UE pe 1 ianuarie 2007. This is a common interview question.", "uk": "Ви повинні це знати: România a intrat în UE pe 1 ianuarie 2007. Це поширене запитання на інтерв'ю." }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": { "ro": "Cine sunt strămoșii poporului român? De unde provin românii?" },
+      "translation": { "en": "Who are the ancestors of the Romanian people? Where do Romanians originate from?", "uk": "Хто є предками румунського народу? Звідки походять румуни?" }
+    },
+    {
+      "speaker": "you",
+      "prompt": { "en": "Answer about the ancestors of Romanians", "uk": "Відповідайте про предків румунів" },
+      "options": [
+        {
+          "text": "Strămoșii poporului român sunt dacii și romanii. Poporul român s-a format prin unirea dacilor cu coloniștii romani, după cucerirea Daciei de către împăratul Traian în anul 106.",
+          "quality": "excellent",
+          "feedback": { "en": "Excellent! Dacians and Romans, the formation of the Romanian people, and Emperor Trajan's conquest in 106 AD.", "uk": "Чудово! Даки і римляни, формування румунського народу та завоювання імператором Траяном у 106 році." }
+        },
+        {
+          "text": "Strămoșii românilor sunt dacii și romanii.",
+          "quality": "acceptable",
+          "feedback": { "en": "Correct! You could add detail about Emperor Trajan and the year 106 for a stronger answer.", "uk": "Правильно! Можете додати деталі про імператора Траяна і 106 рік для кращої відповіді." }
+        },
+        {
+          "text": "Romanii... cred.",
+          "quality": "poor",
+          "feedback": { "en": "Incomplete. The answer is both dacii (Dacians) AND romanii (Romans). Memorize: 'Strămoșii românilor sunt dacii și romanii.'", "uk": "Неповно. Відповідь - і даки (dacii) І римляни (romanii). Запам'ятайте: 'Strămoșii românilor sunt dacii și romanii.'" }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": { "ro": "Foarte bine. Sunteți pregătit(ă) pentru depunerea jurământului. Vă rog să ridicați mâna dreaptă și să depuneți jurământul de credință." },
+      "translation": { "en": "Very good. You are ready for the oath. Please raise your right hand and take the oath of allegiance.", "uk": "Дуже добре. Ви готові до складання присяги. Будь ласка, підніміть праву руку і складіть присягу на вірність." }
     },
     {
       "speaker": "you",
@@ -153,17 +335,17 @@
         {
           "text": "Jur să fiu devotat patriei și poporului român, să apăr drepturile și interesele naționale, să respect Constituția și legile României.",
           "quality": "excellent",
-          "feedback": { "en": "The oath recited correctly! Congratulations!", "uk": "Присягу прочитано правильно! Вітаємо!" }
+          "feedback": { "en": "The oath recited perfectly! Congratulations, you are now a Romanian citizen!", "uk": "Присягу прочитано бездоганно! Вітаємо, тепер ви громадянин Румунії!" }
         },
         {
           "text": "Jur să fiu devotat patriei și poporului român, să apăr drepturile naționale, să respect legile României.",
           "quality": "acceptable",
-          "feedback": { "en": "Close, but you missed 'și interesele' and 'Constituția și'. Practice the full text.", "uk": "Близько, але ви пропустили 'și interesele' та 'Constituția și'. Практикуйте повний текст." }
+          "feedback": { "en": "Close, but you missed 'și interesele' after 'drepturile' and 'Constituția și' before 'legile'. Practice the full text.", "uk": "Близько, але ви пропустили 'și interesele' після 'drepturile' та 'Constituția și' перед 'legile'. Практикуйте повний текст." }
         },
         {
           "text": "Jur să fiu devotat... patriei... și poporului...",
           "quality": "poor",
-          "feedback": { "en": "You need to memorize the full oath text fluently. Keep practicing!", "uk": "Потрібно вивчити повний текст присяги. Продовжуйте практикувати!" }
+          "feedback": { "en": "You need to memorize the full oath text fluently. This is the most important moment! Keep practicing!", "uk": "Потрібно вивчити повний текст присяги напам'ять. Це найважливіший момент! Продовжуйте практикувати!" }
         }
       ]
     }

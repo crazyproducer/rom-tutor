@@ -1,4 +1,4 @@
-const CACHE_NAME = 'rom-tutor-v1';
+const CACHE_NAME = 'rom-tutor-v2';
 
 const ASSETS = [
   './',
@@ -36,6 +36,7 @@ const ASSETS = [
   './data/dialogues/01-meeting-someone.json',
   './data/dialogues/07-ceremony-arrival.json',
   './data/dialogues/08-ceremony-interview.json',
+  './data/dialogues/09-history-quiz.json',
   './manifest.json',
   './icons/icon-192.svg',
   './icons/icon-512.svg'

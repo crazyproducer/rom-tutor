@@ -231,7 +231,8 @@
           "dialogueFile": "08-ceremony-interview.json",
           "lessons": [
             { "id": "les-16-01", "title": { "ro": "Întrebări personale", "en": "Personal Questions", "uk": "Особисті запитання" }, "types": ["flashcard", "quiz", "dialogue"] },
-            { "id": "les-16-02", "title": { "ro": "Întrebări despre România", "en": "Questions about Romania", "uk": "Запитання про Румунію" }, "types": ["flashcard", "quiz"] },
+            { "id": "les-16-02", "title": { "ro": "Întrebări despre România", "en": "Questions about Romania", "uk": "Запитання про Румунію" }, "types": ["flashcard", "quiz", "dialogue"] },
+            { "id": "les-16-04", "title": { "ro": "Întrebări de istorie", "en": "History Questions", "uk": "Запитання з історії" }, "types": ["flashcard", "quiz", "dialogue"] },
             { "id": "les-16-03", "title": { "ro": "Simularea completă", "en": "Full Simulation", "uk": "Повна симуляція" }, "types": ["ceremony"] }
           ]
         }
