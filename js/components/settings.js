@@ -59,6 +59,28 @@ export function Settings(container, store, router) {
     view.appendChild(createToggleItem(t('settings.audio'), settings.autoPlayAudio, (val) => {
       store.update('settings.autoPlayAudio', val);
     }));
+
+    // TTS Engine selector
+    const ttsItem = createSettingsItem(t('settings.tts_engine'));
+    const ttsLabel = document.createElement('span');
+    ttsLabel.className = 'settings-label';
+    ttsLabel.style.marginBottom = '8px';
+    ttsLabel.textContent = t('settings.tts_engine');
+    ttsItem.appendChild(ttsLabel);
+    const ttsSelect = createSegmented(
+      [
+        { value: 'google', label: t('settings.tts_google') },
+        { value: 'browser', label: t('settings.tts_browser') }
+      ],
+      settings.ttsEngine || 'google',
+      (val) => {
+        store.update('settings.ttsEngine', val);
+        render();
+      }
+    );
+    ttsItem.appendChild(ttsSelect);
+    view.appendChild(ttsItem);
+
     view.appendChild(createToggleItem(t('settings.module_lock'), settings.moduleLocking, (val) => {
       store.update('settings.moduleLocking', val);
     }));

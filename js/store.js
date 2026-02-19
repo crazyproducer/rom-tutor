@@ -9,6 +9,7 @@ const DEFAULT_STATE = {
     dailyGoalMinutes: 15,
     showPronunciation: true,
     autoPlayAudio: false,
+    ttsEngine: 'google',
     moduleLocking: true
   },
   profile: {
