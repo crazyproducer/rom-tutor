@@ -18,7 +18,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Explain that you're here for the oath ceremony", "uk": "Поясніть, що ви тут для церемонії присяги" },
+      "prompt": { "en": "Good day! I came for the oath of allegiance ceremony. My name is [Name].", "uk": "Добрий день! Я прийшов (прийшла) на складання присяги на вірність. Мене звати [Ім'я]." },
       "options": [
         {
           "text": "Bună ziua! Am venit pentru depunerea jurământului de credință. Mă numesc [Nume].",
@@ -44,7 +44,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Confirm you have all documents ready", "uk": "Підтвердіть, що у вас є всі документи" },
+      "prompt": { "en": "Yes, I have all the documents prepared. Here you go.", "uk": "Так, у мене є всі документи підготовлені. Ось, будь ласка." },
       "options": [
         {
           "text": "Da, am toate documentele pregătite. Poftim.",
@@ -70,7 +70,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Thank the receptionist and confirm you understand", "uk": "Подякуйте рецепціоністці та підтвердіть, що зрозуміли" },
+      "prompt": { "en": "Thank you very much. I understand. Where is the waiting room, please?", "uk": "Дуже дякую. Я зрозумів (зрозуміла). Де зал очікування, будь ласка?" },
       "options": [
         {
           "text": "Mulțumesc foarte mult. Am înțeles. Unde este sala de așteptare, vă rog?",

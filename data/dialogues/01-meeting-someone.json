@@ -18,7 +18,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Introduce yourself with your name and where you're from", "uk": "Представтесь: ваше ім'я і звідки ви" },
+      "prompt": { "en": "Good day! My name is [Name]. I am from Ukraine. Nice to meet you!", "uk": "Добрий день! Мене звати [Ім'я]. Я з України. Приємно познайомитися!" },
       "options": [
         {
           "text": "Bună ziua! Mă numesc [Nume]. Sunt din Ucraina. Îmi pare bine de cunoștință!",
@@ -44,7 +44,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Tell how long you've been in Romania and what you do", "uk": "Скажіть, як довго ви в Румунії і чим займаєтесь" },
+      "prompt": { "en": "I live in Romania for two years. I work as a programmer and I study the Romanian language.", "uk": "Я живу в Румунії два роки. Я працюю програмістом і вивчаю румунську мову." },
       "options": [
         {
           "text": "Locuiesc în România de doi ani. Lucrez ca programator și studiez limba română.",
@@ -70,7 +70,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Thank Ana and say goodbye politely", "uk": "Подякуйте Ані та попрощайтесь ввічливо" },
+      "prompt": { "en": "Thank you very much! It was a pleasure. Goodbye!", "uk": "Дуже дякую! Було приємно. До побачення!" },
       "options": [
         {
           "text": "Mulțumesc foarte mult! A fost o plăcere. La revedere!",

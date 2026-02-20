@@ -18,7 +18,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Answer about the ancestors of the Romanian people", "uk": "Відповідайте про предків румунського народу" },
+      "prompt": { "en": "The ancestors of the Romanian people are the Dacians and the Romans. The Romanian people was formed through the mixing of the Dacian population with the Roman colonists, after the conquest of Dacia.", "uk": "Предки румунського народу — даки і римляни. Румунський народ сформувався через змішання дакійського населення з римськими колоністами, після завоювання Дакії." },
       "options": [
         {
           "text": "Strămoșii poporului român sunt dacii și romanii. Poporul român s-a format prin amestecul populației dace cu coloniștii romani, după cucerirea Daciei.",
@@ -44,7 +44,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Answer when the Romans conquered Dacia", "uk": "Відповідайте коли римляни завоювали Дакію" },
+      "prompt": { "en": "The Romans conquered Dacia in the year 106 AD, under the leadership of Emperor Trajan. There were two Dacian-Roman wars.", "uk": "Римляни завоювали Дакію у 106 році після Христа, під керівництвом імператора Траяна. Було дві дако-римські війни." },
       "options": [
         {
           "text": "Romanii au cucerit Dacia în anul 106 după Hristos, sub conducerea împăratului Traian. Au fost două războaie daco-romane.",
@@ -70,7 +70,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Answer who Ștefan cel Mare was", "uk": "Відповідайте хто такий Штефан чел Маре" },
+      "prompt": { "en": "Ștefan cel Mare was the ruler of Moldova. He led Moldova for 47 years and defended it against the Ottoman Empire. He is considered a great national hero.", "uk": "Штефан чел Маре був правителем Молдови. Він керував Молдовою 47 років і захищав її від Османської імперії. Він вважається великим національним героєм." },
       "options": [
         {
           "text": "Ștefan cel Mare a fost domnitorul Moldovei. A condus Moldova timp de 47 de ani și a apărat-o împotriva Imperiului Otoman. Este considerat un mare erou național.",
@@ -96,7 +96,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Answer about the first union of Romanian principalities", "uk": "Відповідайте про перше об'єднання румунських князівств" },
+      "prompt": { "en": "The first union of the Romanian principalities was achieved by Mihai Viteazul in the year 1600. He united for the first time the three principalities: Wallachia, Moldova, and Transylvania.", "uk": "Перше об'єднання румунських князівств було здійснене Міхаєм Вітязулом у 1600 році. Він вперше об'єднав три князівства: Валахію, Молдову та Трансільванію." },
       "options": [
         {
           "text": "Prima unire a principatelor române a fost realizată de Mihai Viteazul în anul 1600. El a unit pentru prima dată cele trei principate: Țara Românească, Moldova și Transilvania.",
@@ -122,7 +122,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Answer when Romania's independence was proclaimed", "uk": "Відповідайте коли було проголошено незалежність Румунії" },
+      "prompt": { "en": "Romania's independence was proclaimed on May 9, 1877. Romania won its independence from the Ottoman Empire, and independence was internationally recognized in 1878.", "uk": "Незалежність Румунії було проголошено 9 травня 1877 року. Румунія здобула незалежність від Османської імперії, і незалежність було визнано міжнародно у 1878 році." },
       "options": [
         {
           "text": "Independența României a fost proclamată la 9 mai 1877. România și-a câștigat independența față de Imperiul Otoman, iar independența a fost recunoscută internațional în 1878.",
@@ -148,7 +148,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Answer about the Great Union of Romania", "uk": "Відповідайте про Велике Об'єднання Румунії" },
+      "prompt": { "en": "The Great Union took place on December 1, 1918. Transylvania, Banat, Crișana, and Maramureș united with Romania. This led to the formation of Greater Romania.", "uk": "Велике Об'єднання відбулося 1 грудня 1918 року. Трансільванія, Банат, Крішана і Марамуреш об'єдналися з Румунією. Це призвело до утворення Великої Румунії." },
       "options": [
         {
           "text": "Marea Unire a avut loc la 1 decembrie 1918. Transilvania, Banatul, Crișana și Maramureșul s-au unit cu România. Aceasta a dus la formarea României Mari.",
@@ -174,7 +174,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Answer who King Ferdinand was", "uk": "Відповідайте хто такий Король Фердинанд" },
+      "prompt": { "en": "King Ferdinand I was the king of Romania during World War I. Under his leadership, the Great Union of 1918 was achieved. He is also called the Unifier King.", "uk": "Король Фердинанд I був королем Румунії під час Першої світової війни. Під його керівництвом було здійснено Велике Об'єднання 1918 року. Його ще називають Королем Об'єднання." },
       "options": [
         {
           "text": "Regele Ferdinand I a fost regele României în timpul Primului Război Mondial. Sub conducerea sa s-a realizat Marea Unire din 1918. Este numit și Regele Întregirii.",
@@ -200,7 +200,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Answer what Romania's national day is", "uk": "Відповідайте який національний день Румунії" },
+      "prompt": { "en": "Romania's national day is December 1st. The Great Union of 1918 is celebrated, when Transylvania united with Romania.", "uk": "Національний день Румунії — 1 грудня. Святкується Велике Об'єднання 1918 року, коли Трансільванія об'єдналася з Румунією." },
       "options": [
         {
           "text": "Ziua națională a României este 1 decembrie. Se sărbătorește Marea Unire din 1918, când Transilvania s-a unit cu România.",
@@ -226,7 +226,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Answer when Romania joined the EU and NATO", "uk": "Відповідайте коли Румунія вступила до ЄС та НАТО" },
+      "prompt": { "en": "Romania joined NATO in 2004 and the European Union in 2007. Joining these organizations was an important objective for Romania.", "uk": "Румунія вступила до НАТО у 2004 році і до Європейського Союзу у 2007 році. Вступ до цих організацій був важливою метою для Румунії." },
       "options": [
         {
           "text": "România a aderat la NATO în anul 2004 și la Uniunea Europeană în anul 2007. Aderarea la aceste organizații a fost un obiectiv important pentru România.",
@@ -252,7 +252,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Answer what happened on December 22, 1989", "uk": "Відповідайте що сталося 22 грудня 1989 року" },
+      "prompt": { "en": "On December 22, 1989, the Romanian Revolution took place. The communist regime of Nicolae Ceaușescu was overthrown. It was a people's revolution for freedom and democracy.", "uk": "22 грудня 1989 року відбулася Румунська революція. Комуністичний режим Ніколае Чаушеску було повалено. Це була народна революція за свободу та демократію." },
       "options": [
         {
           "text": "Pe 22 decembrie 1989 a avut loc Revoluția Română. Regimul comunist al lui Nicolae Ceaușescu a fost înlăturat. A fost o revoluție a poporului pentru libertate și democrație.",
@@ -278,7 +278,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Answer who Vlad Țepeș was", "uk": "Відповідайте хто такий Влад Цепеш" },
+      "prompt": { "en": "Vlad Țepeș was the ruler of Wallachia in the 15th century. He is also known as Vlad Dracula. He fought against the Ottoman Empire and defended the independence of Wallachia.", "uk": "Влад Цепеш був правителем Валахії у XV столітті. Він також відомий як Влад Дракула. Він боровся проти Османської імперії і захищав незалежність Валахії." },
       "options": [
         {
           "text": "Vlad Țepeș a fost domnitorul Țării Românești în secolul al XV-lea. Este cunoscut și ca Vlad Dracula. A luptat împotriva Imperiului Otoman și a apărat independența Țării Românești.",

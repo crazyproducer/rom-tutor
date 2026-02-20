@@ -18,7 +18,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Give your full introduction with name, DOB, and origin", "uk": "Повне представлення: ім'я, дата народження, походження" },
+      "prompt": { "en": "Good day. My name is [Full Name]. I was born on [date] in [city], Ukraine. I am [X] years old.", "uk": "Добрий день. Мене звати [Повне ім'я]. Я народився (народилася) [дата] у місті [місто], Україна. Мені [X] років." },
       "options": [
         {
           "text": "Bună ziua. Mă numesc [Nume Complet]. M-am născut pe data de [dată] în [oraș], Ucraina. Am [X] de ani.",
@@ -44,7 +44,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "State where you live and for how long", "uk": "Скажіть де ви живете і як довго" },
+      "prompt": { "en": "I live in [City], Romania, for [X] years. My address is [Street] street, number [Nr].", "uk": "Я проживаю у місті [Місто], Румунія, вже [X] років. Моя адреса: вулиця [Вулиця], номер [Nr]." },
       "options": [
         {
           "text": "Locuiesc în [Oraș], România, de [X] ani. Adresa mea este strada [Strada], numărul [Nr].",
@@ -70,7 +70,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Describe your occupation and workplace", "uk": "Опишіть вашу професію та місце роботи" },
+      "prompt": { "en": "I work as a [profession] at a company in [City]. I like my job and my colleagues are very nice.", "uk": "Я працюю [професія] у компанії в місті [Місто]. Мені подобається моя робота, і мої колеги дуже приємні." },
       "options": [
         {
           "text": "Lucrez ca [profesie] la o companie din [Oraș]. Îmi place munca mea și colegii mei sunt foarte drăguți.",
@@ -96,7 +96,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Answer about your family situation", "uk": "Відповідайте про вашу сімейну ситуацію" },
+      "prompt": { "en": "Yes, I am married. I have [X] children. My husband/wife also works in Romania. My family has been living here for [X] years.", "uk": "Так, я одружений (заміжня). У мене [X] дітей. Мій чоловік/моя дружина теж працює в Румунії. Моя сім'я живе тут вже [X] років." },
       "options": [
         {
           "text": "Da, sunt căsătorit(ă). Am [X] copii. Soțul/soția mea lucrează tot în România. Familia mea locuiește aici de [X] ani.",
@@ -122,7 +122,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Explain your motivation for Romanian citizenship", "uk": "Поясніть вашу мотивацію для румунського громадянства" },
+      "prompt": { "en": "I want Romanian citizenship because I have lived in Romania for many years, I respect Romanian values and culture, and I want to be part of this community. Romania is my home and I want to contribute to Romanian society.", "uk": "Я хочу румунське громадянство, тому що я живу в Румунії багато років, поважаю румунські цінності та культуру, і хочу бути частиною цієї спільноти. Румунія — мій дім, і я хочу робити внесок у румунське суспільство." },
       "options": [
         {
           "text": "Doresc cetățenia română deoarece locuiesc în România de mulți ani, respect valorile și cultura românească, și doresc să fiu parte din această comunitate. România este casa mea și vreau să contribui la societatea românească.",
@@ -148,7 +148,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Describe your future plans in Romania", "uk": "Опишіть ваші плани на майбутнє в Румунії" },
+      "prompt": { "en": "I want to continue to live and work in Romania. I want to raise my children here, contribute to the community, and develop my career. Romania is my country now.", "uk": "Я хочу продовжувати жити і працювати в Румунії. Я хочу виховувати тут дітей, робити внесок у громаду і розвивати кар'єру. Румунія — тепер моя країна." },
       "options": [
         {
           "text": "Vreau să continui să locuiesc și să lucrez în România. Doresc să îmi cresc copiii aici, să contribui la comunitate și să îmi dezvolt cariera. România este țara mea acum.",
@@ -174,7 +174,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Describe your Romanian language experience", "uk": "Опишіть ваш досвід з румунською мовою" },
+      "prompt": { "en": "I learned the Romanian language at courses and through communication with my colleagues and neighbors. I speak Romanian every day at work and at home. I like the Romanian language, it is a very beautiful language.", "uk": "Я вивчив (вивчила) румунську мову на курсах і через спілкування з колегами та сусідами. Я говорю румунською щодня на роботі і вдома. Мені подобається румунська мова, це дуже гарна мова." },
       "options": [
         {
           "text": "Am învățat limba română la cursuri și prin comunicare cu colegii și vecinii mei. Vorbesc română în fiecare zi la muncă și acasă. Îmi place limba română, este o limbă foarte frumoasă.",
@@ -200,7 +200,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Answer about the capital and major cities of Romania", "uk": "Відповідайте про столицю та великі міста Румунії" },
+      "prompt": { "en": "The capital of Romania is Bucharest. Other important cities are Cluj-Napoca, Timișoara, Iași, Constanța, and Brașov.", "uk": "Столиця Румунії — Бухарест. Інші важливі міста — Клуж-Напока, Тімішоара, Яси, Констанца і Брашов." },
       "options": [
         {
           "text": "Capitala României este București. Alte orașe importante sunt Cluj-Napoca, Timișoara, Iași, Constanța și Brașov.",
@@ -226,7 +226,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Answer about the Romanian national anthem", "uk": "Відповідайте про національний гімн Румунії" },
+      "prompt": { "en": "Yes, the national anthem of Romania is called \"Deșteaptă-te, române!\". It was written by Andrei Mureșanu and became the official anthem in 1989, after the Revolution.", "uk": "Так, національний гімн Румунії називається «Deșteaptă-te, române!». Його написав Андрей Мурешану, і він став офіційним гімном у 1989 році, після Революції." },
       "options": [
         {
           "text": "Da, imnul național al României se numește «Deșteaptă-te, române!». A fost scris de Andrei Mureșanu și a devenit imnul oficial în anul 1989, după Revoluție.",
@@ -252,7 +252,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Answer about Romania's National Day and its significance", "uk": "Відповідайте про Національний день Румунії та його значення" },
+      "prompt": { "en": "Romania's National Day is on December 1st. This date marks the Great Union of 1918, when Transylvania, Banat, Crișana, and Maramureș united with Romania.", "uk": "Національний день Румунії — 1 грудня. Ця дата відзначає Велике Об'єднання 1918 року, коли Трансільванія, Банат, Крішана і Марамуреш об'єдналися з Румунією." },
       "options": [
         {
           "text": "Ziua Națională a României este pe 1 Decembrie. Această dată marchează Marea Unire din 1918, când Transilvania, Banatul, Crișana și Maramureșul s-au unit cu România.",
@@ -278,7 +278,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Answer when Romania joined the EU", "uk": "Відповідайте коли Румунія вступила до ЄС" },
+      "prompt": { "en": "Romania joined the European Union on January 1, 2007, together with Bulgaria. It has been a member state for almost twenty years.", "uk": "Румунія вступила до Європейського Союзу 1 січня 2007 року, разом з Болгарією. Вона є державою-членом вже майже двадцять років." },
       "options": [
         {
           "text": "România a intrat în Uniunea Europeană pe 1 ianuarie 2007, împreună cu Bulgaria. Este un stat membru de aproape douăzeci de ani.",
@@ -304,7 +304,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Answer about the ancestors of Romanians", "uk": "Відповідайте про предків румунів" },
+      "prompt": { "en": "The ancestors of the Romanian people are the Dacians and the Romans. The Romanian people was formed through the union of the Dacians with the Roman colonists, after the conquest of Dacia by Emperor Trajan in the year 106.", "uk": "Предки румунського народу — даки і римляни. Румунський народ сформувався через об'єднання даків з римськими колоністами, після завоювання Дакії імператором Траяном у 106 році." },
       "options": [
         {
           "text": "Strămoșii poporului român sunt dacii și romanii. Poporul român s-a format prin unirea dacilor cu coloniștii romani, după cucerirea Daciei de către împăratul Traian în anul 106.",
@@ -330,7 +330,7 @@
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Recite the oath of allegiance", "uk": "Прочитайте присягу на вірність" },
+      "prompt": { "en": "I swear to be devoted to the homeland and the Romanian people, to defend national rights and interests, to respect the Constitution and the laws of Romania.", "uk": "Я присягаю бути відданим батьківщині та румунському народу, захищати національні права та інтереси, поважати Конституцію та закони Румунії." },
       "options": [
         {
           "text": "Jur să fiu devotat patriei și poporului român, să apăr drepturile și interesele naționale, să respect Constituția și legile României.",
