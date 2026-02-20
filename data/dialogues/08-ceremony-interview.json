@@ -1,351 +1,4589 @@
 {
   "moduleId": "mod-16",
   "dialogueId": "dlg-08",
-  "title": { "en": "The Ceremony Interview", "uk": "Інтерв'ю на церемонії" },
+  "title": {
+    "en": "The Ceremony Interview",
+    "uk": "Інтерв'ю на церемонії"
+  },
   "context": {
     "en": "You are called into the ceremony room. An official from the National Citizenship Authority asks you questions to verify your Romanian language skills and knowledge about Romania. These are real questions from actual oath ceremonies.",
     "uk": "Вас запрошують до зали церемонії. Офіціал з Національного управління з питань громадянства задає вам запитання для перевірки вашого знання румунської мови та знань про Румунію. Це реальні запитання з справжніх церемоній присяги."
   },
   "characters": [
-    { "id": "official", "name": "Oficial ANC", "role": "npc" },
-    { "id": "you", "name": "Dumneavoastră", "role": "player" }
+    {
+      "id": "official",
+      "name": "Oficial ANC",
+      "role": "npc"
+    },
+    {
+      "id": "you",
+      "name": "Dumneavoastră",
+      "role": "player"
+    }
+  ],
+  "categories": [
+    {
+      "id": "A",
+      "name": {
+        "en": "Basic personal / conversational",
+        "uk": "Базові особисті / розмовні",
+        "ro": "Întrebări personale de bază"
+      },
+      "range": "1-15"
+    },
+    {
+      "id": "B",
+      "name": {
+        "en": "Romanian language & daily life",
+        "uk": "Румунська мова та повсякденне життя",
+        "ro": "Limba română și viața de zi cu zi"
+      },
+      "range": "16-30"
+    },
+    {
+      "id": "C",
+      "name": {
+        "en": "Constitution & national symbols",
+        "uk": "Конституція та національні символи",
+        "ro": "Constituția României și simboluri naționale"
+      },
+      "range": "31-45"
+    },
+    {
+      "id": "D",
+      "name": {
+        "en": "Geography of Romania",
+        "uk": "Географія Румунії",
+        "ro": "Geografia României"
+      },
+      "range": "46-60"
+    },
+    {
+      "id": "E",
+      "name": {
+        "en": "History of Romania",
+        "uk": "Історія Румунії",
+        "ro": "Istoria României"
+      },
+      "range": "61-80"
+    },
+    {
+      "id": "F",
+      "name": {
+        "en": "Culture, art & civilization",
+        "uk": "Культура, мистецтво та цивілізація",
+        "ro": "Cultură, artă și civilizație"
+      },
+      "range": "81-95"
+    },
+    {
+      "id": "G",
+      "name": {
+        "en": "Consulate/ANC & oath situations",
+        "uk": "Ситуації в консульстві/ANC та присяга",
+        "ro": "Situații la consulat / ANC și jurământ"
+      },
+      "range": "96-100"
+    }
   ],
   "turns": [
     {
       "speaker": "official",
-      "text": { "ro": "Bună ziua. Vă rog să vă prezentați: numele complet, data nașterii și locul de origine." },
-      "translation": { "en": "Good day. Please introduce yourself: full name, date of birth, and place of origin.", "uk": "Добрий день. Будь ласка, представтесь: повне ім'я, дата народження та місце походження." }
+      "text": {
+        "ro": "Cum vă numiți?"
+      },
+      "translation": {
+        "en": "What is your name?",
+        "uk": "Як вас звуть?"
+      },
+      "category": "A"
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Good day. My name is [Full Name]. I was born on [date] in [city], Ukraine. I am [X] years old.", "uk": "Добрий день. Мене звати [Повне ім'я]. Я народився (народилася) [дата] у місті [місто], Україна. Мені [X] років." },
+      "prompt": {
+        "en": "My name is [Full Name].",
+        "uk": "Мене звуть [Повне ім'я]."
+      },
+      "category": "A",
       "options": [
         {
-          "text": "Bună ziua. Mă numesc [Nume Complet]. M-am născut pe data de [dată] în [oraș], Ucraina. Am [X] de ani.",
+          "text": "Mă numesc [Nume Complet].",
           "quality": "excellent",
-          "feedback": { "en": "Excellent! Complete answer with all requested information.", "uk": "Чудово! Повна відповідь з усією запитаною інформацією." }
-        },
-        {
-          "text": "Mă numesc [Nume]. Sunt din Ucraina.",
-          "quality": "acceptable",
-          "feedback": { "en": "You mentioned name and origin but forgot date of birth. Add: 'M-am născut pe data de...'", "uk": "Ви згадали ім'я і походження, але забули дату народження. Додайте: 'M-am născut pe data de...'" }
+          "feedback": {
+            "en": "Perfect! Clear and polite.",
+            "uk": "Ідеально! Чітко і ввічливо."
+          }
         },
         {
           "text": "Numele meu este [Nume].",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Correct. Mă numesc is more formal.",
+            "uk": "Правильно. Mă numesc офіційніше."
+          }
+        },
+        {
+          "text": "[Nume].",
           "quality": "poor",
-          "feedback": { "en": "Incomplete. The official asked for three things: name, DOB, and origin. Practice answering all parts.", "uk": "Неповно. Офіціал запитав три речі: ім'я, дату народження і походження. Практикуйте повні відповіді." }
+          "feedback": {
+            "en": "Too brief. Use full sentence.",
+            "uk": "Занадто коротко. Використайте повне речення."
+          }
         }
       ]
     },
     {
       "speaker": "official",
-      "text": { "ro": "Unde locuiți în România? De cât timp?" },
-      "translation": { "en": "Where do you live in Romania? For how long?", "uk": "Де ви живете в Румунії? Як довго?" }
+      "text": {
+        "ro": "De unde sunteți?"
+      },
+      "translation": {
+        "en": "Where are you from?",
+        "uk": "Звідки ви?"
+      },
+      "category": "A"
     },
     {
       "speaker": "you",
-      "prompt": { "en": "I live in [City], Romania, for [X] years. My address is [Street] street, number [Nr].", "uk": "Я проживаю у місті [Місто], Румунія, вже [X] років. Моя адреса: вулиця [Вулиця], номер [Nr]." },
+      "prompt": {
+        "en": "I am from [City], Ukraine.",
+        "uk": "Я з міста [Місто], Україна."
+      },
+      "category": "A",
       "options": [
         {
-          "text": "Locuiesc în [Oraș], România, de [X] ani. Adresa mea este strada [Strada], numărul [Nr].",
+          "text": "Sunt din [Oraș], Ucraina.",
           "quality": "excellent",
-          "feedback": { "en": "Very thorough! City, duration, and address.", "uk": "Дуже ретельно! Місто, тривалість і адреса." }
+          "feedback": {
+            "en": "Perfect! Complete answer.",
+            "uk": "Ідеально! Повна відповідь."
+          }
         },
         {
-          "text": "Locuiesc în [Oraș] de [X] ani.",
+          "text": "Din Ucraina.",
           "quality": "acceptable",
-          "feedback": { "en": "Good. You could add your specific address if asked.", "uk": "Добре. Можете додати конкретну адресу, якщо запитають." }
+          "feedback": {
+            "en": "Correct but brief. Add city.",
+            "uk": "Правильно, але коротко. Додайте місто."
+          }
+        },
+        {
+          "text": "Ucraina.",
+          "quality": "poor",
+          "feedback": {
+            "en": "One word isn't enough.",
+            "uk": "Одного слова недостатньо."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "În ce oraș și în ce țară locuiți acum?"
+      },
+      "translation": {
+        "en": "In what city and country do you live now?",
+        "uk": "У якому місті та країні ви зараз живете?"
+      },
+      "category": "A"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "I live in [City], Romania.",
+        "uk": "Я живу в місті [Місто], Румунія."
+      },
+      "category": "A",
+      "options": [
+        {
+          "text": "Locuiesc în [Oraș], România.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Perfect! City and country.",
+            "uk": "Ідеально! Місто і країна."
+          }
+        },
+        {
+          "text": "Locuiesc în România, orașul [Oraș].",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good word order variation.",
+            "uk": "Добрий порядок слів."
+          }
         },
         {
           "text": "În [Oraș].",
           "quality": "poor",
-          "feedback": { "en": "Too short. Use full sentences and answer both questions: where AND how long.", "uk": "Занадто коротко. Використовуйте повні речення і відповідайте на обидва запитання: де І як довго." }
+          "feedback": {
+            "en": "Too brief. Full sentence needed.",
+            "uk": "Занадто коротко. Потрібне повне речення."
+          }
         }
       ]
     },
     {
       "speaker": "official",
-      "text": { "ro": "Cu ce vă ocupați? Unde lucrați?" },
-      "translation": { "en": "What do you do? Where do you work?", "uk": "Чим ви займаєтесь? Де ви працюєте?" }
+      "text": {
+        "ro": "De ce doriți să obțineți cetățenia română?"
+      },
+      "translation": {
+        "en": "Why do you want to obtain Romanian citizenship?",
+        "uk": "Чому ви хочете отримати румунське громадянство?"
+      },
+      "category": "A"
     },
     {
       "speaker": "you",
-      "prompt": { "en": "I work as a [profession] at a company in [City]. I like my job and my colleagues are very nice.", "uk": "Я працюю [професія] у компанії в місті [Місто]. Мені подобається моя робота, і мої колеги дуже приємні." },
+      "prompt": {
+        "en": "I want citizenship because I live here, respect Romanian values, and want to contribute to society.",
+        "uk": "Я хочу громадянство, бо живу тут, поважаю румунські цінності і хочу робити внесок у суспільство."
+      },
+      "category": "A",
       "options": [
         {
-          "text": "Lucrez ca [profesie] la o companie din [Oraș]. Îmi place munca mea și colegii mei sunt foarte drăguți.",
+          "text": "Doresc cetățenia română deoarece locuiesc aici de mulți ani, respect valorile și cultura românească, și doresc să contribui la societatea românească. România este casa mea.",
           "quality": "excellent",
-          "feedback": { "en": "Great! Profession, company location, and a personal touch about colleagues.", "uk": "Чудово! Професія, місце компанії і особисте доповнення про колег." }
+          "feedback": {
+            "en": "Outstanding! Genuine connection and respect.",
+            "uk": "Відмінно! Справжній зв'язок і повага."
+          }
         },
         {
-          "text": "Sunt [profesie]. Lucrez în [Oraș].",
+          "text": "Doresc cetățenia română pentru că locuiesc și lucrez în România de mulți ani.",
           "quality": "acceptable",
-          "feedback": { "en": "Correct but brief. Try: 'Lucrez ca [profesie] la...' to show more language ability.", "uk": "Правильно, але коротко. Спробуйте: 'Lucrez ca [profesie] la...' щоб показати більше мовних здібностей." }
-        },
-        {
-          "text": "[Profesie].",
-          "quality": "poor",
-          "feedback": { "en": "One word is not enough. Build a sentence: 'Lucrez ca [profesie].'", "uk": "Одного слова недостатньо. Побудуйте речення: 'Lucrez ca [profesie].'" }
-        }
-      ]
-    },
-    {
-      "speaker": "official",
-      "text": { "ro": "Sunteți căsătorit(ă)? Aveți copii? Aveți familie în România?" },
-      "translation": { "en": "Are you married? Do you have children? Do you have family in Romania?", "uk": "Ви одружені (заміжня)? У вас є діти? У вас є родина в Румунії?" }
-    },
-    {
-      "speaker": "you",
-      "prompt": { "en": "Yes, I am married. I have [X] children. My husband/wife also works in Romania. My family has been living here for [X] years.", "uk": "Так, я одружений (заміжня). У мене [X] дітей. Мій чоловік/моя дружина теж працює в Румунії. Моя сім'я живе тут вже [X] років." },
-      "options": [
-        {
-          "text": "Da, sunt căsătorit(ă). Am [X] copii. Soțul/soția mea lucrează tot în România. Familia mea locuiește aici de [X] ani.",
-          "quality": "excellent",
-          "feedback": { "en": "Excellent! You answered all three parts: marriage, children, and family presence in Romania.", "uk": "Чудово! Ви відповіли на всі три частини: шлюб, діти та наявність родини в Румунії." }
-        },
-        {
-          "text": "Da, sunt căsătorit(ă) și am [X] copii.",
-          "quality": "acceptable",
-          "feedback": { "en": "Good, but also mention whether your family lives in Romania.", "uk": "Добре, але також згадайте, чи ваша родина живе в Румунії." }
-        },
-        {
-          "text": "Da.",
-          "quality": "poor",
-          "feedback": { "en": "Too short. The official asked three questions. Answer each one: married, children, family in Romania.", "uk": "Занадто коротко. Офіціал задав три запитання. Відповідайте на кожне: шлюб, діти, родина в Румунії." }
-        }
-      ]
-    },
-    {
-      "speaker": "official",
-      "text": { "ro": "De ce doriți cetățenia română?" },
-      "translation": { "en": "Why do you want Romanian citizenship?", "uk": "Чому ви хочете румунське громадянство?" }
-    },
-    {
-      "speaker": "you",
-      "prompt": { "en": "I want Romanian citizenship because I have lived in Romania for many years, I respect Romanian values and culture, and I want to be part of this community. Romania is my home and I want to contribute to Romanian society.", "uk": "Я хочу румунське громадянство, тому що я живу в Румунії багато років, поважаю румунські цінності та культуру, і хочу бути частиною цієї спільноти. Румунія — мій дім, і я хочу робити внесок у румунське суспільство." },
-      "options": [
-        {
-          "text": "Doresc cetățenia română deoarece locuiesc în România de mulți ani, respect valorile și cultura românească, și doresc să fiu parte din această comunitate. România este casa mea și vreau să contribui la societatea românească.",
-          "quality": "excellent",
-          "feedback": { "en": "Outstanding! Shows genuine connection, respect for culture, and desire to contribute.", "uk": "Відмінно! Показує справжній зв'язок, повагу до культури та бажання робити внесок." }
-        },
-        {
-          "text": "Doresc cetățenia română deoarece locuiesc și lucrez aici. Respect legile României.",
-          "quality": "acceptable",
-          "feedback": { "en": "Good practical answer. You could add something about Romanian culture or your emotional connection.", "uk": "Добра практична відповідь. Можете додати щось про румунську культуру або емоційний зв'язок." }
+          "feedback": {
+            "en": "Good. Add emotional connection.",
+            "uk": "Добре. Додайте емоційний зв'язок."
+          }
         },
         {
           "text": "Pentru că locuiesc aici.",
           "quality": "poor",
-          "feedback": { "en": "Too brief for the most important question. Show respect, genuine motivation, and connection to Romania.", "uk": "Занадто коротко для найважливішого питання. Покажіть повагу, справжню мотивацію та зв'язок з Румунією." }
+          "feedback": {
+            "en": "Too brief for key question.",
+            "uk": "Занадто коротко для ключового питання."
+          }
         }
       ]
     },
     {
       "speaker": "official",
-      "text": { "ro": "Care sunt planurile dumneavoastră de viitor după obținerea cetățeniei?" },
-      "translation": { "en": "What are your future plans after obtaining citizenship?", "uk": "Які ваші плани на майбутнє після отримання громадянства?" }
+      "text": {
+        "ro": "Ați mai fost în România? Dacă da, unde și când?"
+      },
+      "translation": {
+        "en": "Have you been to Romania before? If yes, where and when?",
+        "uk": "Ви раніше були в Румунії? Якщо так, де і коли?"
+      },
+      "category": "A"
     },
     {
       "speaker": "you",
-      "prompt": { "en": "I want to continue to live and work in Romania. I want to raise my children here, contribute to the community, and develop my career. Romania is my country now.", "uk": "Я хочу продовжувати жити і працювати в Румунії. Я хочу виховувати тут дітей, робити внесок у громаду і розвивати кар'єру. Румунія — тепер моя країна." },
+      "prompt": {
+        "en": "Yes, I visited București, Cluj-Napoca, and Brașov in 2022 and 2023.",
+        "uk": "Так, я відвідував Бухарест, Клуж-Напока і Брашов у 2022 і 2023 роках."
+      },
+      "category": "A",
       "options": [
         {
-          "text": "Vreau să continui să locuiesc și să lucrez în România. Doresc să îmi cresc copiii aici, să contribui la comunitate și să îmi dezvolt cariera. România este țara mea acum.",
+          "text": "Da, am vizitat România de mai multe ori. Am fost în București, Cluj-Napoca și Brașov în anii 2022 și 2023.",
           "quality": "excellent",
-          "feedback": { "en": "Excellent! Shows long-term commitment to living, working, and contributing in Romania.", "uk": "Чудово! Показує довгострокову відданість проживанню, роботі та внеску в Румунії." }
+          "feedback": {
+            "en": "Excellent! Specific cities and dates.",
+            "uk": "Чудово! Конкретні міста і дати."
+          }
         },
         {
-          "text": "Vreau să continui să locuiesc și să lucrez în România.",
+          "text": "Da, am fost în România în 2023. Am vizitat câteva orașe.",
           "quality": "acceptable",
-          "feedback": { "en": "Good basic answer. You could add more about family, community, or career plans.", "uk": "Добра базова відповідь. Можете додати більше про родину, громаду або кар'єрні плани." }
+          "feedback": {
+            "en": "Good. Add specific city names.",
+            "uk": "Добре. Додайте конкретні назви міст."
+          }
         },
         {
-          "text": "Nu știu exact.",
+          "text": "Da, am fost.",
           "quality": "poor",
-          "feedback": { "en": "This answer raises concerns. Show clear commitment to staying and contributing in Romania.", "uk": "Ця відповідь викликає занепокоення. Покажіть чітку відданість залишитися і робити внесок у Румунії." }
+          "feedback": {
+            "en": "Too brief. Say where and when.",
+            "uk": "Занадто коротко. Скажіть де і коли."
+          }
         }
       ]
     },
     {
       "speaker": "official",
-      "text": { "ro": "Cum vă descurcați cu limba română? Unde ați învățat-o?" },
-      "translation": { "en": "How do you manage with the Romanian language? Where did you learn it?", "uk": "Як ви справляєтесь з румунською мовою? Де ви її вивчили?" }
+      "text": {
+        "ro": "Ce știți despre poporul român?"
+      },
+      "translation": {
+        "en": "What do you know about the Romanian people?",
+        "uk": "Що ви знаєте про румунський народ?"
+      },
+      "category": "A"
     },
     {
       "speaker": "you",
-      "prompt": { "en": "I learned the Romanian language at courses and through communication with my colleagues and neighbors. I speak Romanian every day at work and at home. I like the Romanian language, it is a very beautiful language.", "uk": "Я вивчив (вивчила) румунську мову на курсах і через спілкування з колегами та сусідами. Я говорю румунською щодня на роботі і вдома. Мені подобається румунська мова, це дуже гарна мова." },
+      "prompt": {
+        "en": "The Romanian people are warm and hospitable. They are proud of their Latin heritage.",
+        "uk": "Румунський народ теплий і гостинний. Вони пишаються своєю латинською спадщиною."
+      },
+      "category": "A",
       "options": [
         {
-          "text": "Am învățat limba română la cursuri și prin comunicare cu colegii și vecinii mei. Vorbesc română în fiecare zi la muncă și acasă. Îmi place limba română, este o limbă foarte frumoasă.",
+          "text": "Poporul român este călduros și ospitalier. Românii sunt mândri de originea lor latină și au o cultură și o istorie bogată.",
           "quality": "excellent",
-          "feedback": { "en": "Excellent! You explained how you learned, that you use it daily, and showed appreciation for the language.", "uk": "Чудово! Ви пояснили як вивчили, що використовуєте щодня, і показали повагу до мови." }
+          "feedback": {
+            "en": "Excellent! Hospitality and Latin heritage.",
+            "uk": "Чудово! Гостинність і латинська спадщина."
+          }
         },
         {
-          "text": "Am învățat română la cursuri. Vorbesc română la muncă.",
+          "text": "Poporul român are o istorie lungă și o cultură frumoasă.",
           "quality": "acceptable",
-          "feedback": { "en": "Good. Try adding how you feel about the language and more details about daily use.", "uk": "Добре. Спробуйте додати як ви ставитесь до мови та більше деталей про щоденне використання." }
+          "feedback": {
+            "en": "Good. Add Latin origin.",
+            "uk": "Добре. Додайте латинське походження."
+          }
         },
         {
-          "text": "Am învățat puțin.",
+          "text": "Sunt oameni buni.",
           "quality": "poor",
-          "feedback": { "en": "This sounds like you do not speak Romanian well. Show confidence: 'Am învățat română la cursuri și vorbesc în fiecare zi.'", "uk": "Це звучить ніби ви не говорите румунською добре. Покажіть впевненість: 'Am învățat română la cursuri și vorbesc în fiecare zi.'" }
+          "feedback": {
+            "en": "Too general. Be specific.",
+            "uk": "Занадто загально. Будьте конкретніші."
+          }
         }
       ]
     },
     {
       "speaker": "official",
-      "text": { "ro": "Care este capitala României? Numiți câteva orașe importante." },
-      "translation": { "en": "What is the capital of Romania? Name some important cities.", "uk": "Яка столиця Румунії? Назвіть кілька важливих міст." }
+      "text": {
+        "ro": "Cu ce vă ocupați în prezent?"
+      },
+      "translation": {
+        "en": "What do you currently do?",
+        "uk": "Чим ви зараз займаєтесь?"
+      },
+      "category": "A"
     },
     {
       "speaker": "you",
-      "prompt": { "en": "The capital of Romania is Bucharest. Other important cities are Cluj-Napoca, Timișoara, Iași, Constanța, and Brașov.", "uk": "Столиця Румунії — Бухарест. Інші важливі міста — Клуж-Напока, Тімішоара, Яси, Констанца і Брашов." },
+      "prompt": {
+        "en": "I work as a [profession] at a company.",
+        "uk": "Я працюю [професія] у компанії."
+      },
+      "category": "A",
       "options": [
         {
-          "text": "Capitala României este București. Alte orașe importante sunt Cluj-Napoca, Timișoara, Iași, Constanța și Brașov.",
+          "text": "Lucrez ca [profesie] la o companie din [Oraș]. Îmi place munca mea.",
           "quality": "excellent",
-          "feedback": { "en": "Perfect! Capital and five major cities correctly named.", "uk": "Ідеально! Столиця і п'ять великих міст правильно названі." }
+          "feedback": {
+            "en": "Excellent! Job, location, personal.",
+            "uk": "Чудово! Робота, місце, особисте."
+          }
         },
         {
-          "text": "Capitala este București. Un oraș important este Cluj-Napoca.",
+          "text": "Sunt [profesie] și lucrez într-o companie.",
           "quality": "acceptable",
-          "feedback": { "en": "Good. Try to name at least 3-4 cities to show broader knowledge.", "uk": "Добре. Спробуйте назвати хоча б 3-4 міста, щоб показати ширші знання." }
+          "feedback": {
+            "en": "Good. Add location.",
+            "uk": "Добре. Додайте місце."
+          }
+        },
+        {
+          "text": "[Profesie].",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too brief.",
+            "uk": "Занадто коротко."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Vorbiți și alte limbi străine? Care?"
+      },
+      "translation": {
+        "en": "Do you speak other foreign languages? Which?",
+        "uk": "Ви говорите іншими іноземними мовами? Якими?"
+      },
+      "category": "A"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Yes, I speak Ukrainian, English, and Russian.",
+        "uk": "Так, я говорю українською, англійською і російською."
+      },
+      "category": "A",
+      "options": [
+        {
+          "text": "Da, vorbesc ucraineană, engleză și puțin rusă. Învăț limba română.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Perfect! Listed languages.",
+            "uk": "Ідеально! Перераховані мови."
+          }
+        },
+        {
+          "text": "Da, vorbesc ucraineană și engleză.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good.",
+            "uk": "Добре."
+          }
+        },
+        {
+          "text": "Da.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Say which languages.",
+            "uk": "Скажіть які мови."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Aveți rude în România? Cine sunt și unde locuiesc?"
+      },
+      "translation": {
+        "en": "Do you have relatives in Romania? Who and where?",
+        "uk": "У вас є родичі в Румунії? Хто і де?"
+      },
+      "category": "A"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Yes, my [relative] lives in [City].",
+        "uk": "Так, мій/моя [родич] живе в [Місто]."
+      },
+      "category": "A",
+      "options": [
+        {
+          "text": "Da, am rude în România. Soțul/Soția mea locuiește în [Oraș] și lucrează ca [profesie].",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Who, where, what.",
+            "uk": "Чудово! Хто, де, що."
+          }
+        },
+        {
+          "text": "Da, am rude în [Oraș].",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good. Add who.",
+            "uk": "Добре. Додайте хто."
+          }
+        },
+        {
+          "text": "Da.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too brief.",
+            "uk": "Занадто коротко."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Ce vă place cel mai mult la România?"
+      },
+      "translation": {
+        "en": "What do you like most about Romania?",
+        "uk": "Що вам найбільше подобається в Румунії?"
+      },
+      "category": "A"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "I like the nature, culture, and people.",
+        "uk": "Мені подобається природа, культура та люди."
+      },
+      "category": "A",
+      "options": [
+        {
+          "text": "Îmi place natura frumoasă, cultura bogată și oamenii prietenoși. De asemenea, îmi place limba română.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Nature, culture, people, language.",
+            "uk": "Чудово! Природа, культура, люди, мова."
+          }
+        },
+        {
+          "text": "Îmi place natura și cultura României.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good. Mention people.",
+            "uk": "Добре. Згадайте людей."
+          }
+        },
+        {
+          "text": "Îmi place.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Say what.",
+            "uk": "Скажіть що."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Ce intenționați să faceți după obținerea cetățeniei române?"
+      },
+      "translation": {
+        "en": "What will you do after obtaining citizenship?",
+        "uk": "Що ви робитимете після отримання громадянства?"
+      },
+      "category": "A"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "I will continue to live and work in Romania.",
+        "uk": "Я продовжу жити і працювати в Румунії."
+      },
+      "category": "A",
+      "options": [
+        {
+          "text": "Voi continua să locuiesc și să lucrez în România. Doresc să contribui la societate și să îmi cresc copiii aici.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Long-term commitment.",
+            "uk": "Чудово! Довгострокова відданість."
+          }
+        },
+        {
+          "text": "Voi continua să locuiesc în România.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good. Add contribution.",
+            "uk": "Добре. Додайте внесок."
+          }
+        },
+        {
+          "text": "Nu știu.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Show commitment.",
+            "uk": "Покажіть відданість."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Înțelegeți care sunt drepturile și obligațiile dumneavoastră ca cetățean român?"
+      },
+      "translation": {
+        "en": "Do you understand your rights and obligations?",
+        "uk": "Ви розумієте ваші права та обов'язки?"
+      },
+      "category": "A"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Yes. I have rights to vote and work. I must respect laws and pay taxes.",
+        "uk": "Так. Я маю право голосувати і працювати. Я повинен поважати закони і сплачувати податки."
+      },
+      "category": "A",
+      "options": [
+        {
+          "text": "Da, înțeleg. Am dreptul la vot, la muncă și la protecție socială. Trebuie să respect Constituția și legile, și să plătesc taxe.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Rights and obligations.",
+            "uk": "Чудово! Права і обов'язки."
+          }
+        },
+        {
+          "text": "Da, am drepturi și obligații.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Add examples.",
+            "uk": "Додайте приклади."
+          }
+        },
+        {
+          "text": "Da.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Explain.",
+            "uk": "Поясніть."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cum ați învățat limba română?"
+      },
+      "translation": {
+        "en": "How did you learn Romanian?",
+        "uk": "Як ви вивчили румунську?"
+      },
+      "category": "A"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "I learned at courses and through daily practice.",
+        "uk": "Я вивчив на курсах і через щоденну практику."
+      },
+      "category": "A",
+      "options": [
+        {
+          "text": "Am învățat la cursuri și prin comunicare zilnică cu colegii. Vorbesc română în fiecare zi. Îmi place limba română.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Courses, practice, appreciation.",
+            "uk": "Чудово! Курси, практика, повага."
+          }
+        },
+        {
+          "text": "Am învățat la cursuri și prin comunicare.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Add daily practice.",
+            "uk": "Додайте щоденну практику."
+          }
+        },
+        {
+          "text": "La cursuri.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Explain more.",
+            "uk": "Поясніть більше."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Ce sărbători românești cunoașteți?"
+      },
+      "translation": {
+        "en": "What Romanian holidays do you know?",
+        "uk": "Які румунські свята ви знаєте?"
+      },
+      "category": "A"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "I know National Day, Christmas, Easter, and Mărțișor.",
+        "uk": "Я знаю Національний день, Різдво, Великдень і Мерцішор."
+      },
+      "category": "A",
+      "options": [
+        {
+          "text": "Cunosc Ziua Națională pe 1 Decembrie, Crăciunul, Paștele și Mărțișorul pe 1 Martie.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! National, religious, traditional.",
+            "uk": "Чудово! Національні, релігійні, традиційні."
+          }
+        },
+        {
+          "text": "Cunosc Ziua Națională și Crăciunul.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Add more holidays.",
+            "uk": "Додайте більше свят."
+          }
+        },
+        {
+          "text": "Ziua Națională.",
+          "quality": "poor",
+          "feedback": {
+            "en": "List several.",
+            "uk": "Перерахуйте кілька."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Puteți să vă prezentați pe scurt în limba română?"
+      },
+      "translation": {
+        "en": "Can you introduce yourself briefly?",
+        "uk": "Чи можете ви коротко представитися?"
+      },
+      "category": "A"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "My name is [Name]. I am from Ukraine, live in [City], work as [profession], and learn Romanian.",
+        "uk": "Мене звуть [Ім'я]. Я з України, живу в [Місто], працюю [професія] і вивчаю румунську."
+      },
+      "category": "A",
+      "options": [
+        {
+          "text": "Mă numesc [Nume]. Sunt din Ucraina și locuiesc în [Oraș], România. Lucrez ca [profesie] și învăț limba română. Îmi place România și doresc să devin cetățean român.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Complete introduction.",
+            "uk": "Чудово! Повне представлення."
+          }
+        },
+        {
+          "text": "Mă numesc [Nume], sunt din Ucraina și locuiesc în România.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Add profession and motivation.",
+            "uk": "Додайте професію і мотивацію."
+          }
+        },
+        {
+          "text": "Mă numesc [Nume].",
+          "quality": "poor",
+          "feedback": {
+            "en": "Give full introduction.",
+            "uk": "Дайте повне представлення."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cum salutați o persoană dimineața? Dar seara?"
+      },
+      "translation": {
+        "en": "How do you greet someone in the morning? And evening?",
+        "uk": "Як ви вітаєте вранці? А ввечері?"
+      },
+      "category": "B"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "In the morning 'Bună dimineața!'. In the evening 'Bună seara!'.",
+        "uk": "Вранці 'Bună dimineața!'. Ввечері 'Bună seara!'."
+      },
+      "category": "B",
+      "options": [
+        {
+          "text": "Dimineața spun «Bună dimineața!» sau «Bună ziua!». Seara spun «Bună seara!». Când plec spun «La revedere!»",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Morning, evening, goodbye.",
+            "uk": "Чудово! Ранок, вечір, прощання."
+          }
+        },
+        {
+          "text": "Dimineața spun «Bună dimineața!», seara «Bună seara!»",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Perfect! Both correct.",
+            "uk": "Ідеально! Обидва правильні."
+          }
+        },
+        {
+          "text": "Bună.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Use full phrases.",
+            "uk": "Використайте повні фрази."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cum cereți politicos o informație pe stradă?"
+      },
+      "translation": {
+        "en": "How do you politely ask for information on the street?",
+        "uk": "Як ви ввічливо запитуєте інформацію?"
+      },
+      "category": "B"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "I say: Excuse me, can you tell me where the station is?",
+        "uk": "Я кажу: Вибачте, чи можете ви сказати де вокзал?"
+      },
+      "category": "B",
+      "options": [
+        {
+          "text": "Spun: «Scuzați-mă, puteți să îmi spuneți unde este gara?» sau «Vă rog, cum ajung la metrou?»",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Polite forms scuzați-mă and vă rog.",
+            "uk": "Чудово! Ввічливі форми scuzați-mă і vă rog."
+          }
+        },
+        {
+          "text": "«Scuzați-mă, unde este gara?»",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good and polite.",
+            "uk": "Добре і ввічливо."
+          }
+        },
+        {
+          "text": "«Unde gara?»",
+          "quality": "poor",
+          "feedback": {
+            "en": "Missing scuzați-mă.",
+            "uk": "Відсутнє scuzați-mă."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cum ați cere nota de plată la restaurant?"
+      },
+      "translation": {
+        "en": "How would you ask for the bill at a restaurant?",
+        "uk": "Як би ви попросили рахунок у ресторані?"
+      },
+      "category": "B"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "I would say: Excuse me, can I have the bill, please?",
+        "uk": "Я б сказав: Вибачте, чи можу я отримати рахунок, будь ласка?"
+      },
+      "category": "B",
+      "options": [
+        {
+          "text": "Aș spune: «Scuzați-mă, pot să primesc nota de plată, vă rog?» sau «Nota de plată, vă rog frumos!»",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Polite request forms.",
+            "uk": "Чудово! Ввічливі форми прохання."
+          }
+        },
+        {
+          "text": "«Nota de plată, vă rog!»",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good and polite.",
+            "uk": "Добре і ввічливо."
+          }
+        },
+        {
+          "text": "«Nota!»",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too abrupt. Add vă rog.",
+            "uk": "Занадто різко. Додайте vă rog."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cum ați întreba unde este cea mai apropiată stație de metrou sau de autobuz?"
+      },
+      "translation": {
+        "en": "How would you ask where the nearest metro or bus station is?",
+        "uk": "Як би ви запитали де найближча станція метро?"
+      },
+      "category": "B"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Excuse me, where is the nearest metro station?",
+        "uk": "Вибачте, де найближча станція метро?"
+      },
+      "category": "B",
+      "options": [
+        {
+          "text": "Aș întreba: «Scuzați-mă, unde este cea mai apropiată stație de metrou?» sau «Vă rog, unde găsesc o stație de autobuz?»",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Polite with correct superlative.",
+            "uk": "Чудово! Ввічливо з правильним найвищим ступенем."
+          }
+        },
+        {
+          "text": "«Unde este metroul cel mai apropiat?»",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good. Slight word order issue.",
+            "uk": "Добре. Трохи незграбний порядок."
+          }
+        },
+        {
+          "text": "«Unde metrou?»",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too brief. Full sentence.",
+            "uk": "Занадто коротко. Повне речення."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cum vă scuzați dacă întârziați la o programare?"
+      },
+      "translation": {
+        "en": "How do you apologize if late for an appointment?",
+        "uk": "Як ви вибачаєтесь, якщо запізнюєтесь?"
+      },
+      "category": "B"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "I am very sorry for being late. I had traffic problems.",
+        "uk": "Мені дуже шкода, що запізнився. У мене були проблеми з рухом."
+      },
+      "category": "B",
+      "options": [
+        {
+          "text": "Îmi pare foarte rău că am întârziat. Am avut probleme cu traficul. Vă rog să mă iertați.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Apology and explanation.",
+            "uk": "Чудово! Вибачення і пояснення."
+          }
+        },
+        {
+          "text": "Îmi pare rău că am întârziat.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good apology.",
+            "uk": "Добре вибачення."
+          }
+        },
+        {
+          "text": "Am întârziat.",
+          "quality": "poor",
+          "feedback": {
+            "en": "No apology. Add îmi pare rău.",
+            "uk": "Немає вибачення. Додайте îmi pare rău."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cum ați explica unui funcționar că v-ați schimbat adresa?"
+      },
+      "translation": {
+        "en": "How would you explain to an official that you changed address?",
+        "uk": "Як би ви пояснили чиновнику, що змінили адресу?"
+      },
+      "category": "B"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "I changed my address. My new address is [Street], number [Nr].",
+        "uk": "Я змінив адресу. Моя нова адреса: вулиця [Вулиця], номер [Nr]."
+      },
+      "category": "B",
+      "options": [
+        {
+          "text": "Doresc să vă informez că mi-am schimbat adresa. Noua mea adresă este strada [Strada], numărul [Nr], [Oraș].",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Formal notification.",
+            "uk": "Чудово! Офіційне повідомлення."
+          }
+        },
+        {
+          "text": "Mi-am schimbat adresa. Noua adresă este [Strada], [Nr].",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good. More formal: 'Doresc să vă informez'.",
+            "uk": "Добре. Офіційніше: 'Doresc să vă informez'."
+          }
+        },
+        {
+          "text": "Adresa nouă: [Strada].",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too informal. Use full sentences.",
+            "uk": "Занадто неофіційно."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cum ați cere la ghișeu o copie după un document oficial?"
+      },
+      "translation": {
+        "en": "How would you ask for a copy of an official document at the counter?",
+        "uk": "Як би ви попросили копію офіційного документа?"
+      },
+      "category": "B"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "I would like to request a copy of my birth certificate, please.",
+        "uk": "Я хотів би попросити копію свідоцтва про народження, будь ласка."
+      },
+      "category": "B",
+      "options": [
+        {
+          "text": "Aș dori să solicit o copie după certificatul meu de naștere, vă rog. Este posibil să o primesc astăzi?",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Polite formal request.",
+            "uk": "Чудово! Ввічливе офіційне прохання."
+          }
+        },
+        {
+          "text": "Doresc o copie după certificatul de naștere, vă rog.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good formal request.",
+            "uk": "Добре офіційне прохання."
+          }
+        },
+        {
+          "text": "Vreau copie.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too brief and informal.",
+            "uk": "Занадто коротко і неофіційно."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Dați un exemplu de întrebare formală (politicoasă) și una informală."
+      },
+      "translation": {
+        "en": "Give an example of a formal (polite) question and an informal one.",
+        "uk": "Дайте приклад офіційного питання та неофіційного."
+      },
+      "category": "B"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Formal: 'Could you please help me?' Informal: 'Can you help me?'",
+        "uk": "Офіційне: 'Чи могли б ви допомогти?' Неофіційне: 'Можеш допомогти?'"
+      },
+      "category": "B",
+      "options": [
+        {
+          "text": "Formală: «Ați putea să mă ajutați, vă rog?» Informală: «Mă poți ajuta?». Forma formală folosește «dumneavoastră», cea informală «tu».",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Shows formal/informal distinction.",
+            "uk": "Чудово! Показує офіційне/неофіційне розрізнення."
+          }
+        },
+        {
+          "text": "Formală: «Puteți să mă ajutați?» Informală: «Poți să mă ajuți?»",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good! Correct forms.",
+            "uk": "Добре! Правильні форми."
+          }
+        },
+        {
+          "text": "«Ajută-mă!»",
+          "quality": "poor",
+          "feedback": {
+            "en": "Not a question. Give both forms.",
+            "uk": "Не питання. Дайте обидві форми."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cum ați explica că nu ați înțeles o frază și rugați să fie repetată?"
+      },
+      "translation": {
+        "en": "How would you explain you didn't understand and ask for repetition?",
+        "uk": "Як би ви пояснили, що не зрозуміли і попросили повторити?"
+      },
+      "category": "B"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "I'm sorry, I didn't understand. Could you please repeat?",
+        "uk": "Вибачте, я не зрозумів. Чи могли б ви повторити?"
+      },
+      "category": "B",
+      "options": [
+        {
+          "text": "Îmi pare rău, nu am înțeles. Puteți să repetați, vă rog? Ați putea să vorbiți mai încet?",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Apology, request, slower speech.",
+            "uk": "Чудово! Вибачення, прохання, повільніше."
+          }
+        },
+        {
+          "text": "Scuzați-mă, nu am înțeles. Repetați, vă rog.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good polite request.",
+            "uk": "Добре ввічливе прохання."
+          }
+        },
+        {
+          "text": "Nu înțeleg.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Add politeness and request.",
+            "uk": "Додайте ввічливість і прохання."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cum spuneți, în română, că sunteți de acord cu o decizie oficială?"
+      },
+      "translation": {
+        "en": "How do you say in Romanian that you agree with an official decision?",
+        "uk": "Як ви кажете румунською, що згодні з офіційним рішенням?"
+      },
+      "category": "B"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "I agree with this decision. I understand and accept it.",
+        "uk": "Я згоден з цим рішенням. Я розумію і приймаю його."
+      },
+      "category": "B",
+      "options": [
+        {
+          "text": "Sunt de acord cu această decizie. Înțeleg și accept condițiile. Mulțumesc pentru informație.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Agreement, understanding, thanks.",
+            "uk": "Чудово! Згода, розуміння, подяка."
+          }
+        },
+        {
+          "text": "Sunt de acord. Mulțumesc.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good. Brief but polite.",
+            "uk": "Добре. Коротко, але ввічливо."
+          }
+        },
+        {
+          "text": "Da.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too brief. Use 'sunt de acord'.",
+            "uk": "Занадто коротко. Використайте 'sunt de acord'."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cum cereți ajutor în caz de urgență?"
+      },
+      "translation": {
+        "en": "How do you ask for help in an emergency?",
+        "uk": "Як ви просите допомоги в надзвичайній ситуації?"
+      },
+      "category": "B"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Help! Please call an ambulance!",
+        "uk": "Допоможіть! Будь ласка, викличте швидку!"
+      },
+      "category": "B",
+      "options": [
+        {
+          "text": "Ajutor! Vă rog, chemați o ambulanță! Este o urgență!",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Clear emergency call.",
+            "uk": "Чудово! Чіткий екстрений виклик."
+          }
+        },
+        {
+          "text": "Ajutor! Chemați ambulanța!",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good emergency call.",
+            "uk": "Добрий екстрений виклик."
+          }
+        },
+        {
+          "text": "Ajutor!",
+          "quality": "poor",
+          "feedback": {
+            "en": "Add what you need.",
+            "uk": "Додайте що потрібно."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cum felicitați pe cineva cu ocazia zilei naționale a României?"
+      },
+      "translation": {
+        "en": "How do you congratulate someone on Romania's national day?",
+        "uk": "Як ви вітаєте з національним днем Румунії?"
+      },
+      "category": "B"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Happy National Day of Romania!",
+        "uk": "Щасливого Національного дня Румунії!"
+      },
+      "category": "B",
+      "options": [
+        {
+          "text": "La mulți ani de Ziua Națională a României! Sărbători fericite! Trăiască România!",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Full celebration greeting.",
+            "uk": "Чудово! Повне святкове вітання."
+          }
+        },
+        {
+          "text": "La mulți ani de Ziua Națională!",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good! Correct greeting.",
+            "uk": "Добре! Правильне вітання."
+          }
+        },
+        {
+          "text": "Felicitări.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too brief. Use 'La mulți ani'.",
+            "uk": "Занадто коротко. Використайте 'La mulți ani'."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cum formulați, pe scurt, o cerere oficială către o instituție românească?"
+      },
+      "translation": {
+        "en": "How do you formulate briefly an official request to a Romanian institution?",
+        "uk": "Як ви формулюєте офіційний запит до румунської установи?"
+      },
+      "category": "B"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "I request a copy of my residence certificate.",
+        "uk": "Я прошу копію довідки про проживання."
+      },
+      "category": "B",
+      "options": [
+        {
+          "text": "Subsemnatul/Subsemnata [Nume] vă rog să îmi eliberați o copie după certificatul de reședință. Mulțumesc anticipat.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Formal structure with subsemnatul.",
+            "uk": "Чудово! Офіційна структура з subsemnatul."
+          }
+        },
+        {
+          "text": "Solicit o copie a certificatului de reședință, vă rog.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good. Add subsemnatul for formality.",
+            "uk": "Добре. Додайте subsemnatul для офіційності."
+          }
+        },
+        {
+          "text": "Vreau certificat.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too informal. Use 'solicit' or 'vă rog'.",
+            "uk": "Занадто неофіційно."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cum mulțumiți la finalul unei discuții cu un funcționar public?"
+      },
+      "translation": {
+        "en": "How do you thank at the end of a discussion with a public official?",
+        "uk": "Як ви дякуєте в кінці розмови з держслужбовцем?"
+      },
+      "category": "B"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Thank you very much for your help. Have a good day!",
+        "uk": "Дуже дякую за допомогу. Гарного дня!"
+      },
+      "category": "B",
+      "options": [
+        {
+          "text": "Vă mulțumesc foarte mult pentru ajutor și pentru timpul acordat. Vă doresc o zi bună! La revedere!",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Thanks, time, good wishes, goodbye.",
+            "uk": "Чудово! Подяка, час, побажання, прощання."
+          }
+        },
+        {
+          "text": "Mulțumesc mult pentru ajutor. O zi bună!",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good! Polite thanks.",
+            "uk": "Добре! Ввічлива подяка."
+          }
+        },
+        {
+          "text": "Mulțumesc.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Add 'foarte mult' and 'o zi bună'.",
+            "uk": "Додайте 'foarte mult' і 'o zi bună'."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cum întrebați despre programul de lucru al unei instituții?"
+      },
+      "translation": {
+        "en": "How do you ask about an institution's working hours?",
+        "uk": "Як ви запитуєте про графік роботи установи?"
+      },
+      "category": "B"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "What are your working hours?",
+        "uk": "Який ваш графік роботи?"
+      },
+      "category": "B",
+      "options": [
+        {
+          "text": "Vă rog să îmi spuneți care este programul dumneavoastră de lucru? La ce oră deschideți și până când lucrați?",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Polite with opening and closing times.",
+            "uk": "Чудово! Ввічливо з часом відкриття і закриття."
+          }
+        },
+        {
+          "text": "Care este programul de lucru, vă rog?",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good polite question.",
+            "uk": "Добре ввічливе питання."
+          }
+        },
+        {
+          "text": "Program?",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too brief. Full question needed.",
+            "uk": "Занадто коротко. Потрібне повне питання."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Care este forma de guvernământ a României?"
+      },
+      "translation": {
+        "en": "What is the form of government of Romania?",
+        "uk": "Яка форма правління в Румунії?"
+      },
+      "category": "C"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Romania is a republic.",
+        "uk": "Румунія - республіка."
+      },
+      "category": "C",
+      "options": [
+        {
+          "text": "România este o republică. Mai precis, este o republică semiprezidențială, conform Constituției.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Republic and semi-presidential detail.",
+            "uk": "Чудово! Республіка і напівпрезидентська деталь."
+          }
+        },
+        {
+          "text": "România este o republică.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Correct! Could add semi-presidential.",
+            "uk": "Правильно! Можна додати напівпрезидентська."
+          }
+        },
+        {
+          "text": "Este o țară.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. Say 'republică'.",
+            "uk": "Занадто розпливчасто. Скажіть 'republică'."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Care este capitala României?"
+      },
+      "translation": {
+        "en": "What is the capital of Romania?",
+        "uk": "Яка столиця Румунії?"
+      },
+      "category": "C"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "The capital of Romania is București.",
+        "uk": "Столиця Румунії - Бухарест."
+      },
+      "category": "C",
+      "options": [
+        {
+          "text": "Capitala României este București, cel mai mare oraș al țării.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Capital and largest city.",
+            "uk": "Чудово! Столиця і найбільше місто."
+          }
+        },
+        {
+          "text": "Capitala este București.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Correct!",
+            "uk": "Правильно!"
+          }
         },
         {
           "text": "București.",
           "quality": "poor",
-          "feedback": { "en": "Correct but too brief. Full answer: 'Capitala României este București.' Then add more cities.", "uk": "Правильно, але занадто коротко. Повна відповідь: 'Capitala României este București.' Потім додайте інші міста." }
+          "feedback": {
+            "en": "Use full sentence: 'Capitala este București'.",
+            "uk": "Використайте повне речення."
+          }
         }
       ]
     },
     {
       "speaker": "official",
-      "text": { "ro": "Cunoașteți imnul național al României? Cum se numește?" },
-      "translation": { "en": "Do you know the national anthem of Romania? What is it called?", "uk": "Ви знаєте національний гімн Румунії? Як він називається?" }
+      "text": {
+        "ro": "Care sunt culorile drapelului României și ce reprezintă?"
+      },
+      "translation": {
+        "en": "What are the colors of Romania's flag and what do they represent?",
+        "uk": "Які кольори прапора Румунії та що вони означають?"
+      },
+      "category": "C"
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Yes, the national anthem of Romania is called \"Deșteaptă-te, române!\". It was written by Andrei Mureșanu and became the official anthem in 1989, after the Revolution.", "uk": "Так, національний гімн Румунії називається «Deșteaptă-te, române!». Його написав Андрей Мурешану, і він став офіційним гімном у 1989 році, після Революції." },
+      "prompt": {
+        "en": "The colors are blue, yellow, and red.",
+        "uk": "Кольори - синій, жовтий і червоний."
+      },
+      "category": "C",
       "options": [
         {
-          "text": "Da, imnul național al României se numește «Deșteaptă-te, române!». A fost scris de Andrei Mureșanu și a devenit imnul oficial în anul 1989, după Revoluție.",
+          "text": "Culorile drapelului României sunt albastru, galben și roșu, așezate vertical. Aceste culori simbolizează libertatea, dreptatea și fraternitatea.",
           "quality": "excellent",
-          "feedback": { "en": "Excellent! You know the name, author, and when it became official.", "uk": "Чудово! Ви знаєте назву, автора і коли він став офіційним." }
+          "feedback": {
+            "en": "Excellent! Colors, arrangement, symbolism.",
+            "uk": "Чудово! Кольори, розташування, символіка."
+          }
         },
         {
-          "text": "Da, imnul se numește «Deșteaptă-te, române!».",
+          "text": "Culorile sunt albastru, galben și roșu.",
           "quality": "acceptable",
-          "feedback": { "en": "Good. You could also mention the author Andrei Mureșanu for a more complete answer.", "uk": "Добре. Можете також згадати автора Андрей Мурешану для повнішої відповіді." }
+          "feedback": {
+            "en": "Correct! Could add symbolism.",
+            "uk": "Правильно! Можна додати символіку."
+          }
         },
         {
-          "text": "Da, îl știu, dar nu îmi amintesc numele.",
+          "text": "Albastru și roșu.",
           "quality": "poor",
-          "feedback": { "en": "You must know the anthem name: 'Deșteaptă-te, române!' This is essential knowledge.", "uk": "Ви повинні знати назву гімну: 'Deșteaptă-te, române!' Це обов'язкові знання." }
+          "feedback": {
+            "en": "Missing galben (yellow). Three colors.",
+            "uk": "Відсутній galben (жовтий). Три кольори."
+          }
         }
       ]
     },
     {
       "speaker": "official",
-      "text": { "ro": "Când este Ziua Națională a României? Ce semnificație are această dată?" },
-      "translation": { "en": "When is Romania's National Day? What significance does this date have?", "uk": "Коли Національний день Румунії? Яке значення має ця дата?" }
+      "text": {
+        "ro": "Cum se numește imnul național al României și cine l-a compus?"
+      },
+      "translation": {
+        "en": "What is Romania's national anthem called and who composed it?",
+        "uk": "Як називається національний гімн Румунії і хто його створив?"
+      },
+      "category": "C"
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Romania's National Day is on December 1st. This date marks the Great Union of 1918, when Transylvania, Banat, Crișana, and Maramureș united with Romania.", "uk": "Національний день Румунії — 1 грудня. Ця дата відзначає Велике Об'єднання 1918 року, коли Трансільванія, Банат, Крішана і Марамуреш об'єдналися з Румунією." },
+      "prompt": {
+        "en": "The anthem is 'Deșteaptă-te, române!' by Andrei Mureșanu.",
+        "uk": "Гімн - 'Deșteaptă-te, române!' Андрея Мурешану."
+      },
+      "category": "C",
       "options": [
         {
-          "text": "Ziua Națională a României este pe 1 Decembrie. Această dată marchează Marea Unire din 1918, când Transilvania, Banatul, Crișana și Maramureșul s-au unit cu România.",
+          "text": "Imnul național se numește «Deșteaptă-te, române!». A fost scris de Andrei Mureșanu în 1848, cu muzica compusă de Anton Pann.",
           "quality": "excellent",
-          "feedback": { "en": "Excellent! Correct date and you explained the Great Union of 1918 with historical detail.", "uk": "Чудово! Правильна дата і ви пояснили Велике Об'єднання 1918 року з історичними деталями." }
+          "feedback": {
+            "en": "Excellent! Name, author, year, composer.",
+            "uk": "Чудово! Назва, автор, рік, композитор."
+          }
         },
         {
-          "text": "Ziua Națională este pe 1 Decembrie. Este Marea Unire din 1918.",
+          "text": "Imnul este «Deșteaptă-te, române!», scris de Andrei Mureșanu.",
           "quality": "acceptable",
-          "feedback": { "en": "Good. You know the date and the event. You could add which regions united with Romania.", "uk": "Добре. Ви знаєте дату і подію. Можете додати які регіони об'єдналися з Румунією." }
+          "feedback": {
+            "en": "Good! Name and author.",
+            "uk": "Добре! Назва і автор."
+          }
+        },
+        {
+          "text": "Nu știu exact.",
+          "quality": "poor",
+          "feedback": {
+            "en": "You must know: 'Deșteaptă-te, române!' by Mureșanu.",
+            "uk": "Ви повинні знати: 'Deșteaptă-te, române!' Мурешану."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Ce este Constituția României?"
+      },
+      "translation": {
+        "en": "What is the Constitution of Romania?",
+        "uk": "Що таке Конституція Румунії?"
+      },
+      "category": "C"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "The Constitution is the supreme law of Romania.",
+        "uk": "Конституція - це вищий закон Румунії."
+      },
+      "category": "C",
+      "options": [
+        {
+          "text": "Constituția României este legea fundamentală a statului, care stabilește drepturile și obligațiile cetățenilor și organizarea puterii în stat.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Fundamental law, rights, state organization.",
+            "uk": "Чудово! Основний закон, права, організація держави."
+          }
+        },
+        {
+          "text": "Constituția este legea supremă a României.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Correct! Fundamental law.",
+            "uk": "Правильно! Основний закон."
+          }
+        },
+        {
+          "text": "Este o lege.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. Say 'legea fundamentală/supremă'.",
+            "uk": "Занадто розпливчасто."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Ce tip de stat este România conform Constituției?"
+      },
+      "translation": {
+        "en": "What type of state is Romania according to the Constitution?",
+        "uk": "Який тип держави Румунія згідно Конституції?"
+      },
+      "category": "C"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Romania is a democratic state of law.",
+        "uk": "Румунія - демократична правова держава."
+      },
+      "category": "C",
+      "options": [
+        {
+          "text": "România este un stat de drept, democratic și social, conform articolului 1 din Constituție.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! State of law, democratic, social.",
+            "uk": "Чудово! Правова, демократична, соціальна."
+          }
+        },
+        {
+          "text": "România este un stat de drept și democratic.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good! Both key terms.",
+            "uk": "Добре! Обидва ключові терміни."
+          }
+        },
+        {
+          "text": "Este un stat.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. Add 'de drept' and 'democratic'.",
+            "uk": "Занадто розпливчасто."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "În ce an a fost adoptată Constituția actuală a României?"
+      },
+      "translation": {
+        "en": "In what year was Romania's current Constitution adopted?",
+        "uk": "У якому році була прийнята чинна Конституція Румунії?"
+      },
+      "category": "C"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "The Constitution was adopted in 1991.",
+        "uk": "Конституцію прийнято в 1991 році."
+      },
+      "category": "C",
+      "options": [
+        {
+          "text": "Constituția actuală a fost adoptată în anul 1991, după căderea comunismului, și a fost revizuită în 2003.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Year 1991 and 2003 revision.",
+            "uk": "Чудово! Рік 1991 і ревізія 2003."
+          }
+        },
+        {
+          "text": "Constituția a fost adoptată în 1991.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Correct!",
+            "uk": "Правильно!"
+          }
+        },
+        {
+          "text": "În 1990... sau 1991?",
+          "quality": "poor",
+          "feedback": {
+            "en": "Be certain: 1991 is correct.",
+            "uk": "Будьте впевнені: 1991 правильно."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Care sunt cele trei puteri principale în stat?"
+      },
+      "translation": {
+        "en": "What are the three main powers in the state?",
+        "uk": "Які три основні гілки влади в державі?"
+      },
+      "category": "C"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "The three powers are legislative, executive, and judicial.",
+        "uk": "Три гілки влади - законодавча, виконавча і судова."
+      },
+      "category": "C",
+      "options": [
+        {
+          "text": "Cele trei puteri în stat sunt: puterea legislativă (Parlamentul), puterea executivă (Guvernul) și puterea judecătorească (instanțele de judecată).",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! All three with examples.",
+            "uk": "Чудово! Всі три з прикладами."
+          }
+        },
+        {
+          "text": "Puterile sunt: legislativă, executivă și judecătorească.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Perfect! All three named.",
+            "uk": "Ідеально! Всі три названі."
+          }
+        },
+        {
+          "text": "Parlamentul și Guvernul.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Missing judicial power. Three powers needed.",
+            "uk": "Відсутня судова. Потрібні три."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cine este garantul independenței naționale și al integrității teritoriale a României?"
+      },
+      "translation": {
+        "en": "Who is the guarantor of national independence and territorial integrity?",
+        "uk": "Хто гарант національної незалежності та територіальної цілісності?"
+      },
+      "category": "C"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "The President of Romania is the guarantor.",
+        "uk": "Президент Румунії є гарантом."
+      },
+      "category": "C",
+      "options": [
+        {
+          "text": "Președintele României este garantul independenței naționale, al unității și integrității teritoriale a țării, conform Constituției.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! President with constitutional reference.",
+            "uk": "Чудово! Президент з конституційним посиланням."
+          }
+        },
+        {
+          "text": "Președintele României este garantul independenței naționale.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Correct!",
+            "uk": "Правильно!"
+          }
+        },
+        {
+          "text": "Guvernul.",
+          "quality": "poor",
+          "feedback": {
+            "en": "No, it's Președintele (President).",
+            "uk": "Ні, це Președintele (Президент)."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Ce este Parlamentul României și din câte camere este format?"
+      },
+      "translation": {
+        "en": "What is Romania's Parliament and how many chambers does it have?",
+        "uk": "Що таке Парламент Румунії і скільки в нього палат?"
+      },
+      "category": "C"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Parliament is the legislative power. It has two chambers.",
+        "uk": "Парламент - законодавча влада. Має дві палати."
+      },
+      "category": "C",
+      "options": [
+        {
+          "text": "Parlamentul României este autoritatea legislativă supremă. Este format din două camere: Camera Deputaților și Senatul.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Legislative authority and both chambers named.",
+            "uk": "Чудово! Законодавча влада і обидві палати названі."
+          }
+        },
+        {
+          "text": "Parlamentul are două camere: Camera Deputaților și Senatul.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good! Both chambers.",
+            "uk": "Добре! Обидві палати."
+          }
+        },
+        {
+          "text": "Parlamentul face legi.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Correct but incomplete. Say two chambers.",
+            "uk": "Правильно, але неповно. Скажіть дві палати."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Ce este Guvernul României și care este rolul lui principal?"
+      },
+      "translation": {
+        "en": "What is Romania's Government and what is its main role?",
+        "uk": "Що таке Уряд Румунії і яка його основна роль?"
+      },
+      "category": "C"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "The Government is the executive power that implements laws.",
+        "uk": "Уряд - виконавча влада, що виконує закони."
+      },
+      "category": "C",
+      "options": [
+        {
+          "text": "Guvernul României este organul executiv suprem, condus de Prim-ministru. Rolul său principal este să execute legile și să conducă administrația publică.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Executive organ, PM, execute laws.",
+            "uk": "Чудово! Виконавчий орган, прем'єр, виконання законів."
+          }
+        },
+        {
+          "text": "Guvernul este puterea executivă care aplică legile.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Correct! Executive power.",
+            "uk": "Правильно! Виконавча влада."
+          }
+        },
+        {
+          "text": "Guvernul conduce țara.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Incomplete. Say 'puterea executivă'.",
+            "uk": "Неповно. Скажіть 'puterea executivă'."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Ce drepturi fundamentale ale cetățenilor români cunoașteți? Enumerați cel puțin trei."
+      },
+      "translation": {
+        "en": "What fundamental rights of Romanian citizens do you know? List at least three.",
+        "uk": "Які основні права громадян Румунії ви знаєте? Назвіть хоча б три."
+      },
+      "category": "C"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Right to vote, work, education, freedom of expression.",
+        "uk": "Право голосу, праці, освіти, свободи слова."
+      },
+      "category": "C",
+      "options": [
+        {
+          "text": "Drepturile fundamentale includ: dreptul la viață, dreptul la vot, dreptul la muncă, dreptul la educație, libertatea de expresie și dreptul la protecție socială.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Six rights listed.",
+            "uk": "Чудово! Шість прав перераховано."
+          }
+        },
+        {
+          "text": "Dreptul la vot, la muncă și la educație.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good! Three rights.",
+            "uk": "Добре! Три права."
+          }
+        },
+        {
+          "text": "Dreptul la vot.",
+          "quality": "poor",
+          "feedback": {
+            "en": "List at least three rights.",
+            "uk": "Перерахуйте хоча б три права."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Ce obligații principale are un cetățean român? Enumerați cel puțin două."
+      },
+      "translation": {
+        "en": "What main obligations does a Romanian citizen have? List at least two.",
+        "uk": "Які основні обов'язки румунського громадянина? Назвіть хоча б два."
+      },
+      "category": "C"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Citizens must respect the Constitution and laws, and pay taxes.",
+        "uk": "Громадяни повинні поважати Конституцію і закони та сплачувати податки."
+      },
+      "category": "C",
+      "options": [
+        {
+          "text": "Obligațiile principale sunt: respectarea Constituției și legilor, plata impozitelor și taxelor, apărarea țării și respectarea ordinii publice.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Four obligations listed.",
+            "uk": "Чудово! Чотири обов'язки перераховано."
+          }
+        },
+        {
+          "text": "Respectarea legilor și plata taxelor.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good! Two main obligations.",
+            "uk": "Добре! Два основні обов'язки."
+          }
+        },
+        {
+          "text": "Să plătesc taxe.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Add 'respectarea legilor'. At least two needed.",
+            "uk": "Додайте 'respectarea legilor'. Потрібні хоча б два."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Ce este Curtea Constituțională și ce rol are?"
+      },
+      "translation": {
+        "en": "What is the Constitutional Court and what is its role?",
+        "uk": "Що таке Конституційний Суд і яка його роль?"
+      },
+      "category": "C"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "The Constitutional Court verifies that laws respect the Constitution.",
+        "uk": "Конституційний Суд перевіряє, чи закони відповідають Конституції."
+      },
+      "category": "C",
+      "options": [
+        {
+          "text": "Curtea Constituțională este garantul supremației Constituției. Ea verifică dacă legile sunt constituționale și soluționează conflicte juridice de natură constituțională.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Guardian of Constitution, checks laws.",
+            "uk": "Чудово! Гарант Конституції, перевіряє закони."
+          }
+        },
+        {
+          "text": "Curtea Constituțională verifică constituționalitatea legilor.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Correct! Main function.",
+            "uk": "Правильно! Основна функція."
+          }
+        },
+        {
+          "text": "Este o instanță.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. Explain constitutional role.",
+            "uk": "Занадто розпливчасто. Поясніть конституційну роль."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Când se sărbătorește Ziua Națională a României și ce eveniment comemorează?"
+      },
+      "translation": {
+        "en": "When is Romania's National Day and what event does it commemorate?",
+        "uk": "Коли Національний день Румунії і яку подію вшановує?"
+      },
+      "category": "C"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "National Day is December 1st. It commemorates the Great Union of 1918.",
+        "uk": "Національний день - 1 грудня. Вшановує Велике Об'єднання 1918 року."
+      },
+      "category": "C",
+      "options": [
+        {
+          "text": "Ziua Națională se sărbătorește pe 1 Decembrie și comemorează Marea Unire din 1918, când Transilvania, Banatul, Crișana și Maramureșul s-au unit cu România.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Date, event, regions.",
+            "uk": "Чудово! Дата, подія, регіони."
+          }
+        },
+        {
+          "text": "Ziua Națională este pe 1 Decembrie. Marchează Marea Unire din 1918.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Perfect! Date and event.",
+            "uk": "Ідеально! Дата і подія."
+          }
         },
         {
           "text": "Este în decembrie.",
           "quality": "poor",
-          "feedback": { "en": "You need the exact date: 1 Decembrie. And explain it is Marea Unire (Great Union) of 1918.", "uk": "Потрібна точна дата: 1 Decembrie. І поясніть, що це Marea Unire (Велике Об'єднання) 1918 року." }
+          "feedback": {
+            "en": "Need exact date: 1 Decembrie.",
+            "uk": "Потрібна точна дата: 1 Decembrie."
+          }
         }
       ]
     },
     {
       "speaker": "official",
-      "text": { "ro": "Când a intrat România în Uniunea Europeană?" },
-      "translation": { "en": "When did Romania join the European Union?", "uk": "Коли Румунія вступила до Європейського Союзу?" }
+      "text": {
+        "ro": "Care este suprafața aproximativă a României?"
+      },
+      "translation": {
+        "en": "What is the approximate area of Romania?",
+        "uk": "Яка приблизна площа Румунії?"
+      },
+      "category": "D"
     },
     {
       "speaker": "you",
-      "prompt": { "en": "Romania joined the European Union on January 1, 2007, together with Bulgaria. It has been a member state for almost twenty years.", "uk": "Румунія вступила до Європейського Союзу 1 січня 2007 року, разом з Болгарією. Вона є державою-членом вже майже двадцять років." },
+      "prompt": {
+        "en": "Romania has approximately 238,000 square kilometers.",
+        "uk": "Румунія має приблизно 238,000 квадратних кілометрів."
+      },
+      "category": "D",
       "options": [
         {
-          "text": "România a intrat în Uniunea Europeană pe 1 ianuarie 2007, împreună cu Bulgaria. Este un stat membru de aproape douăzeci de ani.",
+          "text": "România are o suprafață de aproximativ 238.397 kilometri pătrați, fiind a 12-a țară ca mărime din UE.",
           "quality": "excellent",
-          "feedback": { "en": "Excellent! Correct date, you mentioned Bulgaria joined the same day, and added context.", "uk": "Чудово! Правильна дата, ви згадали що Болгарія приєдналася того ж дня, і додали контекст." }
+          "feedback": {
+            "en": "Excellent! Area and EU ranking.",
+            "uk": "Чудово! Площа і рейтинг в ЄС."
+          }
         },
         {
-          "text": "România a intrat în Uniunea Europeană în 2007.",
+          "text": "Suprafața României este de aproximativ 238.000 km².",
           "quality": "acceptable",
-          "feedback": { "en": "Correct year. For a fuller answer, add the exact date: 1 ianuarie 2007.", "uk": "Правильний рік. Для повнішої відповіді додайте точну дату: 1 ianuarie 2007." }
+          "feedback": {
+            "en": "Correct! Approximate area.",
+            "uk": "Правильно! Приблизна площа."
+          }
         },
         {
-          "text": "Nu știu exact anul.",
+          "text": "Este o țară mare.",
           "quality": "poor",
-          "feedback": { "en": "You must know this: România a intrat în UE pe 1 ianuarie 2007. This is a common interview question.", "uk": "Ви повинні це знати: România a intrat în UE pe 1 ianuarie 2007. Це поширене запитання на інтерв'ю." }
+          "feedback": {
+            "en": "Give number: aproximativ 238.000 km².",
+            "uk": "Дайте число: aproximativ 238.000 km²."
+          }
         }
       ]
     },
     {
       "speaker": "official",
-      "text": { "ro": "Cine sunt strămoșii poporului român? De unde provin românii?" },
-      "translation": { "en": "Who are the ancestors of the Romanian people? Where do Romanians originate from?", "uk": "Хто є предками румунського народу? Звідки походять румуни?" }
+      "text": {
+        "ro": "Cu ce țări se învecinează România?"
+      },
+      "translation": {
+        "en": "With what countries does Romania border?",
+        "uk": "З якими країнами межує Румунія?"
+      },
+      "category": "D"
     },
     {
       "speaker": "you",
-      "prompt": { "en": "The ancestors of the Romanian people are the Dacians and the Romans. The Romanian people was formed through the union of the Dacians with the Roman colonists, after the conquest of Dacia by Emperor Trajan in the year 106.", "uk": "Предки румунського народу — даки і римляни. Румунський народ сформувався через об'єднання даків з римськими колоністами, після завоювання Дакії імператором Траяном у 106 році." },
+      "prompt": {
+        "en": "Romania borders Hungary, Serbia, Bulgaria, Ukraine, and Moldova.",
+        "uk": "Румунія межує з Угорщиною, Сербією, Болгарією, Україною та Молдовою."
+      },
+      "category": "D",
       "options": [
         {
-          "text": "Strămoșii poporului român sunt dacii și romanii. Poporul român s-a format prin unirea dacilor cu coloniștii romani, după cucerirea Daciei de către împăratul Traian în anul 106.",
+          "text": "România se învecinează cu: Ungaria la nord-vest, Serbia la sud-vest, Bulgaria la sud, Ucraina la nord și est, și Republica Moldova la est. De asemenea, are ieșire la Marea Neagră.",
           "quality": "excellent",
-          "feedback": { "en": "Excellent! Dacians and Romans, the formation of the Romanian people, and Emperor Trajan's conquest in 106 AD.", "uk": "Чудово! Даки і римляни, формування румунського народу та завоювання імператором Траяном у 106 році." }
+          "feedback": {
+            "en": "Excellent! All five neighbors with directions plus Black Sea.",
+            "uk": "Чудово! Всі п'ять сусідів з напрямками плюс Чорне море."
+          }
         },
         {
-          "text": "Strămoșii românilor sunt dacii și romanii.",
+          "text": "România se învecinează cu Ungaria, Serbia, Bulgaria, Ucraina și Moldova.",
           "quality": "acceptable",
-          "feedback": { "en": "Correct! You could add detail about Emperor Trajan and the year 106 for a stronger answer.", "uk": "Правильно! Можете додати деталі про імператора Траяна і 106 рік для кращої відповіді." }
+          "feedback": {
+            "en": "Perfect! All five neighbors.",
+            "uk": "Ідеально! Всі п'ять сусідів."
+          }
         },
         {
-          "text": "Romanii... cred.",
+          "text": "Cu Ungaria și Bulgaria.",
           "quality": "poor",
-          "feedback": { "en": "Incomplete. The answer is both dacii (Dacians) AND romanii (Romans). Memorize: 'Strămoșii românilor sunt dacii și romanii.'", "uk": "Неповно. Відповідь - і даки (dacii) І римляни (romanii). Запам'ятайте: 'Strămoșii românilor sunt dacii și romanii.'" }
+          "feedback": {
+            "en": "Missing three: Serbia, Ucraina, Moldova.",
+            "uk": "Відсутні три: Сербія, Україна, Молдова."
+          }
         }
       ]
     },
     {
       "speaker": "official",
-      "text": { "ro": "Foarte bine. Sunteți pregătit(ă) pentru depunerea jurământului. Vă rog să ridicați mâna dreaptă și să depuneți jurământul de credință." },
-      "translation": { "en": "Very good. You are ready for the oath. Please raise your right hand and take the oath of allegiance.", "uk": "Дуже добре. Ви готові до складання присяги. Будь ласка, підніміть праву руку і складіть присягу на вірність." }
+      "text": {
+        "ro": "Care este cel mai înalt vârf muntos din România?"
+      },
+      "translation": {
+        "en": "What is the highest mountain peak in Romania?",
+        "uk": "Яка найвища гірська вершина в Румунії?"
+      },
+      "category": "D"
     },
     {
       "speaker": "you",
-      "prompt": { "en": "I swear to be devoted to the homeland and the Romanian people, to defend national rights and interests, to respect the Constitution and the laws of Romania.", "uk": "Я присягаю бути відданим батьківщині та румунському народу, захищати національні права та інтереси, поважати Конституцію та закони Румунії." },
+      "prompt": {
+        "en": "The highest peak is Moldoveanu, 2544 meters.",
+        "uk": "Найвища вершина - Молдовяну, 2544 метри."
+      },
+      "category": "D",
+      "options": [
+        {
+          "text": "Cel mai înalt vârf este Vârful Moldoveanu, cu o altitudine de 2.544 metri, situat în Munții Făgăraș din Carpați.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Peak name, height, mountain range.",
+            "uk": "Чудово! Назва вершини, висота, гірський хребет."
+          }
+        },
+        {
+          "text": "Vârful Moldoveanu, cu 2.544 metri.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Perfect! Name and height.",
+            "uk": "Ідеально! Назва і висота."
+          }
+        },
+        {
+          "text": "Muntele Ceahlău.",
+          "quality": "poor",
+          "feedback": {
+            "en": "No, Moldoveanu is tallest (2544m).",
+            "uk": "Ні, Молдовяну найвище (2544м)."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cum se numesc principalele lanțuri muntoase din România?"
+      },
+      "translation": {
+        "en": "What are the main mountain ranges in Romania called?",
+        "uk": "Як називаються основні гірські хребти Румунії?"
+      },
+      "category": "D"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "The main mountains are the Carpathians.",
+        "uk": "Основні гори - Карпати."
+      },
+      "category": "D",
+      "options": [
+        {
+          "text": "Principalele lanțuri muntoase sunt Carpații, care se împart în: Carpații Orientali, Carpații Meridionali (Făgăraș, Bucegi) și Carpații Occidentali (Apuseni).",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Carpathians and three divisions.",
+            "uk": "Чудово! Карпати і три відділи."
+          }
+        },
+        {
+          "text": "Carpații, care traversează România.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good! Carpathians mentioned.",
+            "uk": "Добре! Карпати згадані."
+          }
+        },
+        {
+          "text": "Munții Făgăraș.",
+          "quality": "poor",
+          "feedback": {
+            "en": "That's one range. Main answer: Carpații.",
+            "uk": "Це один хребет. Основна відповідь: Carpații."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Care sunt principalele râuri ale României? Enumerați cel puțin trei."
+      },
+      "translation": {
+        "en": "What are Romania's main rivers? List at least three.",
+        "uk": "Які основні річки Румунії? Назвіть хоча б три."
+      },
+      "category": "D"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "The main rivers are Danube, Mureș, Prut, Olt, and Siret.",
+        "uk": "Основні річки - Дунай, Mureș, Prut, Olt і Siret."
+      },
+      "category": "D",
+      "options": [
+        {
+          "text": "Principalele râuri sunt: Dunărea (cel mai mare), Mureșul, Oltul, Siretul, Prutul și Argeșul.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Six rivers including Danube as largest.",
+            "uk": "Чудово! Шість річок включаючи Дунай як найбільший."
+          }
+        },
+        {
+          "text": "Dunărea, Mureșul și Oltul.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good! Three main rivers.",
+            "uk": "Добре! Три основні річки."
+          }
+        },
+        {
+          "text": "Dunărea.",
+          "quality": "poor",
+          "feedback": {
+            "en": "List at least three rivers.",
+            "uk": "Перерахуйте хоча б три річки."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Pe ce lungime aproximativă străbate Dunărea teritoriul României?"
+      },
+      "translation": {
+        "en": "On what approximate length does the Danube cross Romania?",
+        "uk": "На якій довжині Дунай перетинає Румунію?"
+      },
+      "category": "D"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Approximately 1,075 kilometers.",
+        "uk": "Приблизно 1,075 кілометрів."
+      },
+      "category": "D",
+      "options": [
+        {
+          "text": "Dunărea străbate teritoriul României pe o lungime de aproximativ 1.075 kilometri, formând graniță naturală cu Serbia și Bulgaria.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Length and natural border.",
+            "uk": "Чудово! Довжина і природний кордон."
+          }
+        },
+        {
+          "text": "Dunărea străbate România pe aproximativ 1.075 km.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Correct!",
+            "uk": "Правильно!"
+          }
+        },
+        {
+          "text": "Pe multe kilometri.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Give number: 1.075 km.",
+            "uk": "Дайте число: 1.075 km."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Unde se varsă Dunărea?"
+      },
+      "translation": {
+        "en": "Where does the Danube flow into?",
+        "uk": "Куди впадає Дунай?"
+      },
+      "category": "D"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "The Danube flows into the Black Sea.",
+        "uk": "Дунай впадає в Чорне море."
+      },
+      "category": "D",
+      "options": [
+        {
+          "text": "Dunărea se varsă în Marea Neagră, formând Delta Dunării, una dintre cele mai mari delte din Europa.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Black Sea and Delta.",
+            "uk": "Чудово! Чорне море і Дельта."
+          }
+        },
+        {
+          "text": "Dunărea se varsă în Marea Neagră.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Perfect!",
+            "uk": "Ідеально!"
+          }
+        },
+        {
+          "text": "În mare.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Which sea? Marea Neagră.",
+            "uk": "Яке море? Marea Neagră."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cum se numește marea la care are ieșire România?"
+      },
+      "translation": {
+        "en": "What is the sea to which Romania has access?",
+        "uk": "Як називається море, до якого має вихід Румунія?"
+      },
+      "category": "D"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Romania has access to the Black Sea.",
+        "uk": "Румунія має вихід до Чорного моря."
+      },
+      "category": "D",
+      "options": [
+        {
+          "text": "Marea la care are ieșire România se numește Marea Neagră. România are aproximativ 245 km de coastă.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Black Sea and coastline.",
+            "uk": "Чудово! Чорне море і узбережжя."
+          }
+        },
+        {
+          "text": "Marea Neagră.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Correct!",
+            "uk": "Правильно!"
+          }
+        },
+        {
+          "text": "Marea Mediterană.",
+          "quality": "poor",
+          "feedback": {
+            "en": "No, it's Marea Neagră (Black Sea).",
+            "uk": "Ні, це Marea Neagră (Чорне море)."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Enumerați cel puțin trei județe ale României."
+      },
+      "translation": {
+        "en": "List at least three counties of Romania.",
+        "uk": "Назвіть хоча б три повіти Румунії."
+      },
+      "category": "D"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Three counties: Cluj, Timiș, Constanța.",
+        "uk": "Три повіти: Cluj, Timiș, Constanța."
+      },
+      "category": "D",
+      "options": [
+        {
+          "text": "Trei județe sunt: Cluj (reședința Cluj-Napoca), Timiș (reședința Timișoara) și Constanța (reședința Constanța).",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Three counties with capitals.",
+            "uk": "Чудово! Три повіти зі столицями."
+          }
+        },
+        {
+          "text": "Cluj, Timiș și Constanța.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Perfect!",
+            "uk": "Ідеально!"
+          }
+        },
+        {
+          "text": "București.",
+          "quality": "poor",
+          "feedback": {
+            "en": "That's the capital. Name județe.",
+            "uk": "Це столиця. Назвіть повіти."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Enumerați cel puțin trei orașe mari din România, în afară de București."
+      },
+      "translation": {
+        "en": "List at least three large cities besides București.",
+        "uk": "Назвіть хоча б три великі міста окрім Бухареста."
+      },
+      "category": "D"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Cluj-Napoca, Timișoara, Iași, Constanța, Brașov.",
+        "uk": "Клуж-Напока, Тімішоара, Яси, Констанца, Брашов."
+      },
+      "category": "D",
+      "options": [
+        {
+          "text": "Trei orașe mari sunt: Cluj-Napoca, Timișoara, Iași, Constanța și Brașov.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Five cities.",
+            "uk": "Чудово! П'ять міст."
+          }
+        },
+        {
+          "text": "Cluj-Napoca, Timișoara și Iași.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Perfect! Three cities.",
+            "uk": "Ідеально! Три міста."
+          }
+        },
+        {
+          "text": "Cluj.",
+          "quality": "poor",
+          "feedback": {
+            "en": "List at least three.",
+            "uk": "Перерахуйте хоча б три."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Ce regiuni istorice principale ale României cunoașteți?"
+      },
+      "translation": {
+        "en": "What main historical regions of Romania do you know?",
+        "uk": "Які основні історичні регіони Румунії?"
+      },
+      "category": "D"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Wallachia, Moldavia, Transylvania, Banat.",
+        "uk": "Валахія, Молдавія, Трансільванія, Банат."
+      },
+      "category": "D",
+      "options": [
+        {
+          "text": "Principalele regiuni istorice sunt: Muntenia, Moldova, Transilvania, Banatul, Crișana, Maramureșul și Dobrogea.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! All seven regions.",
+            "uk": "Чудово! Всі сім регіонів."
+          }
+        },
+        {
+          "text": "Muntenia, Moldova și Transilvania.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good! Three main regions.",
+            "uk": "Добре! Три основні регіони."
+          }
+        },
+        {
+          "text": "Transilvania.",
+          "quality": "poor",
+          "feedback": {
+            "en": "List at least three.",
+            "uk": "Перерахуйте хоча б три."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cum se numește deltă situată în România și pentru ce este cunoscută?"
+      },
+      "translation": {
+        "en": "What is the delta in Romania called and what is it known for?",
+        "uk": "Як називається дельта в Румунії і чим відома?"
+      },
+      "category": "D"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Danube Delta, known for biodiversity, UNESCO site.",
+        "uk": "Дельта Дунаю, відома біорізноманіттям, об'єкт ЮНЕСКО."
+      },
+      "category": "D",
+      "options": [
+        {
+          "text": "Delta Dunării este cunoscută pentru biodiversitatea excepțională. Este a doua ca mărime din Europa și sit UNESCO de patrimoniu mondial.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Name, biodiversity, European rank, UNESCO.",
+            "uk": "Чудово! Назва, біорізноманіття, європейський ранг, ЮНЕСКО."
+          }
+        },
+        {
+          "text": "Delta Dunării, cunoscută pentru biodiversitate și sit UNESCO.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Perfect!",
+            "uk": "Ідеально!"
+          }
+        },
+        {
+          "text": "O deltă mare.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Name: Delta Dunării. Mention UNESCO.",
+            "uk": "Назва: Delta Dunării. Згадайте ЮНЕСКО."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Ce tip de climă are, în general, România?"
+      },
+      "translation": {
+        "en": "What type of climate does Romania have?",
+        "uk": "Який тип клімату має Румунія?"
+      },
+      "category": "D"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Temperate-continental climate.",
+        "uk": "Помірно-континентальний клімат."
+      },
+      "category": "D",
+      "options": [
+        {
+          "text": "România are o climă temperat-continentală, cu patru anotimpuri distincte: vară caldă, iarnă rece, primăvară și toamnă.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Climate and four seasons.",
+            "uk": "Чудово! Клімат і чотири пори року."
+          }
+        },
+        {
+          "text": "Climă temperat-continentală.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Perfect!",
+            "uk": "Ідеально!"
+          }
+        },
+        {
+          "text": "Climă bună.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. Say: temperat-continentală.",
+            "uk": "Занадто розпливчасто."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Care sunt două resurse naturale importante ale României?"
+      },
+      "translation": {
+        "en": "What are two important natural resources?",
+        "uk": "Які дві важливі природні ресурси?"
+      },
+      "category": "D"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Oil, natural gas, forests, agricultural land.",
+        "uk": "Нафта, природний газ, ліси, сільгоспземлі."
+      },
+      "category": "D",
+      "options": [
+        {
+          "text": "Resurse naturale importante: petrolul și gazele naturale (Ploiești, Marea Neagră), pădurile și terenurile agricole fertile.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Oil, gas with locations, forests, agriculture.",
+            "uk": "Чудово! Нафта, газ з локаціями, ліси, сільське господарство."
+          }
+        },
+        {
+          "text": "Petrol și gaze naturale.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good! Two resources.",
+            "uk": "Добре! Два ресурси."
+          }
+        },
+        {
+          "text": "Păduri.",
+          "quality": "poor",
+          "feedback": {
+            "en": "List two.",
+            "uk": "Перерахуйте два."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Ce știți despre relieful României (munți, dealuri, câmpii)?"
+      },
+      "translation": {
+        "en": "What do you know about Romania's relief?",
+        "uk": "Що ви знаєте про рельєф Румунії?"
+      },
+      "category": "D"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Mountains (Carpathians), hills, and plains.",
+        "uk": "Гори (Карпати), пагорби та рівнини."
+      },
+      "category": "D",
+      "options": [
+        {
+          "text": "Relieful României este variat: munți (Carpații - 30%), dealuri (35%) și câmpii (35%), cum ar fi Câmpia Română.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent! Three types with percentages and example.",
+            "uk": "Чудово! Три типи з відсотками та прикладом."
+          }
+        },
+        {
+          "text": "România are munți (Carpații), dealuri și câmpii.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good! All three types.",
+            "uk": "Добре! Всі три типи."
+          }
+        },
+        {
+          "text": "Are munți.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Add dealuri și câmpii.",
+            "uk": "Додайте dealuri și câmpii."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cum s-a numit teritoriul României în Antichitate și ce popor trăia aici?"
+      },
+      "translation": {
+        "en": "What was the territory of Romania called in Antiquity and what people lived here?",
+        "uk": "Як називалася територія Румунії в античності і який народ тут жив?"
+      },
+      "category": "E"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Say what the territory was called and what people lived here",
+        "uk": "Скажіть, як називалася територія і який народ тут жив"
+      },
+      "category": "E",
+      "options": [
+        {
+          "text": "Teritoriul se numea Dacia, iar poporul care trăia aici erau dacii, un popor trac.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Perfect answer with complete information.",
+            "uk": "Ідеальна відповідь з повною інформацією."
+          }
+        },
+        {
+          "text": "Teritoriul se numea Dacia. Aici trăiau dacii.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good, but could mention they were a Thracian people.",
+            "uk": "Добре, але можна згадати, що вони були фракійським народом."
+          }
+        },
+        {
+          "text": "Nu știu exact.",
+          "quality": "poor",
+          "feedback": {
+            "en": "This is basic Romanian history. Answer: Dacia, and the Dacians lived here.",
+            "uk": "Це базова історія Румунії. Відповідь: Дакія, тут жили даки."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cine au fost Burebista și Decebal?"
+      },
+      "translation": {
+        "en": "Who were Burebista and Decebal?",
+        "uk": "Хто такі Буребіста і Децебал?"
+      },
+      "category": "E"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Explain who these two Dacian kings were",
+        "uk": "Поясніть, хто були ці два дакійські царі"
+      },
+      "category": "E",
+      "options": [
+        {
+          "text": "Burebista a fost cel mai mare rege al Daciei în secolul I înaintea erei noastre și a unit triburile dacice. Decebal a fost ultimul rege al Daciei, care a luptat împotriva romanilor.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent historical knowledge.",
+            "uk": "Чудове знання історії."
+          }
+        },
+        {
+          "text": "Burebista și Decebal au fost regi ai Daciei. Decebal a luptat cu romanii.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Correct, but could add that Burebista united the Dacian tribes.",
+            "uk": "Правильно, але можна додати, що Буребіста об'єднав дакійські племена."
+          }
+        },
+        {
+          "text": "Au fost conducători.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. They were Dacian kings - Burebista united tribes, Decebal fought Romans.",
+            "uk": "Занадто розпливчасто. Вони були дакійськими царями - Буребіста об'єднав племена, Децебал воював з римлянами."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Ce popor a cucerit o parte din Dacia și a contribuit la formarea poporului român?"
+      },
+      "translation": {
+        "en": "What people conquered part of Dacia and contributed to the formation of the Romanian people?",
+        "uk": "Який народ завоював частину Дакії і сприяв формуванню румунського народу?"
+      },
+      "category": "E"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Name the people and when they conquered Dacia",
+        "uk": "Назвіть народ і коли вони завоювали Дакію"
+      },
+      "category": "E",
+      "options": [
+        {
+          "text": "Romanii au cucerit Dacia în anul 106 după Hristos, sub împăratul Traian.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Perfect answer with the date and emperor's name.",
+            "uk": "Ідеальна відповідь з датою та ім'ям імператора."
+          }
+        },
+        {
+          "text": "Romanii au cucerit Dacia în anul 106.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Correct. You could also mention Emperor Trajan.",
+            "uk": "Правильно. Можна також згадати імператора Траяна."
+          }
+        },
+        {
+          "text": "Romanii.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too brief. Add: they conquered Dacia in 106 AD under Emperor Trajan.",
+            "uk": "Занадто коротко. Додайте: вони завоювали Дакію у 106 році н.е. під керівництвом імператора Траяна."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cum s-a format poporul român, în linii mari?"
+      },
+      "translation": {
+        "en": "How was the Romanian people formed, in broad terms?",
+        "uk": "Як сформувався румунський народ, загалом?"
+      },
+      "category": "E"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Explain the process of Romanian ethnogenesis",
+        "uk": "Поясніть процес румунського етногенезу"
+      },
+      "category": "E",
+      "options": [
+        {
+          "text": "Poporul român s-a format prin amestecul dacilor cu coloniștii romani, un proces numit romanizarea Daciei, care a durat câteva secole.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Complete and accurate answer.",
+            "uk": "Повна і точна відповідь."
+          }
+        },
+        {
+          "text": "Poporul român s-a format din daci și romani.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Correct, but could mention the process of Romanization.",
+            "uk": "Правильно, але можна згадати процес романізації."
+          }
+        },
+        {
+          "text": "Din amestec de popoare.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. Specify: Dacians and Roman colonists through Romanization.",
+            "uk": "Занадто невизначено. Уточніть: даки та римські колоністи через романізацію."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cum se numeau principalele provincii istorice românești în Evul Mediu?"
+      },
+      "translation": {
+        "en": "What were the main Romanian historical provinces called in the Middle Ages?",
+        "uk": "Як називалися основні румунські історичні провінції в Середньовіччі?"
+      },
+      "category": "E"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Name the three main historical provinces",
+        "uk": "Назвіть три основні історичні провінції"
+      },
+      "category": "E",
+      "options": [
+        {
+          "text": "Principalele provincii erau Țara Românească, cunoscută și ca Valahia sau Muntenia, Moldova și Transilvania.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Perfect answer with alternative names.",
+            "uk": "Ідеальна відповідь з альтернативними назвами."
+          }
+        },
+        {
+          "text": "Țara Românească, Moldova și Transilvania.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Correct. These are the three main historical provinces.",
+            "uk": "Правильно. Це три основні історичні провінції."
+          }
+        },
+        {
+          "text": "Moldova și Transilvania.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Missing Țara Românească (Wallachia/Muntenia).",
+            "uk": "Не вистачає Țara Românească (Валахія/Мунтенія)."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cine a fost Ștefan cel Mare și de ce este important în istoria României?"
+      },
+      "translation": {
+        "en": "Who was Stephen the Great and why is he important in Romanian history?",
+        "uk": "Хто такий Штефан чел Маре і чому він важливий в історії Румунії?"
+      },
+      "category": "E"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Explain who Stephen the Great was and his importance",
+        "uk": "Поясніть, хто такий Штефан чел Маре і його значення"
+      },
+      "category": "E",
+      "options": [
+        {
+          "text": "Ștefan cel Mare a fost domnitorul Moldovei între 1457 și 1504. A apărat Moldova de invaziile otomane și a câștigat numeroase bătălii. A fost declarat sfânt de Biserica Ortodoxă.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent complete answer with dates and achievements.",
+            "uk": "Чудова повна відповідь з датами та досягненнями."
+          }
+        },
+        {
+          "text": "A fost domnitor al Moldovei și a luptat împotriva otomanilor.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good. You could add he ruled 1457-1504 and was canonized.",
+            "uk": "Добре. Можна додати, що він правив 1457-1504 і був канонізований."
+          }
+        },
+        {
+          "text": "Un domnitor important.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. Add: ruler of Moldova (1457-1504), defended against Ottomans, declared saint.",
+            "uk": "Занадто невизначено. Додайте: правитель Молдови (1457-1504), захищав від османів, оголошений святим."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cine a fost Mihai Viteazul și ce unire a realizat în 1600?"
+      },
+      "translation": {
+        "en": "Who was Michael the Brave and what union did he achieve in 1600?",
+        "uk": "Хто такий Міхай Вітязул і яке об'єднання він здійснив у 1600 році?"
+      },
+      "category": "E"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Explain who Michael the Brave was and what he united",
+        "uk": "Поясніть, хто такий Міхай Вітязул і що він об'єднав"
+      },
+      "category": "E",
+      "options": [
+        {
+          "text": "Mihai Viteazul a fost domnitorul Țării Românești care a realizat prima unire a celor trei principate românești - Țara Românească, Moldova și Transilvania - în anul 1600.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Perfect answer explaining the first union of all three principalities.",
+            "uk": "Ідеальна відповідь, що пояснює перше об'єднання всіх трьох князівств."
+          }
+        },
+        {
+          "text": "A unit cele trei principate românești în 1600.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Correct. You could specify which three principalities.",
+            "uk": "Правильно. Можна уточнити, які три князівства."
+          }
+        },
+        {
+          "text": "A fost un domnitor român.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. Add: he united Wallachia, Moldova, and Transylvania in 1600.",
+            "uk": "Занадто невизначено. Додайте: він об'єднав Валахію, Молдову і Трансільванію у 1600 році."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Ce știți despre domnia lui Alexandru Ioan Cuza și Unirea Principatelor din 1859?"
+      },
+      "translation": {
+        "en": "What do you know about Alexandru Ioan Cuza's rule and the Union of the Principalities in 1859?",
+        "uk": "Що ви знаєте про правління Александру Йоана Кузи та Об'єднання князівств 1859 року?"
+      },
+      "category": "E"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Explain what Cuza achieved and the Union of 1859",
+        "uk": "Поясніть, чого досяг Куза і Об'єднання 1859 року"
+      },
+      "category": "E",
+      "options": [
+        {
+          "text": "Alexandru Ioan Cuza a fost ales domn al Moldovei și al Țării Românești în 1859, realizând Unirea Principatelor, numită și Mica Unire. A modernizat statul prin reforme importante: secularizarea averilor mănăstirești, reforma agrară și educația.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent answer with specific reforms mentioned.",
+            "uk": "Чудова відповідь з конкретними згаданими реформами."
+          }
+        },
+        {
+          "text": "Alexandru Ioan Cuza a realizat Unirea Principatelor în 1859 și a făcut reforme importante.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good. You could specify which reforms (land, education, secularization).",
+            "uk": "Добре. Можна уточнити, які реформи (земельна, освіта, секуляризація)."
+          }
+        },
+        {
+          "text": "A unit Moldova și Țara Românească.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too brief. Add: in 1859, called the Small Union, and implemented major reforms.",
+            "uk": "Занадто коротко. Додайте: у 1859 році, називається Мала Унія, провів важливі реформи."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "În ce an s-a proclamat independența de stat a României și împotriva cui s-a dus războiul?"
+      },
+      "translation": {
+        "en": "In what year was Romania's state independence proclaimed and against whom was the war fought?",
+        "uk": "У якому році була проголошена державна незалежність Румунії і проти кого велася війна?"
+      },
+      "category": "E"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Give the year of independence and name the enemy",
+        "uk": "Назвіть рік незалежності і вкажіть ворога"
+      },
+      "category": "E",
+      "options": [
+        {
+          "text": "Independența României a fost proclamată în 1877. Războiul de Independență a fost dus împotriva Imperiului Otoman, în perioada 1877-1878.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Perfect answer with complete dates and enemy identified.",
+            "uk": "Ідеальна відповідь з повними датами та визначеним ворогом."
+          }
+        },
+        {
+          "text": "În 1877, împotriva Imperiului Otoman.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Correct and concise.",
+            "uk": "Правильно і стисло."
+          }
+        },
+        {
+          "text": "În secolul nouăsprezece.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. Specific year: 1877, against the Ottoman Empire.",
+            "uk": "Занадто невизначено. Конкретний рік: 1877, проти Османської імперії."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Ce rol a avut România în Primul Război Mondial?"
+      },
+      "translation": {
+        "en": "What role did Romania play in World War I?",
+        "uk": "Яку роль відіграла Румунія в Першій світовій війні?"
+      },
+      "category": "E"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Explain Romania's role in WWI",
+        "uk": "Поясніть роль Румунії у Першій світовій війні"
+      },
+      "category": "E",
+      "options": [
+        {
+          "text": "România a intrat în Primul Război Mondial în 1916, de partea Antantei. Obiectivul principal a fost eliberarea Transilvaniei și a celorlalte teritorii locuite de români.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent answer with year, side, and main objective.",
+            "uk": "Чудова відповідь з роком, стороною і головною метою."
+          }
+        },
+        {
+          "text": "România a luptat pentru eliberarea Transilvaniei în Primul Război Mondial.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good. You could add: entered 1916, on the side of the Entente.",
+            "uk": "Добре. Можна додати: вступила у 1916, на стороні Антанти."
+          }
+        },
+        {
+          "text": "A participat la război.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. Add: entered 1916, Entente side, to liberate Transylvania.",
+            "uk": "Занадто невизначено. Додайте: вступила у 1916, сторона Антанти, щоб визволити Трансільванію."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Ce înseamnă Marea Unire de la 1 Decembrie 1918?"
+      },
+      "translation": {
+        "en": "What does the Great Union of December 1, 1918 mean?",
+        "uk": "Що означає Велике Об'єднання 1 грудня 1918 року?"
+      },
+      "category": "E"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Explain the significance of the Great Union",
+        "uk": "Поясніть значення Великого Об'єднання"
+      },
+      "category": "E",
+      "options": [
+        {
+          "text": "Marea Unire a reprezentat unirea Transilvaniei, Banatului, Crișanei și Maramureșului cu România, pe 1 Decembrie 1918. Este cea mai importantă dată din istoria modernă a României.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Perfect answer explaining what territories united and its importance.",
+            "uk": "Ідеальна відповідь, що пояснює, які території об'єдналися та її значення."
+          }
+        },
+        {
+          "text": "La 1 Decembrie 1918 s-a realizat unirea Transilvaniei cu România.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Correct. Could also mention Banat, Crișana, Maramureș.",
+            "uk": "Правильно. Можна також згадати Банат, Крішану, Марамуреш."
+          }
+        },
+        {
+          "text": "O sărbătoare importantă.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. Explain: Transylvania, Banat, Crișana, Maramureș united with Romania on Dec 1, 1918.",
+            "uk": "Занадто невизначено. Поясніть: Трансільванія, Банат, Крішана, Марамуреш об'єдналися з Румунією 1 грудня 1918."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Ce știți despre perioada comunistă în România?"
+      },
+      "translation": {
+        "en": "What do you know about the communist period in Romania?",
+        "uk": "Що ви знаєте про комуністичний період у Румунії?"
+      },
+      "category": "E"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Describe the communist period in Romania",
+        "uk": "Опишіть комуністичний період у Румунії"
+      },
+      "category": "E",
+      "options": [
+        {
+          "text": "Perioada comunistă în România a durat din 1947 până în 1989. Nicolae Ceaușescu a condus din 1965 până la căderea regimului. A fost o perioadă de represiune politică, lipsă de libertăți și dificultăți economice.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Complete answer with dates, leader, and key characteristics.",
+            "uk": "Повна відповідь з датами, лідером та ключовими характеристиками."
+          }
+        },
+        {
+          "text": "Perioada comunistă a durat din 1947 până în 1989. Ceaușescu a fost liderul.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good. Could mention political repression and economic difficulties.",
+            "uk": "Добре. Можна згадати політичні репресії та економічні труднощі."
+          }
+        },
+        {
+          "text": "A fost o perioadă dificilă.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. Add: 1947-1989, Ceaușescu led from 1965, political repression, economic hardship.",
+            "uk": "Занадто невизначено. Додайте: 1947-1989, Чаушеску керував з 1965, політичні репресії, економічні труднощі."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Ce s-a întâmplat în decembrie 1989 în România?"
+      },
+      "translation": {
+        "en": "What happened in December 1989 in Romania?",
+        "uk": "Що сталося в грудні 1989 року в Румунії?"
+      },
+      "category": "E"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Describe the events of December 1989",
+        "uk": "Опишіть події грудня 1989 року"
+      },
+      "category": "E",
+      "options": [
+        {
+          "text": "În decembrie 1989 a avut loc Revoluția Română, care a dus la căderea regimului comunist al lui Nicolae Ceaușescu. Revoluția a început la Timișoara și s-a extins la București.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Perfect answer with key details about the revolution.",
+            "uk": "Ідеальна відповідь з ключовими деталями про революцію."
+          }
+        },
+        {
+          "text": "A avut loc Revoluția și a căzut regimul comunist.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Correct. Could add: started in Timișoara, spread to Bucharest.",
+            "uk": "Правильно. Можна додати: почалася в Тимішоарі, поширилася на Бухарест."
+          }
+        },
+        {
+          "text": "S-a schimbat guvernul.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. It was the Romanian Revolution that ended communist regime, started in Timișoara.",
+            "uk": "Занадто невизначено. Це була Румунська революція, що завершила комуністичний режим, почалася в Тимішоарі."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cum s-a schimbat sistemul politic al României după 1989?"
+      },
+      "translation": {
+        "en": "How did Romania's political system change after 1989?",
+        "uk": "Як змінилася політична система Румунії після 1989 року?"
+      },
+      "category": "E"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Describe the political changes after 1989",
+        "uk": "Опишіть політичні зміни після 1989 року"
+      },
+      "category": "E",
+      "options": [
+        {
+          "text": "După 1989, România a devenit o republică democratică cu alegeri libere, separarea puterilor în stat, libertatea presei și respectarea drepturilor omului. A fost adoptată o nouă Constituție în 1991.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent comprehensive answer about democratic transformation.",
+            "uk": "Чудова всеохоплююча відповідь про демократичну трансформацію."
+          }
+        },
+        {
+          "text": "România a devenit o democrație cu alegeri libere și o nouă Constituție.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good. Could mention separation of powers, free press, human rights.",
+            "uk": "Добре. Можна згадати поділ влади, вільну пресу, права людини."
+          }
+        },
+        {
+          "text": "S-a schimbat sistemul.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. Add: became democracy, free elections, new Constitution 1991, human rights.",
+            "uk": "Занадто невизначено. Додайте: стала демократією, вільні вибори, нова Конституція 1991, права людини."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "În ce an a intrat România în NATO?"
+      },
+      "translation": {
+        "en": "In what year did Romania join NATO?",
+        "uk": "У якому році Румунія вступила до НАТО?"
+      },
+      "category": "E"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "State the year Romania joined NATO",
+        "uk": "Назвіть рік, коли Румунія вступила до НАТО"
+      },
+      "category": "E",
+      "options": [
+        {
+          "text": "România a intrat în NATO în anul 2004.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Correct and precise answer.",
+            "uk": "Правильна і точна відповідь."
+          }
+        },
+        {
+          "text": "În 2004.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Correct, though a complete sentence is better.",
+            "uk": "Правильно, хоча повне речення краще."
+          }
+        },
+        {
+          "text": "În acest secol.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. The specific year is 2004.",
+            "uk": "Занадто невизначено. Конкретний рік - 2004."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "În ce an a aderat România la Uniunea Europeană?"
+      },
+      "translation": {
+        "en": "In what year did Romania join the European Union?",
+        "uk": "У якому році Румунія приєдналася до Європейського Союзу?"
+      },
+      "category": "E"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "State the year Romania joined the EU",
+        "uk": "Назвіть рік вступу Румунії до ЄС"
+      },
+      "category": "E",
+      "options": [
+        {
+          "text": "România a aderat la Uniunea Europeană pe 1 ianuarie 2007.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Perfect answer with exact date.",
+            "uk": "Ідеальна відповідь з точною датою."
+          }
+        },
+        {
+          "text": "În anul 2007.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Correct. Full date is January 1, 2007.",
+            "uk": "Правильно. Повна дата - 1 січня 2007."
+          }
+        },
+        {
+          "text": "După 2000.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. The specific date is January 1, 2007.",
+            "uk": "Занадто невизначено. Конкретна дата - 1 січня 2007."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Enumerați doi conducători importanți din istoria modernă a României și o realizare a fiecăruia."
+      },
+      "translation": {
+        "en": "Name two important leaders from Romania's modern history and one achievement of each.",
+        "uk": "Назвіть двох важливих лідерів з сучасної історії Румунії та одне досягнення кожного."
+      },
+      "category": "E"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Name two leaders and their achievements",
+        "uk": "Назвіть двох лідерів та їхні досягнення"
+      },
+      "category": "E",
+      "options": [
+        {
+          "text": "Alexandru Ioan Cuza a realizat Unirea Principatelor din 1859 și a modernizat statul prin reforme. Regele Ferdinand Întâi a condus România în Primul Război Mondial și a realizat Marea Unire din 1918.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent answer with two leaders and specific achievements.",
+            "uk": "Чудова відповідь з двома лідерами та конкретними досягненнями."
+          }
+        },
+        {
+          "text": "Alexandru Ioan Cuza a unit principatele. Regele Ferdinand a realizat Marea Unire.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good. Could add more details about their achievements.",
+            "uk": "Добре. Можна додати більше деталей про їхні досягнення."
+          }
+        },
+        {
+          "text": "Cuza și Ferdinand.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too brief. Add their achievements: Cuza united principalities 1859, Ferdinand achieved Great Union 1918.",
+            "uk": "Занадто коротко. Додайте їхні досягнення: Куза об'єднав князівства 1859, Фердинанд здійснив Велике Об'єднання 1918."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Ce știți despre Revoluția de la 1848 în spațiul românesc?"
+      },
+      "translation": {
+        "en": "What do you know about the Revolution of 1848 in the Romanian space?",
+        "uk": "Що ви знаєте про Революцію 1848 року в румунському просторі?"
+      },
+      "category": "E"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Describe the 1848 Revolution in Romanian lands",
+        "uk": "Опишіть революцію 1848 року в румунських землях"
+      },
+      "category": "E",
+      "options": [
+        {
+          "text": "Revoluția de la 1848 a fost o mișcare pentru modernizare, drepturi civile și unitate națională. A avut loc în Țara Românească, Moldova și Transilvania, cerând reforme democratice și drepturi egale.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent answer covering goals and territories.",
+            "uk": "Чудова відповідь, що охоплює цілі та території."
+          }
+        },
+        {
+          "text": "Revoluția de la 1848 a cerut modernizare și unitate națională.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good. Could mention it happened in all three principalities.",
+            "uk": "Добре. Можна згадати, що відбулася у всіх трьох князівствах."
+          }
+        },
+        {
+          "text": "A fost o revoluție.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. Add: movement for modernization, civil rights, national unity in all Romanian lands.",
+            "uk": "Занадто невизначено. Додайте: рух за модернізацію, громадянські права, національну єдність у всіх румунських землях."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Ce personalități istorice românești considerați că au contribuit la dezvoltarea culturii sau științei?"
+      },
+      "translation": {
+        "en": "What Romanian historical figures do you think contributed to the development of culture or science?",
+        "uk": "Які румунські історичні постаті, на вашу думку, зробили внесок у розвиток культури чи науки?"
+      },
+      "category": "E"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Name Romanian cultural or scientific figures",
+        "uk": "Назвіть румунських культурних або наукових діячів"
+      },
+      "category": "E",
+      "options": [
+        {
+          "text": "Mihai Eminescu a fost marele poet național. George Enescu a fost compozitor și muzician renumit. Constantin Brâncuși a fost sculptor de faimă mondială. Nicolae Paulescu a descoperit insulina, iar Henri Coandă a descoperit efectul Coandă în aerodinamică.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent answer with multiple figures from different fields.",
+            "uk": "Чудова відповідь з кількома постатями з різних галузей."
+          }
+        },
+        {
+          "text": "Mihai Eminescu, George Enescu, Constantin Brâncuși, Nicolae Paulescu.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good names. Could briefly mention their contributions.",
+            "uk": "Хороші імена. Можна коротко згадати їхній внесок."
+          }
+        },
+        {
+          "text": "Scriitori și artiști.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. Name specific people: Eminescu (poet), Enescu (composer), Brâncuși (sculptor), Paulescu (insulin).",
+            "uk": "Занадто невизначено. Назвіть конкретних людей: Емінеску (поет), Енеску (композитор), Бранкуші (скульптор), Паулеску (інсулін)."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cum a evoluat România după aderarea la Uniunea Europeană, pe scurt?"
+      },
+      "translation": {
+        "en": "How has Romania evolved after joining the European Union, briefly?",
+        "uk": "Як розвивалася Румунія після вступу до Європейського Союзу, коротко?"
+      },
+      "category": "E"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Describe Romania's development after EU accession",
+        "uk": "Опишіть розвиток Румунії після вступу до ЄС"
+      },
+      "category": "E",
+      "options": [
+        {
+          "text": "După aderarea la Uniunea Europeană, România a beneficiat de fonduri europene, creștere economică, modernizarea infrastructurii, mobilitate pentru cetățeni și integrare în piața unică europeană.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent comprehensive answer about benefits of EU membership.",
+            "uk": "Чудова всебічна відповідь про переваги членства в ЄС."
+          }
+        },
+        {
+          "text": "România a beneficiat de fonduri europene și dezvoltare economică.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good. Could also mention infrastructure, mobility, and single market integration.",
+            "uk": "Добре. Можна також згадати інфраструктуру, мобільність та інтеграцію в єдиний ринок."
+          }
+        },
+        {
+          "text": "A primit ajutor european.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too simplistic. Add: EU funds, economic growth, infrastructure modernization, citizen mobility, single market.",
+            "uk": "Занадто спрощено. Додайте: фонди ЄС, економічне зростання, модернізація інфраструктури, мобільність громадян, єдиний ринок."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cine este considerat marele poet național al României?"
+      },
+      "translation": {
+        "en": "Who is considered the great national poet of Romania?",
+        "uk": "Хто вважається великим національним поетом Румунії?"
+      },
+      "category": "F"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Name the national poet and his main work",
+        "uk": "Назвіть національного поета та його головний твір"
+      },
+      "category": "F",
+      "options": [
+        {
+          "text": "Mihai Eminescu, care a trăit între 1850 și 1889, este considerat marele poet național al României. Opera sa principală este \"Luceafărul\".",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Perfect answer with dates and main work.",
+            "uk": "Ідеальна відповідь з датами та головним твором."
+          }
+        },
+        {
+          "text": "Mihai Eminescu este marele poet național. A scris \"Luceafărul\".",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Correct. Could add his years (1850-1889).",
+            "uk": "Правильно. Можна додати роки життя (1850-1889)."
+          }
+        },
+        {
+          "text": "Eminescu.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too brief. Add: Mihai Eminescu (1850-1889), national poet, wrote \"Luceafărul\".",
+            "uk": "Занадто коротко. Додайте: Міхай Емінеску (1850-1889), національний поет, написав «Luceafărul»."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Enumerați un scriitor român important și o operă a sa."
+      },
+      "translation": {
+        "en": "Name an important Romanian writer and one of their works.",
+        "uk": "Назвіть важливого румунського письменника та один з його творів."
+      },
+      "category": "F"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Name a writer and their work",
+        "uk": "Назвіть письменника та його твір"
+      },
+      "category": "F",
+      "options": [
+        {
+          "text": "Ion Creangă a scris \"Amintiri din copilărie\". Alte exemple importante sunt Liviu Rebreanu cu romanul \"Ion\" și Mircea Eliade cu \"Maitreyi\".",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent answer with multiple examples.",
+            "uk": "Чудова відповідь з кількома прикладами."
+          }
+        },
+        {
+          "text": "Ion Creangă - \"Amintiri din copilărie\".",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Correct answer.",
+            "uk": "Правильна відповідь."
+          }
+        },
+        {
+          "text": "Un scriitor român.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. Name specific writer and work: Ion Creangă - \"Amintiri din copilărie\".",
+            "uk": "Занадто невизначено. Назвіть конкретного письменника та твір: Іон Крянге - \"Amintiri din copilărie\"."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Enumerați un compozitor sau muzician român cunoscut."
+      },
+      "translation": {
+        "en": "Name a well-known Romanian composer or musician.",
+        "uk": "Назвіть відомого румунського композитора або музиканта."
+      },
+      "category": "F"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Name a Romanian composer or musician",
+        "uk": "Назвіть румунського композитора або музиканта"
+      },
+      "category": "F",
+      "options": [
+        {
+          "text": "George Enescu, care a trăit între 1881 și 1955, a fost cel mai important compozitor român, cunoscut pentru \"Rapsodiile Române\".",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Perfect answer with dates and famous work.",
+            "uk": "Ідеальна відповідь з датами та відомим твором."
+          }
+        },
+        {
+          "text": "George Enescu, compozitor renumit, a scris \"Rapsodiile Române\".",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good answer. Could add his years (1881-1955).",
+            "uk": "Хороша відповідь. Можна додати роки життя (1881-1955)."
+          }
+        },
+        {
+          "text": "Un muzician.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. Name: George Enescu (1881-1955), famous for Romanian Rhapsodies.",
+            "uk": "Занадто невизначено. Ім'я: Джордже Енеску (1881-1955), відомий румунськими рапсодіями."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Enumerați un sculptor sau un artist plastic român renumit."
+      },
+      "translation": {
+        "en": "Name a renowned Romanian sculptor or visual artist.",
+        "uk": "Назвіть відомого румунського скульптора або художника."
+      },
+      "category": "F"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Name a Romanian sculptor or artist",
+        "uk": "Назвіть румунського скульптора або художника"
+      },
+      "category": "F",
+      "options": [
+        {
+          "text": "Constantin Brâncuși, care a trăit între 1876 și 1957, a fost un sculptor de renume mondial, creatorul \"Coloanei Infinitului\", \"Sărutului\" și \"Păsării în Văzduh\".",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent answer with dates and famous works.",
+            "uk": "Чудова відповідь з датами та відомими роботами."
+          }
+        },
+        {
+          "text": "Constantin Brâncuși, sculptor renumit, a creat \"Coloana Infinitului\".",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good. Could mention other works like \"The Kiss\" and \"Bird in Space\".",
+            "uk": "Добре. Можна згадати інші роботи, як «Поцілунок» і «Птах у повітрі»."
+          }
+        },
+        {
+          "text": "Un artist.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. Name: Constantin Brâncuși (1876-1957), world-renowned sculptor.",
+            "uk": "Занадто невизначено. Ім'я: Костянтин Бранкуші (1876-1957), всесвітньо відомий скульптор."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Ce știți despre tradițiile de Crăciun în România?"
+      },
+      "translation": {
+        "en": "What do you know about Christmas traditions in Romania?",
+        "uk": "Що ви знаєте про різдвяні традиції в Румунії?"
+      },
+      "category": "F"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Describe Romanian Christmas traditions",
+        "uk": "Опишіть румунські різдвяні традиції"
+      },
+      "category": "F",
+      "options": [
+        {
+          "text": "Tradițiile de Crăciun în România includ colindele, cântece tradiționale cântate din casă în casă, mersul cu steaua, pregătirea sarmalelor și a cozonacului, și tăierea porcului.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent comprehensive answer about Christmas traditions.",
+            "uk": "Чудова всебічна відповідь про різдвяні традиції."
+          }
+        },
+        {
+          "text": "De Crăciun se cântă colinde, se prepară sarmale și cozonac.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good. Could also mention going with the star and pig slaughter.",
+            "uk": "Добре. Можна також згадати хождіння зі зіркою та забій свині."
+          }
+        },
+        {
+          "text": "Sărbătoare religioasă.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. Add: carols (colinde), star procession, sarmale, cozonac, pig slaughter.",
+            "uk": "Занадто невизначено. Додайте: колядки, хождіння зі зіркою, сармале, козонак, забій свині."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Ce obiceiuri de Paște sunt specifice în România?"
+      },
+      "translation": {
+        "en": "What Easter customs are specific to Romania?",
+        "uk": "Які великодні звичаї характерні для Румунії?"
+      },
+      "category": "F"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Describe Romanian Easter customs",
+        "uk": "Опишіть румунські великодні звичаї"
+      },
+      "category": "F",
+      "options": [
+        {
+          "text": "De Paște în România se încondeiază ouă, adică se pictează ouă cu modele tradiționale, se prepară cozonac, pască și drob de miel. Se participă la slujba de Înviere la miezul nopții.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent detailed answer about Easter traditions.",
+            "uk": "Чудова детальна відповідь про великодні традиції."
+          }
+        },
+        {
+          "text": "Se încondeiază ouă, se prepară cozonac și pască, și se merge la slujba de Înviere.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good. Could also mention drob de miel (lamb dish).",
+            "uk": "Добре. Можна також згадати drob de miel (страва з ягняти)."
+          }
+        },
+        {
+          "text": "Se vopsesc ouă.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too brief. Add: painted eggs (încondeiază), cozonac, pască, drob, Resurrection service at midnight.",
+            "uk": "Занадто коротко. Додайте: розписні яйця (încondeiază), козонак, паска, дроб, служба Воскресіння опівночі."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Enumerați două mâncăruri tradiționale românești."
+      },
+      "translation": {
+        "en": "Name two traditional Romanian dishes.",
+        "uk": "Назвіть дві традиційні румунські страви."
+      },
+      "category": "F"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Name two traditional Romanian dishes",
+        "uk": "Назвіть дві традиційні румунські страви"
+      },
+      "category": "F",
+      "options": [
+        {
+          "text": "Sarmalele sunt rulouri de carne în foi de varză sau viță de vie. Mămăliga este un terci tradițional din mălai, similar polentei. Alte exemple sunt mici, cozonac și ciorbă de burtă.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent answer with descriptions and additional examples.",
+            "uk": "Чудова відповідь з описами та додатковими прикладами."
+          }
+        },
+        {
+          "text": "Sarmale și mămăligă sunt mâncăruri tradiționale românești.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Correct. Could briefly describe what they are.",
+            "uk": "Правильно. Можна коротко описати, що це таке."
+          }
+        },
+        {
+          "text": "Mâncare românească.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. Name specific dishes: sarmale (cabbage rolls), mămăligă (polenta), mici.",
+            "uk": "Занадто невизначено. Назвіть конкретні страви: сармале (голубці), мамалига (полента), мічі."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Enumerați un dans popular românesc."
+      },
+      "translation": {
+        "en": "Name a Romanian folk dance.",
+        "uk": "Назвіть румунський народний танець."
+      },
+      "category": "F"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Name a Romanian folk dance",
+        "uk": "Назвіть румунський народний танець"
+      },
+      "category": "F",
+      "options": [
+        {
+          "text": "Hora este un dans tradițional românesc în cerc, dansat la sărbători și evenimente importante. Alte dansuri populare sunt sârba și brâul.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent answer with description and additional examples.",
+            "uk": "Чудова відповідь з описом та додатковими прикладами."
+          }
+        },
+        {
+          "text": "Hora este un dans tradițional românesc.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Correct. Could describe it as a circle dance at celebrations.",
+            "uk": "Правильно. Можна описати як круговий танець на святах."
+          }
+        },
+        {
+          "text": "Un dans.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. Name: hora (circle dance), sârba, or brâul.",
+            "uk": "Занадто невизначено. Назва: хора (круговий танець), сирба або брiul."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Enumerați un festival important care are loc în România."
+      },
+      "translation": {
+        "en": "Name an important festival that takes place in Romania.",
+        "uk": "Назвіть важливий фестиваль, що проходить у Румунії."
+      },
+      "category": "F"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Name an important Romanian festival",
+        "uk": "Назвіть важливий румунський фестиваль"
+      },
+      "category": "F",
+      "options": [
+        {
+          "text": "Festivalul George Enescu este cel mai important festival de muzică clasică din România, și are loc la București. Alte festivaluri importante sunt UNTOLD la Cluj-Napoca, Electric Castle și TIFF, Festivalul de Film de la Transilvania.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent answer with multiple festival examples.",
+            "uk": "Чудова відповідь з кількома прикладами фестивалів."
+          }
+        },
+        {
+          "text": "Festivalul George Enescu la București sau UNTOLD la Cluj-Napoca.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good examples. Could specify the type of festival.",
+            "uk": "Хороші приклади. Можна уточнити тип фестивалю."
+          }
+        },
+        {
+          "text": "Un festival de muzică.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. Name specific festival: George Enescu (classical), UNTOLD, or TIFF.",
+            "uk": "Занадто невизначено. Назвіть конкретний фестиваль: Джордже Енеску (класика), UNTOLD або TIFF."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Ce monumente sau obiective turistice importante cunoașteți în România?"
+      },
+      "translation": {
+        "en": "What important monuments or tourist attractions do you know in Romania?",
+        "uk": "Які важливі пам'ятки або туристичні визначні місця ви знаєте в Румунії?"
+      },
+      "category": "F"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Name important Romanian monuments or attractions",
+        "uk": "Назвіть важливі румунські пам'ятки або визначні місця"
+      },
+      "category": "F",
+      "options": [
+        {
+          "text": "Castelul Bran este asociat cu legenda lui Dracula. Castelul Peleș din Sinaia este o capodoperă arhitecturală. Mănăstirile pictate din Bucovina sunt incluse în patrimoniul UNESCO. Delta Dunării și Transfăgărășanul sunt obiective naturale spectaculoase.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent comprehensive answer with multiple landmarks.",
+            "uk": "Чудова всебічна відповідь з кількома визначними місцями."
+          }
+        },
+        {
+          "text": "Castelul Bran, Castelul Peleș, Mănăstirile din Bucovina, Delta Dunării.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good list. Could add brief descriptions of each.",
+            "uk": "Хороший список. Можна додати короткі описи кожного."
+          }
+        },
+        {
+          "text": "Castele și biserici.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. Name specific places: Bran Castle, Peleș Castle, Bucovina monasteries, Danube Delta.",
+            "uk": "Занадто невизначено. Назвіть конкретні місця: замок Бран, замок Пелеш, монастирі Буковини, дельта Дунаю."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Ce știți despre minoritățile naționale din România și rolul lor în cultură?"
+      },
+      "translation": {
+        "en": "What do you know about national minorities in Romania and their role in culture?",
+        "uk": "Що ви знаєте про національні меншини в Румунії та їхню роль у культурі?"
+      },
+      "category": "F"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Describe national minorities in Romania and their cultural role",
+        "uk": "Опишіть національні меншини в Румунії та їхню культурну роль"
+      },
+      "category": "F",
+      "options": [
+        {
+          "text": "În România trăiesc mai multe minorități naționale: maghiari, romi, germani, ucraineni, turci, tătari și altele. Aceste minorități au drepturi garantate de Constituție și contribuie la diversitatea culturală a României.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent answer naming minorities and their constitutional rights.",
+            "uk": "Чудова відповідь з переліком меншин та їхніми конституційними правами."
+          }
+        },
+        {
+          "text": "În România există minorități maghiare, rome, germane și altele, care au drepturi garantate.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good. Could mention their contribution to cultural diversity.",
+            "uk": "Добре. Можна згадати їхній внесок у культурну різноманітність."
+          }
+        },
+        {
+          "text": "Există minorități.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. Name minorities: Hungarians, Roma, Germans, Ukrainians; they have constitutional rights and enrich culture.",
+            "uk": "Занадто невизначено. Назвіть меншини: угорці, роми, німці, українці; вони мають конституційні права та збагачують культуру."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cum este protejat patrimoniul cultural în România, în linii mari?"
+      },
+      "translation": {
+        "en": "How is cultural heritage protected in Romania, in broad terms?",
+        "uk": "Як захищається культурна спадщина в Румунії, загалом?"
+      },
+      "category": "F"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Describe how cultural heritage is protected",
+        "uk": "Опишіть, як захищається культурна спадщина"
+      },
+      "category": "F",
+      "options": [
+        {
+          "text": "Patrimoniul cultural în România este protejat prin legi speciale și prin Ministerul Culturii. Multe obiective sunt incluse în patrimoniul UNESCO, cum ar fi Mănăstirile din Bucovina, Delta Dunării și cetățile dacice din Transilvania.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent answer with legal framework and UNESCO examples.",
+            "uk": "Чудова відповідь з правовими рамками та прикладами ЮНЕСКО."
+          }
+        },
+        {
+          "text": "Patrimoniul este protejat prin legi și unele obiective sunt în patrimoniul UNESCO.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good. Could name specific UNESCO sites like Bucovina monasteries.",
+            "uk": "Добре. Можна назвати конкретні об'єкти ЮНЕСКО, як монастирі Буковини."
+          }
+        },
+        {
+          "text": "Prin legi.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too brief. Add: Ministry of Culture, special laws, UNESCO sites (Bucovina monasteries, Danube Delta).",
+            "uk": "Занадто коротко. Додайте: Міністерство культури, спеціальні закони, об'єкти ЮНЕСКО (монастирі Буковини, дельта Дунаю)."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Enumerați două universități importante din România."
+      },
+      "translation": {
+        "en": "Name two important universities in Romania.",
+        "uk": "Назвіть два важливі університети в Румунії."
+      },
+      "category": "F"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Name two important Romanian universities",
+        "uk": "Назвіть два важливі румунські університети"
+      },
+      "category": "F",
+      "options": [
+        {
+          "text": "Universitatea din București și Universitatea Babeș-Bolyai din Cluj-Napoca sunt cele mai importante universități. Alte universități importante sunt Universitatea Politehnica București și Universitatea Alexandru Ioan Cuza din Iași.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent answer with multiple university examples.",
+            "uk": "Чудова відповідь з кількома прикладами університетів."
+          }
+        },
+        {
+          "text": "Universitatea din București și Universitatea Babeș-Bolyai din Cluj-Napoca.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Correct answer naming two major universities.",
+            "uk": "Правильна відповідь, що називає два великі університети."
+          }
+        },
+        {
+          "text": "Universități în București.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. Name specific universities: University of Bucharest, Babeș-Bolyai University in Cluj.",
+            "uk": "Занадто невизначено. Назвіть конкретні університети: Університет Бухареста, Університет Бабеш-Бойяй у Клужі."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Ce știți despre cinematografia sau teatrul românesc?"
+      },
+      "translation": {
+        "en": "What do you know about Romanian cinema or theater?",
+        "uk": "Що ви знаєте про румунське кіно чи театр?"
+      },
+      "category": "F"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Describe Romanian cinema or theater",
+        "uk": "Опишіть румунське кіно чи театр"
+      },
+      "category": "F",
+      "options": [
+        {
+          "text": "Cinematografia românească a câștigat recunoaștere internațională cu regizori ca Cristian Mungiu, care a câștigat Palme d'Or la Cannes în 2007, și Cristi Puiu. Teatrul Național din București este cea mai importantă instituție teatrală din țară.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent answer with specific directors and awards.",
+            "uk": "Чудова відповідь з конкретними режисерами та нагородами."
+          }
+        },
+        {
+          "text": "Cinematografia românească este recunoscută internațional. Teatrul Național din București este important.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good. Could name directors like Cristian Mungiu or Cristi Puiu.",
+            "uk": "Добре. Можна назвати режисерів, як Крістіан Мунджу або Крісті Пую."
+          }
+        },
+        {
+          "text": "Există filme și teatre.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. Mention: Cristian Mungiu (Palme d'Or 2007), Cristi Puiu, National Theater Bucharest.",
+            "uk": "Занадто невизначено. Згадайте: Крістіан Мунджу (Золота пальмова гілка 2007), Крісті Пую, Національний театр Бухареста."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Dați un exemplu de contribuție a României la știință sau tehnologie."
+      },
+      "translation": {
+        "en": "Give an example of Romania's contribution to science or technology.",
+        "uk": "Наведіть приклад внеску Румунії в науку чи технологію."
+      },
+      "category": "F"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Name a Romanian scientific or technological contribution",
+        "uk": "Назвіть румунський науковий чи технологічний внесок"
+      },
+      "category": "F",
+      "options": [
+        {
+          "text": "Henri Coandă a descoperit efectul Coandă în aerodinamică. Nicolae Paulescu a descoperit insulina, contribuind la tratamentul diabetului. Petrache Poenaru a inventat stiloul cu cerneală în secolul nouăsprezece.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent answer with multiple scientific contributions.",
+            "uk": "Чудова відповідь з кількома науковими внесками."
+          }
+        },
+        {
+          "text": "Henri Coandă a descoperit efectul Coandă. Nicolae Paulescu a descoperit insulina.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good examples of Romanian scientific contributions.",
+            "uk": "Хороші приклади румунських наукових внесків."
+          }
+        },
+        {
+          "text": "Științe și tehnologie.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too vague. Name specific contributions: Coandă effect (aerodynamics), insulin (Paulescu), fountain pen (Poenaru).",
+            "uk": "Занадто невизначено. Назвіть конкретні внески: ефект Коанде (аеродинаміка), інсулін (Паулеску), авторучка (Поенару)."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cum ați saluta și cum v-ați prezenta în fața comisiei la interviu sau la depunerea jurământului?"
+      },
+      "translation": {
+        "en": "How would you greet and introduce yourself to the commission at the interview or oath ceremony?",
+        "uk": "Як ви б привіталися і представилися комісії на співбесіді або на церемонії присяги?"
+      },
+      "category": "G"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Greet and introduce yourself formally",
+        "uk": "Привітайтеся і представтесь офіційно"
+      },
+      "category": "G",
+      "options": [
+        {
+          "text": "Bună ziua. Mă numesc [Nume Complet]. Sunt aici pentru depunerea jurământului de credință. Am pregătite toate actele necesare și sunt onorat să fiu prezent astăzi.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Perfect formal introduction with all necessary elements.",
+            "uk": "Ідеальне офіційне представлення з усіма необхідними елементами."
+          }
+        },
+        {
+          "text": "Bună ziua. Mă numesc [Nume]. Sunt aici pentru jurământ.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good. Could add that you have all documents prepared.",
+            "uk": "Добре. Можна додати, що у вас підготовлені всі документи."
+          }
+        },
+        {
+          "text": "Bună ziua.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too brief. Add: full name, purpose (oath ceremony), mention prepared documents.",
+            "uk": "Занадто коротко. Додайте: повне ім'я, мета (церемонія присяги), згадайте підготовлені документи."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cum ați confirma, în română, că înțelegeți consecințele obținerii cetățeniei române?"
+      },
+      "translation": {
+        "en": "How would you confirm, in Romanian, that you understand the consequences of obtaining Romanian citizenship?",
+        "uk": "Як би ви підтвердили румунською, що розумієте наслідки отримання румунського громадянства?"
+      },
+      "category": "G"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Confirm you understand the consequences of citizenship",
+        "uk": "Підтвердіть, що розумієте наслідки громадянства"
+      },
+      "category": "G",
+      "options": [
+        {
+          "text": "Da, înțeleg pe deplin consecințele obținerii cetățeniei române. Știu că voi avea atât drepturi, cât și obligații ca cetățean român, și sunt pregătit să le respect pe toate.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Perfect confirmation showing full understanding of rights and obligations.",
+            "uk": "Ідеальне підтвердження, що показує повне розуміння прав та обов'язків."
+          }
+        },
+        {
+          "text": "Da, înțeleg. Știu că voi avea drepturi și obligații.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good. Could emphasize readiness to respect them all.",
+            "uk": "Добре. Можна підкреслити готовність поважати їх усі."
+          }
+        },
+        {
+          "text": "Da, înțeleg.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too brief. Add: you understand you'll have both rights and obligations as Romanian citizen.",
+            "uk": "Занадто коротко. Додайте: ви розумієте, що матимете як права, так і обов'язки як румунський громадянин."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cum ați răspunde dacă vi se cere să explicați, pe scurt, de ce ați ales să deveniți cetățean român?"
+      },
+      "translation": {
+        "en": "How would you respond if asked to briefly explain why you chose to become a Romanian citizen?",
+        "uk": "Як би ви відповіли, якби вас попросили коротко пояснити, чому ви вирішили стати румунським громадянином?"
+      },
+      "category": "G"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Explain why you chose Romanian citizenship",
+        "uk": "Поясніть, чому ви обрали румунське громадянство"
+      },
+      "category": "G",
+      "options": [
+        {
+          "text": "Am ales să devin cetățean român deoarece trăiesc în România de mulți ani, am învățat limba și cultura română, și mă simt parte din această societate. Doresc să contribui activ la dezvoltarea acestei țări și să îmi exercit pe deplin drepturile și responsabilitățile de cetățean.",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent answer showing integration, commitment, and future goals.",
+            "uk": "Чудова відповідь, що показує інтеграцію, відданість та майбутні цілі."
+          }
+        },
+        {
+          "text": "Trăiesc în România de mulți ani, am învățat limba și cultura, și vreau să contribui la această țară.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good. Could add that you feel part of society and want to exercise full rights.",
+            "uk": "Добре. Можна додати, що відчуваєте себе частиною суспільства і хочете користуватися повними правами."
+          }
+        },
+        {
+          "text": "Pentru că trăiesc aici.",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too superficial. Add: years of residence, learned language and culture, feel part of society, want to contribute.",
+            "uk": "Занадто поверхнево. Додайте: роки проживання, вивчили мову та культуру, відчуваєте себе частиною суспільства, хочете зробити внесок."
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Cum ați reacționa dacă nu înțelegeți o întrebare la interviu? Formulați un exemplu de întrebare de clarificare în română."
+      },
+      "translation": {
+        "en": "How would you react if you don't understand a question at the interview? Formulate an example clarification question in Romanian.",
+        "uk": "Як би ви відреагували, якби не зрозуміли питання на співбесіді? Сформулюйте приклад запиту на уточнення румунською."
+      },
+      "category": "G"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Ask politely for clarification",
+        "uk": "Ввічливо попросіть роз'яснення"
+      },
+      "category": "G",
+      "options": [
+        {
+          "text": "Vă rog frumos, puteți să repetați întrebarea? Nu am înțeles exact ce ați întrebat. Puteți să reformulați sau să vorbiți mai încet, vă rog?",
+          "quality": "excellent",
+          "feedback": {
+            "en": "Excellent polite clarification request with multiple options.",
+            "uk": "Чудовий ввічливий запит на роз'яснення з кількома варіантами."
+          }
+        },
+        {
+          "text": "Vă rog să repetați. Nu am înțeles bine.",
+          "quality": "acceptable",
+          "feedback": {
+            "en": "Good polite request. Could offer alternatives like reformulation or slower speech.",
+            "uk": "Гарний ввічливий запит. Можна запропонувати альтернативи, як переформулювання чи повільніше мовлення."
+          }
+        },
+        {
+          "text": "Ce?",
+          "quality": "poor",
+          "feedback": {
+            "en": "Too informal and abrupt. Use polite form: \"Vă rog frumos, puteți să repetați întrebarea?\"",
+            "uk": "Занадто неформально і різко. Використовуйте ввічливу форму: \"Vă rog frumos, puteți să repetați întrebarea?\""
+          }
+        }
+      ]
+    },
+    {
+      "speaker": "official",
+      "text": {
+        "ro": "Puteți recita corect, din memorie, textul jurământului de credință față de România, în limba română?"
+      },
+      "translation": {
+        "en": "Can you correctly recite from memory the text of the oath of allegiance to Romania, in Romanian?",
+        "uk": "Чи можете ви правильно продекламувати напам'ять текст присяги на вірність Румунії румунською мовою?"
+      },
+      "category": "G"
+    },
+    {
+      "speaker": "you",
+      "prompt": {
+        "en": "Recite the oath of allegiance to Romania",
+        "uk": "Продекламуйте присягу на вірність Румунії"
+      },
+      "category": "G",
       "options": [
         {
           "text": "Jur să fiu devotat patriei și poporului român, să apăr drepturile și interesele naționale, să respect Constituția și legile României.",
           "quality": "excellent",
-          "feedback": { "en": "The oath recited perfectly! Congratulations, you are now a Romanian citizen!", "uk": "Присягу прочитано бездоганно! Вітаємо, тепер ви громадянин Румунії!" }
+          "feedback": {
+            "en": "Perfect recitation of the oath of allegiance.",
+            "uk": "Ідеальна декламація присяги на вірність."
+          }
         },
         {
-          "text": "Jur să fiu devotat patriei și poporului român, să apăr drepturile naționale, să respect legile României.",
+          "text": "Jur să fiu devotat patriei române și să respect Constituția.",
           "quality": "acceptable",
-          "feedback": { "en": "Close, but you missed 'și interesele' after 'drepturile' and 'Constituția și' before 'legile'. Practice the full text.", "uk": "Близько, але ви пропустили 'și interesele' після 'drepturile' та 'Constituția și' перед 'legile'. Практикуйте повний текст." }
+          "feedback": {
+            "en": "Partially correct but incomplete. Full oath includes: devotion to homeland and people, defending national rights and interests, respecting Constitution and laws.",
+            "uk": "Частково правильно, але неповно. Повна присяга включає: відданість батьківщині та народу, захист національних прав та інтересів, повагу до Конституції та законів."
+          }
         },
         {
-          "text": "Jur să fiu devotat... patriei... și poporului...",
+          "text": "Jur să respect România.",
           "quality": "poor",
-          "feedback": { "en": "You need to memorize the full oath text fluently. This is the most important moment! Keep practicing!", "uk": "Потрібно вивчити повний текст присяги напам'ять. Це найважливіший момент! Продовжуйте практикувати!" }
+          "feedback": {
+            "en": "Too brief and inaccurate. Correct oath: \"Jur să fiu devotat patriei și poporului român, să apăr drepturile și interesele naționale, să respect Constituția și legile României.\"",
+            "uk": "Занадто коротко і неточно. Правильна присяга: \"Jur să fiu devotat patriei și poporului român, să apăr drepturile și interesele naționale, să respect Constituția și legile României.\""
+          }
         }
       ]
     }

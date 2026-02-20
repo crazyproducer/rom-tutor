@@ -14,6 +14,8 @@ export function CeremonySim(container, store, router) {
   let score = 0;
   let totalQuestions = 0;
   let startTime = null;
+  let selectedCategories = new Set();
+  let questionsPerSession = 10;
 
   loadAll();
 
@@ -53,10 +55,102 @@ export function CeremonySim(container, store, router) {
     desc.style.whiteSpace = 'pre-line';
     intro.appendChild(desc);
 
+    // Category selection
+    if (dialogueData && dialogueData.categories) {
+      const catSection = document.createElement('div');
+      catSection.className = 'category-select mt-20';
+
+      const catLabel = document.createElement('h3');
+      catLabel.style.marginBottom = '12px';
+      catLabel.textContent = tr({ en: 'Select question categories:', uk: 'Оберіть категорії запитань:' });
+      catSection.appendChild(catLabel);
+
+      const catGrid = document.createElement('div');
+      catGrid.className = 'category-grid';
+
+      // Initialize with all categories selected
+      if (selectedCategories.size === 0) {
+        dialogueData.categories.forEach(c => selectedCategories.add(c.id));
+      }
+
+      dialogueData.categories.forEach(cat => {
+        const catBtn = document.createElement('button');
+        catBtn.className = 'category-chip' + (selectedCategories.has(cat.id) ? ' selected' : '');
+        const catText = document.createElement('span');
+        catText.textContent = cat.id + ': ' + tr(cat.name);
+        catBtn.appendChild(catText);
+        const catRange = document.createElement('span');
+        catRange.className = 'chip-range';
+        catRange.textContent = cat.range;
+        catBtn.appendChild(catRange);
+        catBtn.addEventListener('click', () => {
+          if (selectedCategories.has(cat.id)) {
+            selectedCategories.delete(cat.id);
+            catBtn.classList.remove('selected');
+          } else {
+            selectedCategories.add(cat.id);
+            catBtn.classList.add('selected');
+          }
+          updateCountLabel();
+        });
+        catGrid.appendChild(catBtn);
+      });
+      catSection.appendChild(catGrid);
+
+      // Question count selector
+      const countRow = document.createElement('div');
+      countRow.className = 'count-row mt-16';
+      const countLabel = document.createElement('label');
+      countLabel.textContent = tr({ en: 'Questions per session:', uk: 'Запитань за сесію:' });
+      countRow.appendChild(countLabel);
+
+      const countSelect = document.createElement('select');
+      countSelect.className = 'select-count';
+      [5, 10, 15, 20, 30].forEach(n => {
+        const opt = document.createElement('option');
+        opt.value = n;
+        opt.textContent = String(n);
+        if (n === questionsPerSession) opt.selected = true;
+        countSelect.appendChild(opt);
+      });
+      // Add "All" option
+      const allOpt = document.createElement('option');
+      allOpt.value = '0';
+      allOpt.textContent = tr({ en: 'All', uk: 'Всі' });
+      countSelect.appendChild(allOpt);
+      countSelect.addEventListener('change', () => {
+        questionsPerSession = parseInt(countSelect.value, 10);
+        updateCountLabel();
+      });
+      countRow.appendChild(countSelect);
+      catSection.appendChild(countRow);
+
+      const availableLabel = document.createElement('div');
+      availableLabel.className = 'text-secondary mt-8';
+      availableLabel.style.fontSize = '0.8125rem';
+      catSection.appendChild(availableLabel);
+
+      function updateCountLabel() {
+        const available = countAvailableQuestions();
+        const using = questionsPerSession === 0 ? available : Math.min(questionsPerSession, available);
+        availableLabel.textContent = tr({
+          en: `${available} questions available, ${using} will be asked (random order)`,
+          uk: `${available} запитань доступно, ${using} буде задано (випадковий порядок)`
+        });
+      }
+      updateCountLabel();
+
+      intro.appendChild(catSection);
+    }
+
     const startBtn = document.createElement('button');
     startBtn.className = 'btn btn-primary btn-lg mt-20';
     startBtn.textContent = t('ceremony.start');
     startBtn.addEventListener('click', () => {
+      if (selectedCategories.size === 0) {
+        // Select all if none selected
+        dialogueData.categories.forEach(c => selectedCategories.add(c.id));
+      }
       started = true;
       startTime = Date.now();
       currentPhase = 'oath';
@@ -67,6 +161,11 @@ export function CeremonySim(container, store, router) {
     view.appendChild(intro);
     container.textContent = '';
     container.appendChild(view);
+  }
+
+  function countAvailableQuestions() {
+    if (!dialogueData) return 0;
+    return dialogueData.turns.filter(t => t.speaker === 'you' && selectedCategories.has(t.category)).length;
   }
 
   function renderOathPhase() {
@@ -167,10 +266,14 @@ export function CeremonySim(container, store, router) {
 
   function prepareQA() {
     if (!dialogueData) return;
-    // Use dialogue turns that are player turns as QA
-    qaQuestions = dialogueData.turns.filter(t => t.speaker === 'you');
-    // Take up to 5 questions
-    qaQuestions = qaQuestions.slice(0, 5);
+    // Filter by selected categories
+    qaQuestions = dialogueData.turns.filter(t => t.speaker === 'you' && selectedCategories.has(t.category));
+    // Shuffle
+    qaQuestions = shuffle([...qaQuestions]);
+    // Limit to session count (0 = all)
+    if (questionsPerSession > 0) {
+      qaQuestions = qaQuestions.slice(0, questionsPerSession);
+    }
     qaIndex = 0;
   }
 
@@ -181,7 +284,9 @@ export function CeremonySim(container, store, router) {
     }
 
     const question = qaQuestions[qaIndex];
-    const prevTurn = dialogueData.turns[dialogueData.turns.indexOf(question) - 1];
+    // Find the official's question turn that precedes this player turn in the original data
+    const origIndex = dialogueData.turns.indexOf(question);
+    const prevTurn = origIndex > 0 ? dialogueData.turns[origIndex - 1] : null;
     const excellentOpt = question.options.find(o => o.quality === 'excellent') || question.options[0];
     const acceptableOpt = question.options.find(o => o.quality === 'acceptable');
 
@@ -190,7 +295,9 @@ export function CeremonySim(container, store, router) {
 
     const timer = document.createElement('div');
     timer.className = 'ceremony-timer';
-    timer.textContent = `${tr({ en: 'Question', uk: 'Запитання' })} ${qaIndex + 1} / ${qaQuestions.length}`;
+    const catInfo = dialogueData.categories ? dialogueData.categories.find(c => c.id === question.category) : null;
+    const catName = catInfo ? ' [' + question.category + ']' : '';
+    timer.textContent = `${tr({ en: 'Question', uk: 'Запитання' })} ${qaIndex + 1} / ${qaQuestions.length}${catName}`;
     view.appendChild(timer);
 
     // Official question bubble

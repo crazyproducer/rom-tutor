@@ -1201,6 +1201,65 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
   margin-bottom: 16px;
 }
 
+.category-select {
+  text-align: left;
+}
+.category-select h3 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.category-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.category-chip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 0.8125rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+}
+.category-chip:hover {
+  border-color: var(--color-primary);
+}
+.category-chip.selected {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+.chip-range {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+.category-chip.selected .chip-range {
+  color: var(--color-primary);
+}
+.count-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.875rem;
+}
+.select-count {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 0.875rem;
+}
+
 /* --- Progress / Profile --- */
 .profile-header {
   text-align: center;
