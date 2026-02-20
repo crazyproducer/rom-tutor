@@ -1506,6 +1506,102 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
   color: #fff;
 }
 
+/* --- Answer Diff (word-by-word comparison) --- */
+.answer-diff {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  padding: 12px 16px;
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+  margin-top: 12px;
+}
+
+.answer-diff .word-correct {
+  color: var(--color-success, #22c55e);
+  font-weight: 600;
+}
+
+.answer-diff .word-wrong {
+  color: var(--color-error, #ef4444);
+  text-decoration: line-through;
+  font-weight: 600;
+}
+
+.answer-diff .word-missing {
+  color: var(--color-text-secondary);
+  font-style: italic;
+  opacity: 0.6;
+}
+
+.answer-diff .word-extra {
+  color: var(--color-warning, #f59e0b);
+  font-style: italic;
+}
+
+/* Expected answer reveal box */
+.expected-answer-box {
+  margin-top: 12px;
+  padding: 12px 16px;
+  background: var(--color-primary-light);
+  border-left: 3px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+}
+
+.expected-answer-box .expected-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.expected-answer-box .expected-text {
+  font-size: 1.0625rem;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+/* Also acceptable answer */
+.also-acceptable {
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.also-acceptable .acceptable-label {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+/* Translation prompt box */
+.translate-prompt {
+  text-align: center;
+  padding: 16px;
+  margin-bottom: 12px;
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  border: 1px dashed var(--color-border);
+}
+
+.translate-prompt .prompt-label {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 6px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.translate-prompt .prompt-text {
+  font-size: 1.125rem;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
 /* --- Session Summary --- */
 .session-summary {
   text-align: center;

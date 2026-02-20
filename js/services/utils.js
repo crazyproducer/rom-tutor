@@ -104,6 +104,11 @@ const i18nStrings = {
     'ceremony.start': 'Розпочати церемонію',
     'ceremony.result': 'Результат',
     'dialogue.your_turn': 'Ваша черга відповідати:',
+    'dialogue.translate': 'Перекладіть румунською:',
+    'dialogue.say_this': 'Скажіть це румунською:',
+    'dialogue.expected': 'Правильна відповідь:',
+    'dialogue.also_acceptable': 'Також прийнятно:',
+    'dialogue.type_romanian': 'Введіть або продиктуйте румунською...',
     'settings.title': 'Налаштування',
     'settings.language': 'Мова інтерфейсу',
     'settings.theme': 'Тема',
@@ -182,6 +187,11 @@ const i18nStrings = {
     'ceremony.start': 'Start ceremony',
     'ceremony.result': 'Result',
     'dialogue.your_turn': 'Your turn to respond:',
+    'dialogue.translate': 'Translate to Romanian:',
+    'dialogue.say_this': 'Say this in Romanian:',
+    'dialogue.expected': 'Correct answer:',
+    'dialogue.also_acceptable': 'Also acceptable:',
+    'dialogue.type_romanian': 'Type or dictate in Romanian...',
     'settings.title': 'Settings',
     'settings.language': 'Interface language',
     'settings.theme': 'Theme',
@@ -233,4 +243,68 @@ export function applyI18n() {
 
 export function getLang() {
   return currentLang;
+}
+
+/**
+ * Compare user's Romanian answer against expected text.
+ * Returns { percentage, correctCount, totalExpected, diffElement }.
+ * diffElement is a DOM node with colored words (green/red/gray).
+ * Placeholders like [Nume], [X], [Oraș] auto-match any user word.
+ */
+export function compareRomanianAnswer(userText, expectedText) {
+  const normalize = s => s.toLowerCase().replace(/[.,!?;:„"""''()]/g, '').replace(/\s+/g, ' ').trim();
+
+  const expectedNorm = normalize(expectedText);
+  const userNorm = normalize(userText);
+
+  const expectedWords = expectedNorm.split(' ').filter(w => w);
+  const userWords = userNorm.split(' ').filter(w => w);
+
+  const isPlaceholder = w => /^\[.*\]$/.test(w);
+
+  let correctCount = 0;
+  const maxLen = Math.max(expectedWords.length, userWords.length);
+
+  // Build diff element
+  const diffEl = document.createElement('div');
+  diffEl.className = 'answer-diff';
+
+  for (let i = 0; i < maxLen; i++) {
+    const expected = expectedWords[i];
+    const user = userWords[i];
+
+    const span = document.createElement('span');
+
+    if (!expected) {
+      // User typed extra words
+      span.className = 'word-extra';
+      span.textContent = user;
+    } else if (!user) {
+      // User missed this word
+      span.className = 'word-missing';
+      span.textContent = expected;
+    } else if (isPlaceholder(expected)) {
+      // Placeholder — auto-match
+      span.className = 'word-correct';
+      span.textContent = user;
+      correctCount++;
+    } else if (normalize(user) === normalize(expected)) {
+      span.className = 'word-correct';
+      span.textContent = user;
+      correctCount++;
+    } else {
+      span.className = 'word-wrong';
+      span.textContent = user;
+    }
+
+    if (i > 0) {
+      diffEl.appendChild(document.createTextNode(' '));
+    }
+    diffEl.appendChild(span);
+  }
+
+  const totalExpected = expectedWords.length || 1;
+  const percentage = Math.round(correctCount / totalExpected * 100);
+
+  return { percentage, correctCount, totalExpected, diffElement: diffEl };
 }

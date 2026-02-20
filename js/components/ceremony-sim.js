@@ -1,4 +1,4 @@
-import { t, tr, loadJSON, shuffle } from '../services/utils.js';
+import { t, tr, loadJSON, shuffle, compareRomanianAnswer } from '../services/utils.js';
 import { speak } from '../services/audio.js';
 import { awardXP, logStudyActivity, updateStreak, checkAchievements } from '../services/gamification.js';
 import { createMicButton } from '../services/stt.js';
@@ -182,6 +182,8 @@ export function CeremonySim(container, store, router) {
 
     const question = qaQuestions[qaIndex];
     const prevTurn = dialogueData.turns[dialogueData.turns.indexOf(question) - 1];
+    const excellentOpt = question.options.find(o => o.quality === 'excellent') || question.options[0];
+    const acceptableOpt = question.options.find(o => o.quality === 'acceptable');
 
     const view = document.createElement('div');
     view.className = 'view fade-in';
@@ -191,7 +193,7 @@ export function CeremonySim(container, store, router) {
     timer.textContent = `${tr({ en: 'Question', uk: 'Запитання' })} ${qaIndex + 1} / ${qaQuestions.length}`;
     view.appendChild(timer);
 
-    // Official question
+    // Official question bubble
     if (prevTurn) {
       const bubble = document.createElement('div');
       bubble.className = 'dialogue-bubble official';
@@ -211,63 +213,171 @@ export function CeremonySim(container, store, router) {
       speak(prevTurn.text.ro);
     }
 
-    // Options
-    const optLabel = document.createElement('div');
-    optLabel.className = 'dialogue-option-label mt-16';
-    optLabel.textContent = tr(question.prompt);
-    view.appendChild(optLabel);
+    // Translation prompt — what to say in Ukrainian
+    const promptBox = document.createElement('div');
+    promptBox.className = 'translate-prompt mt-16';
 
-    const options = document.createElement('div');
-    options.className = 'dialogue-options';
+    const promptLabel = document.createElement('div');
+    promptLabel.className = 'prompt-label';
+    promptLabel.textContent = t('dialogue.say_this');
+    promptBox.appendChild(promptLabel);
+
+    const promptText = document.createElement('div');
+    promptText.className = 'prompt-text';
+    promptText.textContent = tr(question.prompt);
+    promptBox.appendChild(promptText);
+
+    view.appendChild(promptBox);
+
+    // Input row: text field + mic + check button
+    const inputRow = document.createElement('div');
+    inputRow.style.display = 'flex';
+    inputRow.style.gap = '8px';
+    inputRow.style.marginTop = '12px';
+
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'input';
+    input.placeholder = t('dialogue.type_romanian');
+    input.style.flex = '1';
+    input.setAttribute('autocomplete', 'off');
+    input.setAttribute('autocapitalize', 'off');
+    input.setAttribute('spellcheck', 'false');
+    inputRow.appendChild(input);
+
+    const micBtn = createMicButton(input, 'ro-RO', { mode: 'replace' });
+    if (micBtn) inputRow.appendChild(micBtn);
+
+    const checkBtn = document.createElement('button');
+    checkBtn.className = 'btn btn-primary';
+    checkBtn.textContent = t('quiz.check');
+    inputRow.appendChild(checkBtn);
+
+    view.appendChild(inputRow);
+
+    // Feedback area
+    const feedbackArea = document.createElement('div');
+    view.appendChild(feedbackArea);
 
     let answered = false;
-    for (const opt of question.options) {
-      const optBtn = document.createElement('button');
-      optBtn.className = 'dialogue-option';
-      optBtn.textContent = opt.text;
-      optBtn.addEventListener('click', () => {
-        if (answered) return;
-        answered = true;
 
-        if (opt.quality === 'excellent') score += 100;
-        else if (opt.quality === 'acceptable') score += 70;
-        else score += 30;
-        totalQuestions++;
+    function handleCheck() {
+      if (answered) return;
+      const userText = input.value.trim();
+      if (!userText) return;
+      answered = true;
+      input.disabled = true;
+      checkBtn.disabled = true;
+      if (micBtn) micBtn.disabled = true;
 
-        // Show quality
-        for (const btn of options.children) {
-          const matchOpt = question.options.find(o => o.text === btn.textContent);
-          if (matchOpt) btn.classList.add(matchOpt.quality);
-          btn.style.pointerEvents = 'none';
-        }
+      // Compare answer
+      const result = compareRomanianAnswer(userText, excellentOpt.text);
+      score += result.percentage;
+      totalQuestions++;
 
-        // Feedback
-        const feedback = document.createElement('div');
-        feedback.className = 'dialogue-feedback';
-        feedback.style.background = opt.quality === 'excellent' ? 'var(--color-success-light)' : opt.quality === 'acceptable' ? 'var(--color-warning-light)' : 'var(--color-error-light)';
-        feedback.style.color = opt.quality === 'excellent' ? 'var(--color-success)' : opt.quality === 'acceptable' ? 'var(--color-warning)' : 'var(--color-error)';
-        feedback.style.padding = '12px';
-        feedback.style.borderRadius = '8px';
-        feedback.style.marginTop = '12px';
-        feedback.style.fontSize = '0.8125rem';
-        feedback.textContent = tr(opt.feedback);
-        view.appendChild(feedback);
+      // Show word diff
+      const diffLabel = document.createElement('div');
+      diffLabel.style.fontSize = '0.8125rem';
+      diffLabel.style.color = 'var(--color-text-secondary)';
+      diffLabel.style.marginTop = '12px';
+      diffLabel.style.fontWeight = '600';
+      diffLabel.textContent = `${tr({ en: 'Your answer', uk: 'Ваша відповідь' })}: ${result.percentage}%`;
+      feedbackArea.appendChild(diffLabel);
+      feedbackArea.appendChild(result.diffElement);
 
-        const nextBtn = document.createElement('button');
-        nextBtn.className = 'btn btn-primary btn-block mt-12';
-        nextBtn.textContent = qaIndex < qaQuestions.length - 1 ? t('common.next') : t('ceremony.result');
-        nextBtn.addEventListener('click', () => {
-          qaIndex++;
-          renderQA();
-        });
-        view.appendChild(nextBtn);
+      // Show expected correct answer
+      const expectedBox = document.createElement('div');
+      expectedBox.className = 'expected-answer-box';
+      const expectedLabel = document.createElement('div');
+      expectedLabel.className = 'expected-label';
+      expectedLabel.textContent = t('dialogue.expected');
+      expectedBox.appendChild(expectedLabel);
+      const expectedText = document.createElement('div');
+      expectedText.className = 'expected-text';
+      expectedText.textContent = excellentOpt.text;
+      expectedBox.appendChild(expectedText);
+      feedbackArea.appendChild(expectedBox);
+
+      // Show feedback
+      const feedColor = result.percentage >= 80 ? 'success' : result.percentage >= 50 ? 'warning' : 'error';
+      const feedback = document.createElement('div');
+      feedback.className = 'dialogue-feedback';
+      feedback.style.background = `var(--color-${feedColor}-light)`;
+      feedback.style.color = `var(--color-${feedColor})`;
+      feedback.style.padding = '12px';
+      feedback.style.borderRadius = '8px';
+      feedback.style.marginTop = '8px';
+      feedback.style.fontSize = '0.8125rem';
+      feedback.textContent = tr(excellentOpt.feedback);
+      feedbackArea.appendChild(feedback);
+
+      // Show also acceptable answer
+      if (acceptableOpt) {
+        const alsoBox = document.createElement('div');
+        alsoBox.className = 'also-acceptable';
+        const alsoLabel = document.createElement('div');
+        alsoLabel.className = 'acceptable-label';
+        alsoLabel.textContent = t('dialogue.also_acceptable');
+        alsoBox.appendChild(alsoLabel);
+        const alsoText = document.createElement('div');
+        alsoText.textContent = acceptableOpt.text;
+        alsoBox.appendChild(alsoText);
+        feedbackArea.appendChild(alsoBox);
+      }
+
+      // Listen to correct answer
+      const listenBtn = document.createElement('button');
+      listenBtn.className = 'speak-btn mt-8';
+      listenBtn.style.display = 'inline-flex';
+      listenBtn.style.alignItems = 'center';
+      listenBtn.style.gap = '4px';
+      listenBtn.style.padding = '6px 12px';
+
+      const svgNS = 'http://www.w3.org/2000/svg';
+      const svg = document.createElementNS(svgNS, 'svg');
+      svg.setAttribute('width', '16');
+      svg.setAttribute('height', '16');
+      svg.setAttribute('viewBox', '0 0 24 24');
+      svg.setAttribute('fill', 'none');
+      svg.setAttribute('stroke', 'currentColor');
+      svg.setAttribute('stroke-width', '2');
+      svg.setAttribute('stroke-linecap', 'round');
+      svg.setAttribute('stroke-linejoin', 'round');
+      const poly = document.createElementNS(svgNS, 'polygon');
+      poly.setAttribute('points', '11 5 6 9 2 9 2 15 6 15 11 19 11 5');
+      svg.appendChild(poly);
+      const path1 = document.createElementNS(svgNS, 'path');
+      path1.setAttribute('d', 'M19.07 4.93a10 10 0 010 14.14');
+      svg.appendChild(path1);
+      const path2 = document.createElementNS(svgNS, 'path');
+      path2.setAttribute('d', 'M15.54 8.46a5 5 0 010 7.07');
+      svg.appendChild(path2);
+      listenBtn.appendChild(svg);
+      const listenText = document.createTextNode(tr({ en: ' Listen', uk: ' Прослухати' }));
+      listenBtn.appendChild(listenText);
+      listenBtn.addEventListener('click', () => speak(excellentOpt.text));
+      feedbackArea.appendChild(listenBtn);
+
+      // Next button
+      const nextBtn = document.createElement('button');
+      nextBtn.className = 'btn btn-primary btn-block mt-12';
+      nextBtn.textContent = qaIndex < qaQuestions.length - 1 ? t('common.next') : t('ceremony.result');
+      nextBtn.addEventListener('click', () => {
+        qaIndex++;
+        renderQA();
       });
-      options.appendChild(optBtn);
+      feedbackArea.appendChild(nextBtn);
     }
-    view.appendChild(options);
+
+    checkBtn.addEventListener('click', handleCheck);
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') handleCheck();
+    });
 
     container.textContent = '';
     container.appendChild(view);
+
+    input.focus();
   }
 
   function renderResult() {
