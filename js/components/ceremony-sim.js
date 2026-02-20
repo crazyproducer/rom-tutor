@@ -229,31 +229,37 @@ export function CeremonySim(container, store, router) {
 
     view.appendChild(promptBox);
 
-    // Input row: text field + mic + check button
-    const inputRow = document.createElement('div');
-    inputRow.style.display = 'flex';
-    inputRow.style.gap = '8px';
-    inputRow.style.marginTop = '12px';
+    // Input area: textarea + mic/check row
+    const inputWrap = document.createElement('div');
+    inputWrap.style.marginTop = '12px';
 
-    const input = document.createElement('input');
-    input.type = 'text';
+    const inputMicWrap = document.createElement('div');
+    inputMicWrap.className = 'textarea-mic-wrapper';
+
+    const input = document.createElement('textarea');
     input.className = 'input';
     input.placeholder = t('dialogue.type_romanian');
-    input.style.flex = '1';
+    input.rows = 3;
+    input.style.width = '100%';
+    input.style.resize = 'vertical';
     input.setAttribute('autocomplete', 'off');
     input.setAttribute('autocapitalize', 'off');
     input.setAttribute('spellcheck', 'false');
-    inputRow.appendChild(input);
+    inputMicWrap.appendChild(input);
 
     const micBtn = createMicButton(input, 'ro-RO', { mode: 'replace' });
-    if (micBtn) inputRow.appendChild(micBtn);
+    if (micBtn) inputMicWrap.appendChild(micBtn);
+
+    inputWrap.appendChild(inputMicWrap);
 
     const checkBtn = document.createElement('button');
     checkBtn.className = 'btn btn-primary';
+    checkBtn.style.marginTop = '8px';
+    checkBtn.style.width = '100%';
     checkBtn.textContent = t('quiz.check');
-    inputRow.appendChild(checkBtn);
+    inputWrap.appendChild(checkBtn);
 
-    view.appendChild(inputRow);
+    view.appendChild(inputWrap);
 
     // Feedback area
     const feedbackArea = document.createElement('div');
@@ -371,7 +377,7 @@ export function CeremonySim(container, store, router) {
 
     checkBtn.addEventListener('click', handleCheck);
     input.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') handleCheck();
+      if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) handleCheck();
     });
 
     container.textContent = '';
