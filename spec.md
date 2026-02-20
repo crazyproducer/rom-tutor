@@ -23,7 +23,8 @@ ROM Tutor is a Progressive Web App (PWA) for learning Romanian in preparation fo
 | SRS | SM-2 (SuperMemo 2) | Proven spaced repetition algorithm |
 | Styling | CSS Custom Properties | Light/dark themes without preprocessors |
 | Offline | Service Worker (cache-first) | All static assets cached on first load |
-| TTS | Web Speech API (`SpeechSynthesis`) | Romanian pronunciation at 0.85x rate |
+| TTS | Lingva Translate API (primary) + Web Speech API (fallback) | Google-quality Romanian pronunciation via open-source CORS proxy |
+| STT | Web Speech API (`SpeechRecognition`) | Romanian speech-to-text input (Chrome/Edge) |
 | Hosting | Vercel (static) | Auto-deploy, global CDN |
 | i18n | Custom `t(key)` / `tr(obj)` | UI in Ukrainian + English; content trilingual (ro/uk/en) |
 
@@ -52,11 +53,11 @@ rom-tutor/
 │   │   ├── lesson-list.js            # Module grid grouped by phase
 │   │   ├── lesson-view.js            # Module detail with learning mode cards
 │   │   ├── flashcard.js              # SRS flashcards with 3D flip animation
-│   │   ├── quiz.js                   # Auto-generated quizzes (MC + fill-blank)
-│   │   ├── grammar.js                # Grammar viewer (tables, comparisons, exercises)
-│   │   ├── dialogue.js               # Interactive chat-bubble dialogues
-│   │   ├── oath-trainer.js           # Oath: learn / build / recite modes
-│   │   ├── ceremony-sim.js           # Full ceremony simulation (oath + Q&A)
+│   │   ├── quiz.js                   # Auto-generated quizzes (MC + fill-blank + mic)
+│   │   ├── grammar.js                # Grammar viewer (tables, comparisons, exercises + mic)
+│   │   ├── dialogue.js               # Active translation dialogues (type/speak Romanian)
+│   │   ├── oath-trainer.js           # Oath: learn / build / recite modes (+ mic)
+│   │   ├── ceremony-sim.js           # Full ceremony simulation (oath + active Q&A)
 │   │   ├── progress.js               # Profile, stats, achievements
 │   │   ├── settings.js               # Language, theme, toggles, export/import
 │   │   ├── nav.js                    # Bottom navigation (stub)
@@ -64,8 +65,9 @@ rom-tutor/
 │   └── services/
 │       ├── srs.js                    # SM-2 algorithm implementation
 │       ├── gamification.js           # XP, levels, streaks, achievements
-│       ├── audio.js                  # Web Speech API wrapper for TTS
-│       └── utils.js                  # Helpers, i18n strings, loadJSON
+│       ├── audio.js                  # TTS: Lingva Translate API + Web Speech fallback
+│       ├── stt.js                    # STT: Web Speech Recognition mic buttons
+│       └── utils.js                  # Helpers, i18n strings, loadJSON, answer comparison
 └── data/
     ├── modules.json                  # Full 16-module curriculum structure
     ├── oath.json                     # Oath text (5 segments) + anthem (2 stanzas)
@@ -81,7 +83,8 @@ rom-tutor/
     └── dialogues/
         ├── 01-meeting-someone.json   # Introduction dialogue (6 turns)
         ├── 07-ceremony-arrival.json  # Arriving at the ceremony
-        └── 08-ceremony-interview.json # Full ceremony interview Q&A
+        ├── 08-ceremony-interview.json # Full ceremony interview Q&A
+        └── 09-history-quiz.json      # Romanian history & geography Q&A
 ```
 
 ---
@@ -142,6 +145,7 @@ Singleton `Store` class with:
     dailyGoalMinutes: 15,
     showPronunciation: true,
     autoPlayAudio: false,
+    ttsEngine: 'google',         // 'google' (Lingva proxy) | 'browser' (Web Speech API)
     moduleLocking: true
   },
   profile: {
@@ -224,7 +228,7 @@ export function ComponentName(container, store, router, ...params) {
 - Auto-generates 10 questions from module vocabulary
 - ~70% multiple choice, ~30% fill-in-the-blank
 - Multiple choice: 4 options (1 correct + 3 distractors from same module)
-- Fill-in-the-blank: user types Romanian translation
+- Fill-in-the-blank: user types Romanian translation + microphone button for speech input
 - Immediate feedback after each question (correct/incorrect highlight)
 - Scoring: XP awarded at 70% threshold (`quizPass`) and 90% threshold (`quizExcellent`)
 - Final summary with score percentage
@@ -235,17 +239,28 @@ export function ComponentName(container, store, router, ...params) {
 - Section types: `explanation`, `table`, `comparison`, `practice`
 - Tables render as styled HTML tables (verb conjugations, noun declensions)
 - Comparison sections show Romanian vs Ukrainian parallels
-- Practice sections have inline exercises
+- Practice sections have inline exercises with microphone button for speech input
 - "Mark complete" button at bottom
 
 ### Dialogue (`dialogue.js`)
 
+Active translation dialogue system where users practice producing Romanian:
+
 - Loads dialogue JSON by `dialogueId` parameter
-- Chat-bubble UI: official's messages on left, user's responses on right
-- Each turn presents 2-3 response options rated: excellent, acceptable, poor
-- Color-coded feedback after selection (green/yellow/red)
-- Auto-speaks Romanian text via TTS when `autoPlayAudio` is enabled
-- Running score displayed, final summary with XP at completion
+- Chat-bubble UI: official's messages on left (with TTS auto-play), user's responses on right
+- **NPC turns:** Official speaks Romanian → bubble shows Romanian text + translation
+- **Player turns:** Ukrainian/English prompt shown (e.g., "Say your full name, date of birth, origin") → user types or speaks the Romanian translation via text input + microphone button
+- Answer scoring via `compareRomanianAnswer()`: word-by-word positional comparison against the "excellent" option
+- Detailed feedback display:
+  - Colored word diff (green = correct, red = wrong, gray = missing, strikethrough = extra)
+  - Match percentage shown
+  - Expected correct Romanian answer displayed
+  - Feedback text from the excellent option (in user's language)
+  - "Also acceptable" alternative answer when available
+  - Listen button to hear the correct pronunciation
+- Score mapping: `≥80%` → 3pts, `≥50%` → 2pts, else → 1pt per turn
+- Final summary with percentage, emoji, XP earned
+- Retry button resets all state for replay
 - Awards XP via `awardXP('dialogueComplete')`
 
 ### Oath Trainer (`oath-trainer.js`)
@@ -266,7 +281,7 @@ Three modes accessed via segmented control:
 
 **Recite mode:**
 - Full oath text shown briefly then hidden
-- User types oath from memory in a textarea
+- User types oath from memory in a textarea with microphone button for speech input
 - "Check" button performs word-by-word diff comparison
 - Score: percentage of correct words
 - Saves best score to `oathProgress.bestScore`
@@ -276,11 +291,11 @@ Three modes accessed via segmented control:
 
 Full mock ceremony flow:
 1. **Intro**: Briefing on what to expect
-2. **Oath recitation**: Type the oath from memory (scored)
-3. **Q&A round**: 5 questions from officials (from ceremony dialogue data)
-4. **Result**: Overall score, XP awarded, pass/fail indicator
+2. **Oath recitation**: Type/speak the oath from memory in a textarea with microphone button (scored)
+3. **Q&A round**: Officials ask questions in Romanian (with TTS) → user sees Ukrainian/English prompt → types or speaks the Romanian translation via text input + microphone button
+4. **Result**: Overall score combining oath accuracy + Q&A translation accuracy, XP awarded, pass/fail indicator
 
-Each Q&A question presents multiple-choice answers. Final score combines oath accuracy + Q&A correctness.
+Q&A phase uses the same active translation approach as Dialogue: `compareRomanianAnswer()` scores each answer, shows word diff with colored feedback, displays the expected correct Romanian answer, and provides a "Listen" button for pronunciation.
 
 ### Progress (`progress.js`)
 
@@ -292,6 +307,7 @@ Each Q&A question presents multiple-choice answers. Final score combines oath ac
 
 - Language selector: Ukrainian / English (segmented control)
 - Theme selector: Light / Dark / Auto (segmented control)
+- TTS engine selector: Google (accurate, via Lingva proxy) / Browser (offline) (segmented control)
 - Daily goal slider (5-60 minutes)
 - Toggles: show pronunciation, auto-play audio, sequential module unlock
 - Export progress (copies JSON to clipboard)
@@ -374,14 +390,45 @@ Implementation of the SuperMemo 2 spaced repetition algorithm.
 | level-10 | Reach level 10 |
 | level-20 | Reach level 20 |
 
-### Audio (`audio.js`)
+### Audio — TTS (`audio.js`)
 
-Web Speech API wrapper:
-- `speak(text, lang='ro-RO')` — speaks text with Romanian voice at 0.85x rate
-- `stop()` — cancels current speech
-- `speakButton(text)` — returns HTML string for a speaker button (used in components that render via innerHTML-free patterns)
+Dual-engine text-to-speech system with user-selectable engine via Settings:
+
+**Engine 1 — Lingva Translate (default, `ttsEngine: 'google'`):**
+- Open-source Google Translate proxy with CORS support
+- Multiple instances for reliability: `lingva.ml`, `translate.plausibility.cloud`
+- API: `GET /api/v1/audio/{lang}/{text}` → JSON `{ audio: [byte array] }` → MP3 Blob → `Audio` element
+- Automatic failover between instances; falls back to Web Speech API if all fail
+- Long text split into ≤180-char chunks at sentence boundaries, played sequentially
+- Playback rate: 0.9x for clear pronunciation
+
+**Engine 2 — Web Speech API (`ttsEngine: 'browser'`):**
+- Browser built-in `SpeechSynthesis` — works offline
+- Romanian voice auto-detected from available voices
+- Playback rate: 0.85x
+
+**Public API:**
+- `speak(text, lang='ro-RO')` — speaks using selected engine
+- `stop()` — cancels current speech (both engines)
 - `attachSpeakListeners(container)` — binds click handlers to `.speak-btn` elements
-- Pre-loads available voices on init
+- Pre-loads Web Speech voices on init
+
+### Speech-to-Text — STT (`stt.js`)
+
+Web Speech Recognition API wrapper for Romanian speech input (Chrome/Edge required):
+
+- `createMicButton(target, lang, opts)` — creates a microphone button linked to an `<input>` or `<textarea>`
+  - `target`: the form field to fill with recognized speech
+  - `lang`: BCP-47 code (default `'ro-RO'`)
+  - `opts.mode`: `'replace'` (overwrite field) or `'append'` (add to existing text)
+  - Returns `HTMLButtonElement` or `null` if unsupported (graceful degradation)
+- Manages single active session (new session aborts any previous one)
+- Shows interim results in the field as user speaks
+- Visual feedback: `.mic-listening` CSS class with pulsing red animation
+- `isSTTSupported()` — feature detection
+- `stopSTT()` — abort any active session
+
+**Integrated into:** Quiz (fill-in-blank), Grammar (practice exercises), Oath Trainer (recite textarea), Ceremony Simulation (oath textarea + Q&A input), Dialogue (translation input)
 
 ### Utilities (`utils.js`)
 
@@ -394,8 +441,19 @@ Web Speech API wrapper:
 - `pickRandom(array, count)`
 - `loadJSON(path)` → parsed JSON or null
 - `setLanguage(lang)` / `t(key)` / `tr(obj)` / `applyI18n()` / `getLang()` — i18n system
+- `compareRomanianAnswer(userText, expectedText)` — word-level answer scoring (see below)
 
-**i18n:** 60+ UI strings in Ukrainian and English. `t(key)` returns the current-language string. `tr(obj)` returns the best available translation from a trilingual content object `{ ro, uk, en }`.
+**`compareRomanianAnswer()`** — shared by Dialogue and Ceremony Simulation:
+- Normalizes both texts: lowercase, strip punctuation `.,!?;:„""''()`, collapse whitespace
+- Treats `[bracketed placeholders]` (e.g., `[Nume]`, `[Oraș]`, `[X]`) as wildcards that auto-match any user word
+- Word-by-word positional comparison
+- Returns `{ percentage, correctCount, totalExpected, diffElement }` where `diffElement` is a DOM node with colored spans:
+  - `.word-correct` (green) — exact match
+  - `.word-wrong` (red) — mismatch
+  - `.word-missing` (gray, italic) — user skipped this word
+  - `.word-extra` (gray, strikethrough) — user typed extra words
+
+**i18n:** 75+ UI strings in Ukrainian and English covering navigation, common actions, flashcards, quiz, oath, ceremony, dialogue translation prompts, settings, progress, and TTS/STT labels. `t(key)` returns the current-language string. `tr(obj)` returns the best available translation from a trilingual content object `{ ro, uk, en }`.
 
 ---
 
@@ -459,18 +517,36 @@ Web Speech API wrapper:
 }
 ```
 
-**Dialogue turn:**
+**Dialogue — NPC turn:**
 ```json
 {
-  "speaker": "official",
-  "text": { "ro": "Bună ziua! Cum vă numiți?" },
+  "speaker": "romanian",
+  "text": { "ro": "Bună ziua! Mă numesc Ana. Cum vă numiți?" },
+  "translation": { "en": "Good day! My name is Ana. What is your name?", "uk": "Добрий день! Мене звати Ана. Як вас звуть?" }
+}
+```
+
+**Dialogue — Player turn (active translation):**
+```json
+{
+  "speaker": "you",
+  "prompt": { "en": "Introduce yourself with your name and where you're from", "uk": "Представтесь: ваше ім'я і звідки ви" },
   "options": [
-    { "text": { "ro": "Bună ziua! Mă numesc..." }, "quality": "excellent" },
-    { "text": { "ro": "Numele meu este..." }, "quality": "acceptable" },
-    { "text": { "ro": "Eu sunt..." }, "quality": "poor" }
+    {
+      "text": "Bună ziua! Mă numesc [Nume]. Sunt din Ucraina.",
+      "quality": "excellent",
+      "feedback": { "en": "Excellent! Complete greeting with name and origin.", "uk": "Чудово! Повне привітання з ім'ям і походженням." }
+    },
+    {
+      "text": "Bună ziua. Mă numesc [Nume].",
+      "quality": "acceptable",
+      "feedback": { "en": "Good, but try adding where you're from.", "uk": "Добре, але спробуйте додати звідки ви." }
+    }
   ]
 }
 ```
+
+The `prompt` field provides the Ukrainian/English instruction shown to the user. The `excellent` option's `text` is the expected Romanian answer used for scoring via `compareRomanianAnswer()`. `[Bracketed]` words are placeholder wildcards that auto-match any user input at that position.
 
 ---
 
@@ -503,6 +579,18 @@ Mobile-first with breakpoints:
 --font: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 ```
 
+### Notable UI Components (CSS)
+
+**Microphone button (`.mic-btn`):** Circular button with mic SVG icon. When active, `.mic-listening` class triggers a pulsing red animation (`@keyframes mic-pulse`) to indicate recording state.
+
+**Answer diff (`.answer-diff`):** Inline word-level comparison display used in Dialogue and Ceremony Q&A. Child spans colored by match quality: `.word-correct` (green), `.word-wrong` (red with line-through), `.word-missing` (gray italic), `.word-extra` (gray strikethrough).
+
+**Translation prompt (`.translate-prompt`):** Card showing the Ukrainian/English instruction for what to say in Romanian. Contains `.prompt-label` and `.prompt-text`.
+
+**Expected answer box (`.expected-answer-box`):** Reveals the correct Romanian answer after scoring. Contains `.expected-label` and `.expected-text`.
+
+**Also acceptable (`.also-acceptable`):** Shows alternative correct answers from the `acceptable` option.
+
 ---
 
 ## PWA
@@ -518,11 +606,11 @@ Mobile-first with breakpoints:
 
 **Strategy:** Cache-first with network fallback.
 
-**Install:** Pre-caches all 41 static assets (HTML, CSS, JS, JSON data, icons).
-**Activate:** Deletes old cache versions, claims all clients.
+**Install:** Pre-caches all 43 static assets (HTML, CSS, JS, JSON data, icons) including `stt.js` and `09-history-quiz.json`.
+**Activate:** Deletes old cache versions, claims all clients via `skipWaiting()` + `clients.claim()`.
 **Fetch:** Returns cached response if available, otherwise fetches from network and caches successful GET responses. Falls back to `index.html` for document requests (SPA support).
 
-**Cache name:** `rom-tutor-v1` — bump version to invalidate cache on deploy.
+**Cache name:** `rom-tutor-v6` — bump version to invalidate cache on deploy.
 
 ---
 
