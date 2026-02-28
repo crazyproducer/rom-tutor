@@ -1,0 +1,137 @@
+{
+  "version": 1,
+  "patterns": [
+    {
+      "id": "present-ind",
+      "name": { "en": "Present Indicative (1st person)", "uk": "Теперішній час (1 особа)" },
+      "category": "verb-conjugation",
+      "priority": 1,
+      "description": {
+        "en": "The present tense in Romanian for 'I' forms. Most ceremony answers use 1st person singular. Romanian verbs belong to 4 conjugation groups based on their infinitive ending (-a, -ea, -e, -i/-î). Key ceremony verbs:\n\n• a fi → sunt (I am) — irregular, most common\n• a avea → am (I have) — irregular\n• a locui → locuiesc (I live) — Group IV with -esc suffix\n• a lucra → lucrez (I work) — Group I\n• a vorbi → vorbesc (I speak) — Group IV with -esc suffix\n• a dori → doresc (I want) — Group IV with -esc suffix\n• a jura → jur (I swear) — Group I\n\nFull conjugation of 'a locui' (to live):\n  eu locuiesc | noi locuim\n  tu locuiești | voi locuiți\n  el/ea locuiește | ei/ele locuiesc\n\nCompare Ukrainian: Romanian present tense maps closely to Ukrainian теперішній час, but Romanian has no aspect distinction (немає виду дієслова).",
+        "uk": "Теперішній час в румунській для форм 'я'. Більшість відповідей на церемонії використовують 1 особу однини. Румунські дієслова належать до 4 груп дієвідмін за закінченням інфінітива (-a, -ea, -e, -i/-î). Ключові дієслова церемонії:\n\n• a fi → sunt (я є) — неправильне, найчастіше\n• a avea → am (я маю) — неправильне\n• a locui → locuiesc (я живу) — IV група з суфіксом -esc\n• a lucra → lucrez (я працюю) — I група\n• a vorbi → vorbesc (я говорю) — IV група з суфіксом -esc\n• a dori → doresc (я хочу) — IV група з суфіксом -esc\n• a jura → jur (я присягаю) — I група\n\nПовна дієвідміна 'a locui' (жити):\n  eu locuiesc | noi locuim\n  tu locuiești | voi locuiți\n  el/ea locuiește | ei/ele locuiesc\n\nПорівняння з українською: теперішній час збігається, але в румунській немає виду дієслова."
+      },
+      "examples": ["Sunt din Ucraina", "Locuiesc în [Oraș]", "Lucrez ca [profesie]", "Doresc cetățenia română"]
+    },
+    {
+      "id": "past-compound",
+      "name": { "en": "Compound Past (Perfectul compus)", "uk": "Складений минулий час" },
+      "category": "verb-conjugation",
+      "priority": 1,
+      "description": {
+        "en": "Formed with auxiliary 'a avea' (am, ai, a, am, ați, au) + past participle. Used for completed actions. Example: Am locuit (I lived), Am lucrat (I worked).",
+        "uk": "Утворюється з допоміжним 'a avea' (am, ai, a, am, ați, au) + дієприкметник минулого часу. Використовується для завершених дій. Приклад: Am locuit (Я жив), Am lucrat (Я працював)."
+      },
+      "examples": ["Am locuit în Ucraina", "Am studiat limba română", "Am primit cetățenia"]
+    },
+    {
+      "id": "subjunctive-sa",
+      "name": { "en": "Subjunctive with 'să'", "uk": "Кон'юнктив з 'să'" },
+      "category": "verb-conjugation",
+      "priority": 1,
+      "description": {
+        "en": "Romanian subjunctive is formed with 'să' + conjugated verb. Used after verbs of desire, necessity, possibility: doresc să (I want to), trebuie să (must), pot să (can). Very common in ceremony answers.",
+        "uk": "Румунський кон'юнктив утворюється з 'să' + дієслово у відповідній формі. Вживається після дієслів бажання, необхідності, можливості: doresc să (хочу), trebuie să (треба), pot să (можу). Дуже поширений у відповідях на церемонії."
+      },
+      "examples": ["Doresc să devin cetățean", "Trebuie să respect legile", "Vreau să locuiesc în România"]
+    },
+    {
+      "id": "reflexive-ma",
+      "name": { "en": "Reflexive Verbs (mă/îmi)", "uk": "Зворотні дієслова (mă/îmi)" },
+      "category": "reflexive-verbs",
+      "priority": 1,
+      "description": {
+        "en": "Reflexive verbs use pronouns mă (myself) or se (oneself). Common ceremony verbs: mă numesc (my name is), mă simt (I feel), mă angajez (I commit). The reflexive pronoun goes BEFORE the verb: Mă numesc [Nume].",
+        "uk": "Зворотні дієслова вживаються з займенниками mă (себе) або se (себе — 3 особа). Поширені дієслова церемонії: mă numesc (мене звати), mă simt (я почуваюся), mă angajez (я зобов'язуюся). Зворотний займенник стоїть ПЕРЕД дієсловом: Mă numesc [Ім'я]."
+      },
+      "examples": ["Mă numesc [Nume]", "Mă simt pregătit", "Mă angajez să respect Constituția"]
+    },
+    {
+      "id": "dative-imi",
+      "name": { "en": "Dative Constructions (îmi place)", "uk": "Давальний відмінок (îmi place)" },
+      "category": "reflexive-verbs",
+      "priority": 1,
+      "description": {
+        "en": "Dative pronoun 'îmi' (to me) used with verbs like 'a plăcea' (to please/like): Îmi place România = I like Romania (lit. 'Romania pleases to me'). Similar to Ukrainian 'мені подобається'.",
+        "uk": "Давальний займенник 'îmi' (мені) вживається з дієсловами типу 'a plăcea' (подобатися): Îmi place România = Мені подобається Румунія. Аналогічно українському 'мені подобається'."
+      },
+      "examples": ["Îmi place România", "Îmi doresc cetățenia", "Îmi place cultura românească"]
+    },
+    {
+      "id": "conditional",
+      "name": { "en": "Conditional (aș + infinitive)", "uk": "Умовний спосіб (aș + інфінітив)" },
+      "category": "verb-conjugation",
+      "priority": 2,
+      "description": {
+        "en": "Conditional formed with aș/ai/ar/am/ați/ar + infinitive (without 'a'). Used for polite requests and hypothetical: Aș dori (I would like), Aș vrea (I would want).",
+        "uk": "Умовний спосіб утворюється з aș/ai/ar/am/ați/ar + інфінітив (без 'a'). Для ввічливих прохань та гіпотетичних ситуацій: Aș dori (Я хотів би), Aș vrea (Я бажав би)."
+      },
+      "examples": ["Aș dori să devin cetățean", "Aș vrea să mulțumesc"]
+    },
+    {
+      "id": "future-voi",
+      "name": { "en": "Future Tense (voi + infinitive)", "uk": "Майбутній час (voi + інфінітив)" },
+      "category": "verb-conjugation",
+      "priority": 2,
+      "description": {
+        "en": "Formal future: voi/vei/va/vom/veți/vor + infinitive. Informal future (more common): o să + subjunctive. Example: Voi respecta legile (I will respect the laws), O să locuiesc în România (I will live in Romania).",
+        "uk": "Формальний майбутній: voi/vei/va/vom/veți/vor + інфінітив. Неформальний (частіше): o să + кон'юнктив. Приклад: Voi respecta legile (Буду дотримуватися законів), O să locuiesc în România (Буду жити в Румунії)."
+      },
+      "examples": ["Voi respecta legile", "O să locuiesc în România", "Voi fi un cetățean bun"]
+    },
+    {
+      "id": "prepositions",
+      "name": { "en": "Key Prepositions (din, în, la, de, cu)", "uk": "Ключові прийменники (din, în, la, de, cu)" },
+      "category": "other",
+      "priority": 2,
+      "description": {
+        "en": "Most common prepositions in ceremony answers: din (from), în (in), la (at/to), de (of/from), cu (with). Examples: din Ucraina (from Ukraine), în România (in Romania), la ceremonie (at the ceremony).",
+        "uk": "Найпоширеніші прийменники у відповідях на церемонії: din (з), în (в/у), la (до/на), de (від/з), cu (з/разом). Приклади: din Ucraina (з України), în România (в Румунії), la ceremonie (на церемонії)."
+      },
+      "examples": ["Sunt din Ucraina", "Locuiesc în România", "Lucrez la o companie", "Sunt cu familia"]
+    },
+    {
+      "id": "def-article",
+      "name": { "en": "Definite Article (suffixed)", "uk": "Означений артикль (суфіксальний)" },
+      "category": "other",
+      "priority": 3,
+      "description": {
+        "en": "Romanian attaches the definite article to the END of the noun (unlike most European languages). Masculine: -l/-le, Feminine: -a. Examples: român → românul (the Romanian), lege → legea (the law), țară → țara (the country).",
+        "uk": "Румунська додає означений артикль до КІНЦЯ іменника (на відміну від більшості європейських мов). Чоловічий рід: -l/-le, Жіночий: -a. Приклади: român → românul (румун), lege → legea (закон), țară → țara (країна)."
+      },
+      "examples": ["Constituția României", "Legea cetățeniei", "Statul român"]
+    },
+    {
+      "id": "cases-gen-dat",
+      "name": { "en": "Genitive & Dative Cases", "uk": "Родовий та давальний відмінки" },
+      "category": "other",
+      "priority": 2,
+      "description": {
+        "en": "Romanian retains Latin case system for genitive (possession) and dative (indirect object). Often marked by article changes: România → României (of Romania), Constituție → Constituției (of the Constitution). Similar to Ukrainian відмінки.",
+        "uk": "Румунська зберігає латинську систему відмінків для родового (присвійний) та давального (непрямий додаток). Часто позначається зміною артикля: România → României (Румунії), Constituție → Constituției (Конституції). Схоже на українські відмінки."
+      },
+      "examples": ["Constituția României", "Respect față de legi", "Legile țării"]
+    },
+    {
+      "id": "polite-forms",
+      "name": { "en": "Polite Forms (dumneavoastră, vă rog)", "uk": "Ввічливі форми (dumneavoastră, vă rog)" },
+      "category": "other",
+      "priority": 2,
+      "description": {
+        "en": "Formal address: dumneavoastră (you-formal, like Ukrainian 'Ви'). Polite phrases: vă rog (please), vă mulțumesc (thank you). ALWAYS use formal forms at the ceremony.",
+        "uk": "Формальне звертання: dumneavoastră (ви — ввічлива форма, як українське 'Ви'). Ввічливі фрази: vă rog (будь ласка), vă mulțumesc (дякую). ЗАВЖДИ використовуйте ввічливу форму на церемонії."
+      },
+      "examples": ["Vă mulțumesc", "Vă rog", "Dumneavoastră"]
+    },
+    {
+      "id": "adj-agreement",
+      "name": { "en": "Adjective Agreement (gender/number)", "uk": "Узгодження прикметників (рід/число)" },
+      "category": "other",
+      "priority": 3,
+      "description": {
+        "en": "Romanian adjectives agree with the noun in gender and number. Usually placed AFTER the noun: cetățean bun (good citizen-m), cetățeană bună (good citizen-f). Similar to Ukrainian agreement rules.",
+        "uk": "Румунські прикметники узгоджуються з іменником у роді та числі. Зазвичай стоять ПІСЛЯ іменника: cetățean bun (хороший громадянин), cetățeană bună (хороша громадянка). Схоже на правила узгодження в українській."
+      },
+      "examples": ["Cetățean bun", "Limba română", "Istorie bogată"]
+    }
+  ]
+}

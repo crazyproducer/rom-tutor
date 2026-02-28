@@ -1,4 +1,4 @@
-const CACHE_NAME = 'rom-tutor-v8';
+const CACHE_NAME = 'rom-tutor-v9';
 
 const ASSETS = [
   './',
@@ -21,6 +21,7 @@ const ASSETS = [
   './js/components/grammar.js',
   './js/components/oath-trainer.js',
   './js/components/ceremony-sim.js',
+  './js/components/grammar-ref.js',
   './js/components/progress.js',
   './js/components/settings.js',
   './js/components/nav.js',
@@ -34,6 +35,7 @@ const ASSETS = [
   './data/vocabulary/16-ceremony-qa.json',
   './data/grammar/01-alphabet.json',
   './data/grammar/02-nouns-articles.json',
+  './data/grammar/patterns.json',
   './data/dialogues/01-meeting-someone.json',
   './data/dialogues/07-ceremony-arrival.json',
   './data/dialogues/08-ceremony-interview.json',

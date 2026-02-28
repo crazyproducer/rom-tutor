@@ -3,7 +3,12 @@ import { speak } from '../services/audio.js';
 import { awardXP, logStudyActivity, updateStreak, checkAchievements } from '../services/gamification.js';
 import { createMicButton } from '../services/stt.js';
 
+let patternsData = null;
+
 export function CeremonySim(container, store, router) {
+  if (!patternsData) {
+    loadJSON('./data/grammar/patterns.json').then(data => { patternsData = data; });
+  }
   let started = false;
   let oathData = null;
   let ceremonyQuestions = null;
@@ -423,6 +428,48 @@ export function CeremonySim(container, store, router) {
       feedback.style.fontSize = '0.8125rem';
       feedback.textContent = tr(excellentOpt.feedback);
       feedbackArea.appendChild(feedback);
+
+      // Grammar patterns section
+      if (patternsData && excellentOpt.grammarPatterns && excellentOpt.grammarPatterns.length > 0) {
+        const grammarDetails = document.createElement('details');
+        grammarDetails.className = 'grammar-feedback-section';
+
+        const grammarSummary = document.createElement('summary');
+        grammarSummary.textContent = '📖 ' + t('grammar.patterns');
+        grammarDetails.appendChild(grammarSummary);
+
+        const grammarList = document.createElement('div');
+        grammarList.className = 'grammar-pattern-links';
+
+        for (const patternId of excellentOpt.grammarPatterns) {
+          const pattern = patternsData.patterns.find(p => p.id === patternId);
+          if (!pattern) continue;
+
+          const link = document.createElement('a');
+          link.className = 'grammar-pattern-link';
+          link.href = `#/grammar-ref/${pattern.id}`;
+          link.textContent = tr(pattern.name);
+
+          // Preview: first sentence of description
+          if (pattern.description) {
+            const descText = tr(pattern.description);
+            const firstSentence = descText.split(/\.\s|\.\n/)[0];
+            const preview = document.createElement('span');
+            preview.className = 'grammar-pattern-preview';
+            preview.textContent = firstSentence + '.';
+            const linkContainer = document.createElement('div');
+            linkContainer.className = 'grammar-pattern-link-item';
+            linkContainer.appendChild(link);
+            linkContainer.appendChild(preview);
+            grammarList.appendChild(linkContainer);
+          } else {
+            grammarList.appendChild(link);
+          }
+        }
+
+        grammarDetails.appendChild(grammarList);
+        feedbackArea.appendChild(grammarDetails);
+      }
 
       // Show also acceptable answer
       if (acceptableOpt) {

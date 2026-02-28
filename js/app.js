@@ -1,6 +1,6 @@
 import { Router } from './router.js';
 import { store } from './store.js';
-import { setLanguage, applyI18n } from './services/utils.js';
+import { setLanguage, applyI18n, t } from './services/utils.js';
 import { updateHeaderDisplay, updateStreak } from './services/gamification.js';
 import { Dashboard } from './components/dashboard.js';
 import { LessonList } from './components/lesson-list.js';
@@ -13,6 +13,7 @@ import { OathTrainer } from './components/oath-trainer.js';
 import { CeremonySim } from './components/ceremony-sim.js';
 import { Progress } from './components/progress.js';
 import { Settings } from './components/settings.js';
+import { GrammarRef } from './components/grammar-ref.js';
 
 function initTheme() {
   const theme = store.get('settings.theme') || 'light';
@@ -109,6 +110,18 @@ function initRouter() {
     return Settings(el, store, router);
   });
 
+  router.add('/grammar-ref', (el) => {
+    showBackButton(true);
+    setHeaderTitle(t('grammar.reference'));
+    return GrammarRef(el, store, router);
+  });
+
+  router.add('/grammar-ref/:patternId', (el, params) => {
+    showBackButton(true);
+    setHeaderTitle(t('grammar.reference'));
+    return GrammarRef(el, store, router, params.patternId);
+  });
+
   // Back button
   document.getElementById('header-back').addEventListener('click', () => {
     window.history.back();
@@ -129,6 +142,9 @@ function registerServiceWorker() {
 function init() {
   initTheme();
   initLanguage();
+  if (store.get('profile.startDate') === null) {
+    store.update('profile.startDate', new Date().toISOString().split('T')[0]);
+  }
   updateHeaderDisplay();
   updateStreak();
   initRouter();

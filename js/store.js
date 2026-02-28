@@ -13,7 +13,7 @@ const DEFAULT_STATE = {
     moduleLocking: true
   },
   profile: {
-    startDate: new Date().toISOString().split('T')[0],
+    startDate: null,
     totalXP: 0,
     currentLevel: 1,
     currentStreak: 0,

@@ -132,7 +132,16 @@ const i18nStrings = {
     'progress.words_learned': 'Слів вивчено',
     'progress.achievements': 'Досягнення',
     'progress.minutes': 'хв',
-    'progress.hours': 'год'
+    'progress.hours': 'год',
+    'grammar.reference': 'Граматичний довідник',
+    'grammar.patterns': 'Граматика',
+    'grammar.verb_conjugation': 'Дієвідміна',
+    'grammar.reflexive_verbs': 'Зворотні дієслова',
+    'grammar.other_patterns': 'Інші шаблони',
+    'grammar.examples': 'Приклади з церемонії:',
+    'grammar.priority1': 'Основне',
+    'grammar.priority2': 'Важливе',
+    'grammar.priority3': 'Корисне'
   },
   en: {
     'nav.home': 'Home',
@@ -215,7 +224,16 @@ const i18nStrings = {
     'progress.words_learned': 'Words learned',
     'progress.achievements': 'Achievements',
     'progress.minutes': 'min',
-    'progress.hours': 'hrs'
+    'progress.hours': 'hrs',
+    'grammar.reference': 'Grammar Reference',
+    'grammar.patterns': 'Grammar',
+    'grammar.verb_conjugation': 'Verb Conjugation',
+    'grammar.reflexive_verbs': 'Reflexive Verbs',
+    'grammar.other_patterns': 'Other Patterns',
+    'grammar.examples': 'Examples from ceremony:',
+    'grammar.priority1': 'Essential',
+    'grammar.priority2': 'Important',
+    'grammar.priority3': 'Useful'
   }
 };
 

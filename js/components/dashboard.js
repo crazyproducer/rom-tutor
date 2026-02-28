@@ -132,6 +132,31 @@ export function Dashboard(container, store, router) {
     oath.appendChild(oathInfo);
     view.appendChild(oath);
 
+    // Grammar Reference card
+    const grammarCard = document.createElement('a');
+    grammarCard.className = 'review-card';
+    grammarCard.href = '#/grammar-ref';
+    grammarCard.style.textDecoration = 'none';
+    grammarCard.style.color = 'inherit';
+
+    const grammarIcon = document.createElement('div');
+    grammarIcon.style.fontSize = '24px';
+    grammarIcon.textContent = '📖';
+    grammarCard.appendChild(grammarIcon);
+
+    const grammarTitle = document.createElement('div');
+    grammarTitle.style.fontWeight = '600';
+    grammarTitle.textContent = t('grammar.reference');
+    grammarCard.appendChild(grammarTitle);
+
+    const grammarDesc = document.createElement('div');
+    grammarDesc.style.fontSize = '14px';
+    grammarDesc.style.opacity = '0.7';
+    grammarDesc.textContent = tr({ en: 'Review grammar patterns', uk: 'Граматичні шаблони' });
+    grammarCard.appendChild(grammarDesc);
+
+    view.appendChild(grammarCard);
+
     // Module grid
     const sectionTitle = document.createElement('div');
     sectionTitle.className = 'section-title';

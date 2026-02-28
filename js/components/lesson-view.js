@@ -96,6 +96,12 @@ export function LessonView(container, store, router, moduleId) {
         tr({ en: 'Practice the full ceremony', uk: 'Практикуйте повну церемонію' }),
         '#/ceremony'
       ));
+      modes.appendChild(createModeCard(
+        '📖',
+        tr({ en: 'Grammar Reference', uk: 'Граматичний довідник' }),
+        tr({ en: 'Review grammar patterns from ceremony answers', uk: 'Перегляньте граматичні шаблони з відповідей на церемонії' }),
+        '#/grammar-ref'
+      ));
     }
 
     view.appendChild(modes);
