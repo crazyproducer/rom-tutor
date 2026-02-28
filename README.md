@@ -1,2 +1,2 @@
 # rom-tutor
-romanian language tutor
+Romanian language tutor PWA
