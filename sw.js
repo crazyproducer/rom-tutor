@@ -1,4 +1,4 @@
-const CACHE_NAME = 'rom-tutor-v11';
+const CACHE_NAME = 'rom-tutor-v12';
 
 const ASSETS = [
   './',
@@ -34,6 +34,11 @@ const ASSETS = [
   './data/vocabulary/03-numbers-time.json',
   './data/vocabulary/04-family-people.json',
   './data/vocabulary/05-daily-life.json',
+  './data/vocabulary/06-work-education.json',
+  './data/vocabulary/07-travel-places.json',
+  './data/vocabulary/08-food-shopping.json',
+  './data/vocabulary/09-health-body.json',
+  './data/vocabulary/10-home-city.json',
   './data/vocabulary/15-oath-anthem.json',
   './data/vocabulary/16-ceremony-qa.json',
   './data/grammar/01-alphabet.json',
