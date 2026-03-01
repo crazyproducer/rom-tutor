@@ -1,8 +1,11 @@
 import { t, tr, loadJSON, shuffle } from '../services/utils.js';
-import { calculateSRS, getDueCards, initCard } from '../services/srs.js';
+import { calculateSRS, getDueCards, initCard, isDue } from '../services/srs.js';
 import { awardXP, logStudyActivity, checkAchievements, updateStreak } from '../services/gamification.js';
 import { speak } from '../services/audio.js';
 import { store } from '../store.js';
+
+const SESSION_SIZE = 20;
+const MAX_NEW_CARDS_PER_SESSION = 7;
 
 function createSpeakIcon() {
   const svgNS = 'http://www.w3.org/2000/svg';
@@ -50,17 +53,23 @@ export function Flashcard(container, storeRef, router, moduleId) {
         const vocab = await loadJSON(`./data/vocabulary/${vocabFile}`);
         if (vocab?.words) {
           const state = storeRef.getState();
-          cards = vocab.words.map(w => {
+          const allModuleCards = vocab.words.map(w => {
             const srsData = state.srsCards[w.id] || initCard(w.id);
             return { ...w, srs: srsData };
           });
-          cards.sort((a, b) => {
-            const aNew = a.srs.repetitions === 0 ? 0 : 1;
-            const bNew = b.srs.repetitions === 0 ? 0 : 1;
-            if (aNew !== bNew) return aNew - bNew;
-            return (a.srs.nextReview || '').localeCompare(b.srs.nextReview || '');
-          });
-          cards = cards.slice(0, 20);
+
+          // Separate new cards from due review cards
+          const newCards = allModuleCards.filter(c => c.srs.repetitions === 0);
+          const reviewCards = allModuleCards
+            .filter(c => c.srs.repetitions > 0 && isDue(c.srs))
+            .sort((a, b) => (a.srs.nextReview || '').localeCompare(b.srs.nextReview || ''));
+
+          // Throttle: max MAX_NEW_CARDS_PER_SESSION new cards, fill rest with reviews
+          const selectedNew = newCards.slice(0, MAX_NEW_CARDS_PER_SESSION);
+          const reviewSlots = SESSION_SIZE - selectedNew.length;
+          const selectedReview = reviewCards.slice(0, reviewSlots);
+
+          cards = [...selectedNew, ...selectedReview];
         }
       }
       const headerTitle = document.getElementById('header-title');
@@ -84,7 +93,7 @@ export function Flashcard(container, storeRef, router, moduleId) {
           }
         }
       }
-      cards = dueCards.filter(dc => allWords[dc.id]).map(dc => ({ ...allWords[dc.id], srs: dc })).slice(0, 20);
+      cards = dueCards.filter(dc => allWords[dc.id]).map(dc => ({ ...allWords[dc.id], srs: dc })).slice(0, SESSION_SIZE);
     }
   }
 

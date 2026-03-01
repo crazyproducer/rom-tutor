@@ -1,4 +1,4 @@
-const CACHE_NAME = 'rom-tutor-v9';
+const CACHE_NAME = 'rom-tutor-v10';
 
 const ASSETS = [
   './',

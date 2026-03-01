@@ -1,7 +1,7 @@
 const STORAGE_KEY = 'rom-tutor-state';
 
 const DEFAULT_STATE = {
-  version: 1,
+  version: 2,
   settings: {
     theme: 'light',
     primaryLanguage: 'uk',
@@ -32,6 +32,27 @@ const DEFAULT_STATE = {
   },
   dailyLog: {}
 };
+
+/**
+ * Remap srsCards keys from old v-MMNN format to new v-MM-NNN format.
+ * Called once during migration from state version 1 → 2.
+ */
+function migrateSrsCardIds(srsCards) {
+  const remapped = {};
+  for (const [oldId, cardData] of Object.entries(srsCards)) {
+    // Match old format: v-MMNN (exactly 4 digits after v-)
+    const match = oldId.match(/^v-(\d{2})(\d{2})$/);
+    if (match) {
+      const moduleNum = match[1];
+      const wordNum = match[2].padStart(3, '0');
+      remapped[`v-${moduleNum}-${wordNum}`] = cardData;
+    } else {
+      // Not old format — keep as-is (could be new format or unknown)
+      remapped[oldId] = cardData;
+    }
+  }
+  return remapped;
+}
 
 class Store {
   #state;
@@ -122,6 +143,16 @@ class Store {
     if (state.achievements) merged.achievements = state.achievements;
     if (state.oathProgress) Object.assign(merged.oathProgress, state.oathProgress);
     if (state.dailyLog) merged.dailyLog = state.dailyLog;
+
+    // === Version-based migrations ===
+    const fromVersion = state.version || 0;
+    if (fromVersion < 2) {
+      // v1→v2: Remap srsCards keys from v-MMNN to v-MM-NNN
+      if (merged.srsCards && Object.keys(merged.srsCards).length > 0) {
+        merged.srsCards = migrateSrsCardIds(merged.srsCards);
+      }
+    }
+
     merged.version = DEFAULT_STATE.version;
     return merged;
   }
@@ -143,3 +174,4 @@ class Store {
 }
 
 export const store = new Store();
+export { migrateSrsCardIds as _migrateSrsCardIds };
